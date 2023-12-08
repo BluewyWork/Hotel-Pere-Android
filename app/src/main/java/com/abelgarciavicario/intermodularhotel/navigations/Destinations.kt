@@ -4,4 +4,6 @@ sealed class Destinations(
     val route: String
 ) {
     object Inicio: Destinations("inicio")
+    object Log: Destinations("log")
+
 }
