@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.abelgarciavicario.intermodularhotel.inicio.ui.components.Inicio
-import com.abelgarciavicario.intermodularhotel.log.ui.components.Log
-import com.abelgarciavicario.intermodularhotel.log.ui.components.Registro
+import com.abelgarciavicario.intermodularhotel.login.ui.components.Log
+import com.abelgarciavicario.intermodularhotel.login.ui.components.Registro
 import com.abelgarciavicario.intermodularhotel.registro.ui.components.RegistroViewModel
 
 @Composable

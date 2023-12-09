@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.log.network
+package com.abelgarciavicario.intermodularhotel.login.network
 
 import com.google.gson.annotations.SerializedName
 
