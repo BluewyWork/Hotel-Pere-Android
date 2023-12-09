@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.home.ui.presentation
+package com.abelgarciavicario.intermodularhotel.home.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
