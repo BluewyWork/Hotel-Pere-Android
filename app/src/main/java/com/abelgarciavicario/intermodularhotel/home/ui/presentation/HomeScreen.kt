@@ -73,38 +73,14 @@ fun Home() {
                     Spacer(modifier = Modifier.height(16.dp).width(16.dp))
                 }
             }
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
-            ) {
-                item {
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                }
-            }
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
-            ) {
-                item {
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                    HotelCard()
-                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
-                }
-            }
+            HotelCard()
+            Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+            HotelCard()
+            Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+            HotelCard()
+            Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+            HotelCard()
+            Spacer(modifier = Modifier.height(16.dp).width(16.dp))
         }
     }
 }
@@ -208,6 +184,7 @@ fun HotelCard() {
                 painter = painterResource(id = R.drawable.logo_app),
                 contentDescription = "Sample",
                 modifier = Modifier
+                    .fillMaxWidth()
                     .height(200.dp)
                     .clip(shape = RoundedCornerShape(8.dp))
             )
