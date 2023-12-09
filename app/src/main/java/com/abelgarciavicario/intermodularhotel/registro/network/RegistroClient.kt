@@ -1,11 +1,10 @@
-package com.abelgarciavicario.intermodularhotel.log.network
+package com.abelgarciavicario.intermodularhotel.login.network
 
-import com.abelgarciavicario.intermodularhotel.log.network.dto.UserRegistroDTO
+import com.abelgarciavicario.intermodularhotel.login.network.dto.UserRegistroDTO
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.POST
 
 interface RegistroClient {
     @Headers(
