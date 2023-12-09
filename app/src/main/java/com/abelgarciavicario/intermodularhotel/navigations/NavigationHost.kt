@@ -4,10 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.abelgarciavicario.intermodularhotel.inicio.ui.components.Inicio
-import com.abelgarciavicario.intermodularhotel.login.ui.components.Log
-import com.abelgarciavicario.intermodularhotel.login.ui.components.Registro
-import com.abelgarciavicario.intermodularhotel.registro.ui.components.RegistroViewModel
+import com.abelgarciavicario.intermodularhotel.inicio.ui.Inicio
+import com.abelgarciavicario.intermodularhotel.login.ui.Login
+import com.abelgarciavicario.intermodularhotel.registro.ui.Registro
+import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 
 @Composable
 
@@ -25,7 +25,7 @@ fun NavigationHost(
             Inicio(navController)
         }
         composable(Destinations.Login.route){
-            Log(navController)
+            Login(navController)
         }
         composable(Destinations.Registro.route){
             Registro(navController, registroViewModel)
