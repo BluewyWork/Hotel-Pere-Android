@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.log.ui.components
+package com.abelgarciavicario.intermodularhotel.registro.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,7 +26,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -42,7 +41,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.abelgarciavicario.intermodularhotel.R
 import com.abelgarciavicario.intermodularhotel.navigations.Destinations
-import com.abelgarciavicario.intermodularhotel.registro.ui.components.RegistroViewModel
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient1
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient2
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient3
