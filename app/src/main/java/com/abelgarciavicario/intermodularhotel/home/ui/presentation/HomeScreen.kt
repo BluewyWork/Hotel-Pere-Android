@@ -4,14 +4,15 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -21,7 +22,6 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Card
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -54,52 +54,59 @@ fun Home() {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(top = 60.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
     ) {
         item {
-            Spacer(modifier = Modifier.height(60.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(16.dp))
-            HotelCard()
-            Spacer(modifier = Modifier.height(70.dp))
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+            ) {
+                item {
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                }
+            }
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+            ) {
+                item {
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                }
+            }
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+            ) {
+                item {
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                    HotelCard()
+                    Spacer(modifier = Modifier.height(16.dp).width(16.dp))
+                }
+            }
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun TopBar() {
-    CenterAlignedTopAppBar(title = {
-        Row { }
-    }, colors = TopAppBarDefaults.smallTopAppBarColors(
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-    ), navigationIcon = {
-        IconButton(onClick = { }) {
-            Icon(
-                imageVector = Icons.Filled.Menu,
-                contentDescription = "menu",
-                modifier = Modifier.size(100.dp)
-            )
-        }
-    }, actions = {
-        Icon(imageVector = Icons.Filled.Search,
-            contentDescription = "search",
-            modifier = Modifier
-                .size(50.dp)
-                .clickable { })
-    })
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -110,56 +117,78 @@ fun SmallTopBar() {
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             titleContentColor = MaterialTheme.colorScheme.primary,
         ),
-        title = {
-            Text("Small Top App Bar")
-        }
+        navigationIcon = {
+            IconButton(onClick = { /*TODO*/ }) {
+                Icon(
+                    imageVector = Icons.Filled.Menu,
+                    contentDescription = "Menu",
+                    modifier = Modifier.size(100.dp)
+                )
+            }
+        },
+        actions = {
+            Icon(
+                imageVector = Icons.Filled.Search,
+                contentDescription = "Search",
+                modifier = Modifier
+                    .size(50.dp)
+                    .clickable { }
+            )
+        },
+        title = { Text("") },
+        modifier = Modifier
+            .height(50.dp)
     )
 }
 
 @Composable
 fun BottomBar() {
-    NavigationBar {
-        NavigationBarItem(selected = false, onClick = { }, label = {
-            Text(
-                text = "HOME"
-            )
-        }, icon = {
-            Icon(
-                imageVector = Icons.Outlined.Home,
-                contentDescription = "Home",
-            )
-        })
-        NavigationBarItem(selected = false, onClick = { }, label = {
-            Text(
-                text = "BUSCAR"
-            )
-        }, icon = {
-            Icon(
-                imageVector = Icons.Outlined.Search,
-                contentDescription = "Search",
-            )
-        })
-        NavigationBarItem(selected = false, onClick = { }, label = {
-            Text(
-                text = "CARRITO"
-            )
-        }, icon = {
-            Icon(
-                imageVector = Icons.Outlined.ShoppingCart,
-                contentDescription = "Cart",
-            )
-        })
-        NavigationBarItem(selected = false, onClick = { }, label = {
-            Text(
-                text = "CUENTA"
-            )
-        }, icon = {
-            Icon(
-                imageVector = Icons.Outlined.Person,
-                contentDescription = "Person",
-                modifier = Modifier.size(40.dp)
-            )
-        })
+    NavigationBar(
+        modifier = Modifier
+            .height(50.dp),
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+        contentColor = MaterialTheme.colorScheme.primary
+    ) {
+        NavigationBarItem(
+            selected = false,
+            onClick = { },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.Home,
+                    contentDescription = "Home",
+                )
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = { },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.Search,
+                    contentDescription = "Search"
+                )
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = { },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.ShoppingCart,
+                    contentDescription = "Cart",
+                )
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = { },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.Person,
+                    contentDescription = "Person",
+                )
+            }
+        )
     }
 }
 
@@ -177,9 +206,8 @@ fun HotelCard() {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logo_app),
-                contentDescription = "Restaurant Image",
+                contentDescription = "Sample",
                 modifier = Modifier
-                    .fillMaxWidth()
                     .height(200.dp)
                     .clip(shape = RoundedCornerShape(8.dp))
             )
