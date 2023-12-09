@@ -6,6 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.abelgarciavicario.intermodularhotel.inicio.ui.Inicio
 import com.abelgarciavicario.intermodularhotel.login.ui.Login
+import com.abelgarciavicario.intermodularhotel.recuperarPassword.ui.RecuperarPassword
+
 import com.abelgarciavicario.intermodularhotel.registro.ui.Registro
 import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 
@@ -17,9 +19,10 @@ fun NavigationHost(
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-       // startDestination = Destinations.Inicio.route
-       // startDestination = Destinations.Log.route
-        startDestination = Destinations.Registro.route
+        // startDestination = Destinations.Inicio.route
+        // startDestination = Destinations.Log.route
+        // startDestination = Destinations.Registro.route
+        startDestination = Destinations.RecuperarPassword.route
     ) {
         composable(Destinations.Inicio.route){
             Inicio(navController)
@@ -29,6 +32,9 @@ fun NavigationHost(
         }
         composable(Destinations.Registro.route){
             Registro(navController, registroViewModel)
+        }
+        composable(Destinations.RecuperarPassword.route){
+            RecuperarPassword(navController)
         }
     }
 }
