@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.registro.ui.components
+package com.abelgarciavicario.intermodularhotel.registro.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

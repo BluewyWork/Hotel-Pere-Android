@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.login.ui.components
+package com.abelgarciavicario.intermodularhotel.registro.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,7 +39,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.abelgarciavicario.intermodularhotel.R
 import com.abelgarciavicario.intermodularhotel.navigations.Destinations
-import com.abelgarciavicario.intermodularhotel.registro.ui.components.RegistroViewModel
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient1
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient2
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient3
