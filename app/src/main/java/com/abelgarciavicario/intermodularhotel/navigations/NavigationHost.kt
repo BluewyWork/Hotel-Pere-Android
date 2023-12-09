@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.abelgarciavicario.intermodularhotel.inicio.ui.Inicio
 import com.abelgarciavicario.intermodularhotel.login.ui.Login
 import com.abelgarciavicario.intermodularhotel.recuperarPassword.ui.RecuperarPassword
+
 import com.abelgarciavicario.intermodularhotel.registro.ui.Registro
 import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 

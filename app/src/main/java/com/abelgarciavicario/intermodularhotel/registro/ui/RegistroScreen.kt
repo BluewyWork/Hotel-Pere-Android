@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.abelgarciavicario.intermodularhotel.R
 import com.abelgarciavicario.intermodularhotel.navigations.Destinations
-import com.abelgarciavicario.intermodularhotel.registro.ui.components.RegistroViewModel
+import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient1
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient2
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient3

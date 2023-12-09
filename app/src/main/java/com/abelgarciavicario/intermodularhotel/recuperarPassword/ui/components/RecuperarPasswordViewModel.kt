@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.recuperarPassword.ui.components
+package com.abelgarciavicario.intermodularhotel.recuperarPassword.ui
 
 open class RecuperarPasswordViewModel {
 }
