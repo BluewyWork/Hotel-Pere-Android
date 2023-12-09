@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.log.ui.components
+package com.abelgarciavicario.intermodularhotel.login.ui.components
 
 open class ViewModel {
 }

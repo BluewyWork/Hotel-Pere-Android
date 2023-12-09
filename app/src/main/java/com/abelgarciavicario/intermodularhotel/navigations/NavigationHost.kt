@@ -24,7 +24,7 @@ fun NavigationHost(
         composable(Destinations.Inicio.route){
             Inicio(navController)
         }
-        composable(Destinations.Log.route){
+        composable(Destinations.Login.route){
             Log(navController)
         }
         composable(Destinations.Registro.route){

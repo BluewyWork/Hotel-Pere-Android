@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.log.network.response
+package com.abelgarciavicario.intermodularhotel.login.network.response
 
 class Service {
 }
