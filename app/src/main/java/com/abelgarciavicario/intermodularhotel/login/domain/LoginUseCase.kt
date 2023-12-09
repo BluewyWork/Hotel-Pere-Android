@@ -1,4 +1,4 @@
 package com.abelgarciavicario.intermodularhotel.login.domain
 
-class LogUseCase {
-}
+/*class LogUseCase {
+}*/
