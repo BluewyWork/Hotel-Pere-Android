@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.log.domain
+package com.abelgarciavicario.intermodularhotel.login.domain
 
 class UseCase {
 }

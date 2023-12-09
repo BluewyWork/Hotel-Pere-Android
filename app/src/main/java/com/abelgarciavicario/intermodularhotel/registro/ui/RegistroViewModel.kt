@@ -1,10 +1,9 @@
-package com.abelgarciavicario.intermodularhotel.registro.ui.components
+package com.abelgarciavicario.intermodularhotel.registro.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.abelgarciavicario.intermodularhotel.log.domain.RegistroUseCase
+import com.abelgarciavicario.intermodularhotel.login.domain.RegistroUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

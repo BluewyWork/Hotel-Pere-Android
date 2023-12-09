@@ -1,6 +1,6 @@
 package com.abelgarciavicario.intermodularhotel.core
 
-import com.abelgarciavicario.intermodularhotel.log.network.RegistroClient
+import com.abelgarciavicario.intermodularhotel.login.network.RegistroClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

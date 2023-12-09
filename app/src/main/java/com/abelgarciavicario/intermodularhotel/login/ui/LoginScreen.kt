@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.inicio.ui.components
+package com.abelgarciavicario.intermodularhotel.login.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -6,30 +6,37 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.abelgarciavicario.intermodularhotel.R
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient1
@@ -37,14 +44,11 @@ import com.abelgarciavicario.intermodularhotel.ui.theme.gradient2
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient3
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient4
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient5
-import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaClaro
-import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaMedioClaro
 import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaOscuroFuerte
-import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaOscuroMedio
 import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun Inicio(
+fun Login(
     navController: NavController
 ) {
     Box(
@@ -74,7 +78,7 @@ fun Inicio(
                 .fillMaxWidth()
                 .height(400.dp)
                 .padding(20.dp)
-                ){
+            ){
                 Body(navController)
             }
 
@@ -85,6 +89,7 @@ fun Inicio(
 
 @Composable
 fun Body(navController: NavController) {
+    // val password: String by LogViewModel.password.observeAsState(initial="")
     Box(
         modifier = Modifier
             .background(
@@ -101,27 +106,21 @@ fun Body(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(25.dp),
+                .padding(top = 40.dp),
+            verticalArrangement = Arrangement.spacedBy(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ButtonReg(text = "Iniciar sesion", color = turquesaPrincipal){
-               // navController.navigate(Destinations.DeliveryIniciarSesion.route)
-            }
-            ButtonReg(text = "Registrate gratis", color = turquesaPrincipal){
-              //  navController.navigate(Destinations.Registro.route)
-            }
-            ButtonOut( text = "Ingresa con Google", color=Color.White,
-                image = R.drawable.logo_google){
+            TextFieldMail(email = "Mail"){
 
             }
-            ButtonOut( text = "Ingresa con Facebook", color=Color.White,
-                image = R.drawable.logo_facebook){
+
+            TextFieldPassword(password = "Contraseña"){
 
             }
-            Text(text = "Olvidé la contraseña",
-                color= turquesaPrincipal,
-                fontSize = 16.sp)
+
+            ButtonReg(text = "Iniciar sesión", color = turquesaPrincipal) {
+                // navController.navigate(Destinations.DeliveryIniciarSesion.route)
+            }
 
         }
     }
@@ -132,32 +131,46 @@ fun ButtonReg(text: String, color: Color, onClick: () -> Unit) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(end = 30.dp, start = 30.dp),
+            .padding(top= 20.dp, end = 30.dp, start = 40.dp),
         onClick =  onClick,
         colors = ButtonDefaults.buttonColors(color),
     ) {
-       Text(text = text)
+        Text(text = text)
     }
 }
 @Composable
-fun ButtonOut(text: String, color: Color, image: Int,onClick: () -> Unit) {
-    Button(
+fun TextFieldPassword(password: String, onTextChange: (String) -> Unit) {
+    var isPasswordVisible by remember { mutableStateOf(false) }
+
+    TextField(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(end = 30.dp, start = 30.dp),
-        onClick =  onClick,
-        colors = ButtonDefaults.buttonColors(color),
-    ) {
-        Row {
-            Image(
-                modifier = Modifier
-                    .padding(end = 12.dp)
-                    .size(20.dp)
-                    .background(color= Color.Transparent),
-                painter = painterResource(id = image),
-                contentDescription = "logo aplicación",
-            )
-            Text(text, color= turquesaPrincipal)
-        }
-    }
+            .width(400.dp)
+            .padding(start = 15.dp, end=15.dp),
+        value = password,
+        visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+        onValueChange = { onTextChange(it) },
+        singleLine = true,
+        placeholder = { Text(text = "Password") },
+        trailingIcon = {
+            IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
+                Icon(
+                    imageVector = if (isPasswordVisible) Icons.Default.Visibility else Icons.Default.VisibilityOff,
+                    contentDescription = "Toggle password visibility"
+                )
+            }
+        },
+        leadingIcon = { Icon(Icons.Filled.Lock, null) }
+    )
+}
+@Composable
+fun TextFieldMail(email: String,  onTextChange: (String) -> Unit) {
+    TextField(
+        modifier = Modifier
+            .width(400.dp)
+            .padding(start = 15.dp, end = 15.dp),
+        value = email,
+        onValueChange = { onTextChange(it) },
+        placeholder = { Text(text = "Email") },
+        leadingIcon = { Icon(Icons.Default.Email, null) }
+    )
 }
