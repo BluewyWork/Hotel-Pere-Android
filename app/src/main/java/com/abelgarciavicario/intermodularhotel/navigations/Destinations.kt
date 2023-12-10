@@ -9,5 +9,6 @@ sealed class Destinations(
     object RecuperarPassword: Destinations("recuperar")
     object CodigoVerificacion: Destinations("codigo")
     object CheckCambio: Destinations("check")
+    object Perfil: Destinations("perfil")
 
 }

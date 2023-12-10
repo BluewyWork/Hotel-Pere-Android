@@ -11,6 +11,7 @@ import com.abelgarciavicario.intermodularhotel.recuperarPassword.ui.RecuperarPas
 
 import com.abelgarciavicario.intermodularhotel.registro.ui.Registro
 import com.abelgarciavicario.intermodularhotel.codigoVerificacion.ui.CodigoVerificacion
+import com.abelgarciavicario.intermodularhotel.perfil.ui.Perfil
 import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 
 @Composable
@@ -26,7 +27,8 @@ fun NavigationHost(
         // startDestination = Destinations.Registro.route
         //startDestination = Destinations.RecuperarPassword.route
         //startDestination = Destinations.CodigoVerificacion.route
-        startDestination = Destinations.CheckCambio.route
+        //startDestination = Destinations.CheckCambio.route
+        startDestination = Destinations.Perfil.route
     ) {
         composable(Destinations.Inicio.route){
             Inicio(navController)
@@ -45,6 +47,9 @@ fun NavigationHost(
         }
         composable(Destinations.CheckCambio.route){
             CheckCambio(navController)
+        }
+        composable(Destinations.Perfil.route){
+            Perfil(navController)
         }
     }
 }
