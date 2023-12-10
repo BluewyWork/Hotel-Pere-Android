@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.abelgarciavicario.intermodularhotel.checkCambio.ui.CheckCambio
 import com.abelgarciavicario.intermodularhotel.inicio.ui.Inicio
 import com.abelgarciavicario.intermodularhotel.login.ui.Login
 import com.abelgarciavicario.intermodularhotel.recuperarPassword.ui.RecuperarPassword
@@ -24,7 +25,8 @@ fun NavigationHost(
         // startDestination = Destinations.Log.route
         // startDestination = Destinations.Registro.route
         //startDestination = Destinations.RecuperarPassword.route
-        startDestination = Destinations.CodigoVerificacion.route
+        //startDestination = Destinations.CodigoVerificacion.route
+        startDestination = Destinations.CheckCambio.route
     ) {
         composable(Destinations.Inicio.route){
             Inicio(navController)
@@ -40,6 +42,9 @@ fun NavigationHost(
         }
         composable(Destinations.CodigoVerificacion.route){
             CodigoVerificacion(navController)
+        }
+        composable(Destinations.CheckCambio.route){
+            CheckCambio(navController)
         }
     }
 }
