@@ -1,4 +1,3 @@
 package com.abelgarciavicario.intermodularhotel.checkCambio.network
 
-interface CheckCambioClient {
-}
+interface CheckCambioClient

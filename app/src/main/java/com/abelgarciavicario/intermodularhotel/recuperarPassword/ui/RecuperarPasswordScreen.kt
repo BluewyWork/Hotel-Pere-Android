@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -21,15 +20,13 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.TextButton
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -61,8 +58,10 @@ fun RecuperarPassword(navController: NavController) {
                 )
             ),
     ) {
-        Column( Modifier.padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally ){
+        Column(
+            Modifier.padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.logo_sin_fondo),
                 contentDescription = null,
@@ -74,18 +73,25 @@ fun RecuperarPassword(navController: NavController) {
     }
 
 }
+
 @Composable
 fun Body(navController: NavController) {
-    Box(modifier= Modifier.fillMaxWidth()
-        .height(450.dp)
-        .background( color = Color.White.copy(alpha = 0.7f),
-            shape = RoundedCornerShape(16.dp)
-        )){
-        Column( modifier = Modifier
-            .fillMaxSize()
-            .padding(end = 15.dp, start = 15.dp,top=40.dp),
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(450.dp)
+            .background(
+                color = Color.White.copy(alpha = 0.7f),
+                shape = RoundedCornerShape(16.dp)
+            )
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(end = 15.dp, start = 15.dp, top = 40.dp),
             verticalArrangement = Arrangement.spacedBy(25.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Text(
                 text = "¿Has olvidado la contraseña?",
                 fontSize = 20.sp
@@ -96,7 +102,7 @@ fun Body(navController: NavController) {
                 fontSize = 20.sp
             )
 
-            TexFieldMail("Mail"){
+            TexFieldMail("Mail") {
 
             }
 
@@ -108,14 +114,16 @@ fun Body(navController: NavController) {
                 }) {
                 Text(text = "Enviar código")
             }
-            Text(text = "    ¿Recuerdas la contraseña?",
-                fontSize = 20.sp)
+            Text(
+                text = "    ¿Recuerdas la contraseña?",
+                fontSize = 20.sp
+            )
 
             TextIngresar(
                 text = "Ingresar",
                 color = turquesaPrincipal,
                 fontSize = 18.sp,
-            ){
+            ) {
 
             }
 
@@ -135,7 +143,7 @@ fun TextIngresar(text: String, color: Color, fontSize: TextUnit, content: () -> 
 
 
 @Composable
-fun TexFieldMail( email:String, onTextChange: (String) -> Unit) {
+fun TexFieldMail(email: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
@@ -149,7 +157,7 @@ fun TexFieldMail( email:String, onTextChange: (String) -> Unit) {
 
 
 @Composable
-fun IconBack(onClick:() -> Unit) {
+fun IconBack(onClick: () -> Unit) {
     Icon(
         Icons.Default.KeyboardArrowLeft, "Atras",
         tint = turquesaClaro,

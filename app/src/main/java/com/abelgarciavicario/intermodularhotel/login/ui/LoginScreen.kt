@@ -68,17 +68,18 @@ fun Login(
         contentAlignment = Alignment.Center
 
     ) {
-        Column{
+        Column {
             Image(
                 painter = painterResource(id = R.drawable.logo_sin_fondo),
                 contentDescription = null,
                 modifier = Modifier.size(400.dp),
             )
-            Box(modifier= Modifier
-                .fillMaxWidth()
-                .height(400.dp)
-                .padding(20.dp)
-            ){
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .padding(20.dp)
+            ) {
                 Body(navController)
             }
 
@@ -102,7 +103,7 @@ fun Body(navController: NavController) {
                 shape = RoundedCornerShape(16.dp),
             ),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -110,11 +111,11 @@ fun Body(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TextFieldMail(email = "Mail"){
+            TextFieldMail(email = "Mail") {
 
             }
 
-            TextFieldPassword(password = "Contraseña"){
+            TextFieldPassword(password = "Contraseña") {
 
             }
 
@@ -131,13 +132,14 @@ fun ButtonReg(text: String, color: Color, onClick: () -> Unit) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top= 20.dp, end = 30.dp, start = 40.dp),
-        onClick =  onClick,
+            .padding(top = 20.dp, end = 30.dp, start = 40.dp),
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(color),
     ) {
         Text(text = text)
     }
 }
+
 @Composable
 fun TextFieldPassword(password: String, onTextChange: (String) -> Unit) {
     var isPasswordVisible by remember { mutableStateOf(false) }
@@ -145,7 +147,7 @@ fun TextFieldPassword(password: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .width(400.dp)
-            .padding(start = 15.dp, end=15.dp),
+            .padding(start = 15.dp, end = 15.dp),
         value = password,
         visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         onValueChange = { onTextChange(it) },
@@ -162,8 +164,9 @@ fun TextFieldPassword(password: String, onTextChange: (String) -> Unit) {
         leadingIcon = { Icon(Icons.Filled.Lock, null) }
     )
 }
+
 @Composable
-fun TextFieldMail(email: String,  onTextChange: (String) -> Unit) {
+fun TextFieldMail(email: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .width(400.dp)

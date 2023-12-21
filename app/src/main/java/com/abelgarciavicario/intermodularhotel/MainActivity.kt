@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 import com.abelgarciavicario.intermodularhotel.navigations.NavigationHost
+import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

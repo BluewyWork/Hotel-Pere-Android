@@ -55,17 +55,18 @@ fun Inicio(
         contentAlignment = Alignment.Center
 
     ) {
-        Column{
+        Column {
             Image(
                 painter = painterResource(id = R.drawable.logo_sin_fondo),
                 contentDescription = null,
                 modifier = Modifier.size(400.dp),
             )
-            Box(modifier= Modifier
-                .fillMaxWidth()
-                .height(400.dp)
-                .padding(20.dp)
-                ){
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .padding(20.dp)
+            ) {
                 Body(navController)
             }
 
@@ -88,7 +89,7 @@ fun Body(navController: NavController) {
                 shape = RoundedCornerShape(16.dp),
             ),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -96,23 +97,29 @@ fun Body(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ButtonReg(text = "Iniciar sesion", color = turquesaPrincipal){
-               // navController.navigate(Destinations.DeliveryIniciarSesion.route)
+            ButtonReg(text = "Iniciar sesion", color = turquesaPrincipal) {
+                // navController.navigate(Destinations.DeliveryIniciarSesion.route)
             }
-            ButtonReg(text = "Registrate gratis", color = turquesaPrincipal){
-              //  navController.navigate(Destinations.Registro.route)
+            ButtonReg(text = "Registrate gratis", color = turquesaPrincipal) {
+                //  navController.navigate(Destinations.Registro.route)
             }
-            ButtonOut( text = "Ingresa con Google", color=Color.White,
-                image = R.drawable.logo_google){
+            ButtonOut(
+                text = "Ingresa con Google", color = Color.White,
+                image = R.drawable.logo_google
+            ) {
 
             }
-            ButtonOut( text = "Ingresa con Facebook", color=Color.White,
-                image = R.drawable.logo_facebook){
+            ButtonOut(
+                text = "Ingresa con Facebook", color = Color.White,
+                image = R.drawable.logo_facebook
+            ) {
 
             }
-            Text(text = "Olvidé la contraseña",
-                color= turquesaPrincipal,
-                fontSize = 16.sp)
+            Text(
+                text = "Olvidé la contraseña",
+                color = turquesaPrincipal,
+                fontSize = 16.sp
+            )
 
         }
     }
@@ -124,19 +131,20 @@ fun ButtonReg(text: String, color: Color, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(end = 30.dp, start = 30.dp),
-        onClick =  onClick,
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(color),
     ) {
-       Text(text = text)
+        Text(text = text)
     }
 }
+
 @Composable
-fun ButtonOut(text: String, color: Color, image: Int,onClick: () -> Unit) {
+fun ButtonOut(text: String, color: Color, image: Int, onClick: () -> Unit) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(end = 30.dp, start = 30.dp),
-        onClick =  onClick,
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(color),
     ) {
         Row {
@@ -144,11 +152,11 @@ fun ButtonOut(text: String, color: Color, image: Int,onClick: () -> Unit) {
                 modifier = Modifier
                     .padding(end = 12.dp)
                     .size(20.dp)
-                    .background(color= Color.Transparent),
+                    .background(color = Color.Transparent),
                 painter = painterResource(id = image),
                 contentDescription = "logo aplicación",
             )
-            Text(text, color= turquesaPrincipal)
+            Text(text, color = turquesaPrincipal)
         }
     }
 }

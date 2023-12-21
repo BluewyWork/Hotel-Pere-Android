@@ -38,7 +38,7 @@ import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaOscuroFuerte
 import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun CheckCambio(navController: NavController){
+fun CheckCambio(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -69,7 +69,9 @@ fun CheckCambio(navController: NavController){
                 Image(
                     painter = painterResource(id = R.drawable.logo_sin_fondo),
                     contentDescription = null,
-                    Modifier.size(350.dp).padding(start=15.dp)
+                    Modifier
+                        .size(350.dp)
+                        .padding(start = 15.dp)
                 )
                 Body()
 
@@ -101,7 +103,7 @@ fun Body() {
                 contentDescription = null,
                 Modifier.size(100.dp)
             )
-            Column(verticalArrangement = Arrangement.spacedBy(5.dp)){
+            Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
 
                 Text(
                     text = "¡Contraseña cambiada!",
