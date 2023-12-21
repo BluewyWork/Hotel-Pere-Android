@@ -1,4 +1,4 @@
-package com.abelgarciavicario.intermodularhotel.cart.ui
+package com.abelgarciavicario.intermodularhotel.carrito.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -38,10 +38,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun CartScreen() {
+fun CarritoScreen(
+    navController: NavController
+) {
     Scaffold(
         bottomBar = {
             BottomBar()

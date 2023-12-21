@@ -10,5 +10,6 @@ sealed class Destinations(
     object CodigoVerificacion: Destinations("codigo")
     object CheckCambio: Destinations("check")
     object Perfil: Destinations("perfil")
+    object Carrito: Destinations("carrito")
 
 }
