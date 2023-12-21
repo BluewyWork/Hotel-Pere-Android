@@ -10,13 +10,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Email
@@ -26,7 +24,6 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -42,7 +39,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.abelgarciavicario.intermodularhotel.R
 import com.abelgarciavicario.intermodularhotel.navigations.Destinations
-import com.abelgarciavicario.intermodularhotel.registro.ui.RegistroViewModel
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient1
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient2
 import com.abelgarciavicario.intermodularhotel.ui.theme.gradient3
@@ -54,9 +50,10 @@ import com.abelgarciavicario.intermodularhotel.ui.theme.turquesaPrincipal
 
 
 @Composable
-fun Registro(navController: NavController,
-             registroViewModel: RegistroViewModel
-){
+fun Registro(
+    navController: NavController,
+    registroViewModel: RegistroViewModel
+) {
 
     Box(
         modifier = Modifier
@@ -75,27 +72,32 @@ fun Registro(navController: NavController,
         contentAlignment = Alignment.Center
 
     ) {
-        Column(modifier = Modifier.padding(20.dp)){
-                IconBack {
-                    navController.navigate(Destinations.Registro.route)
-                }
-            Column( modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .wrapContentHeight(align = Alignment.CenterVertically)){
+        Column(modifier = Modifier.padding(20.dp)) {
+            IconBack {
+                navController.navigate(Destinations.Registro.route)
+            }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .wrapContentHeight(align = Alignment.CenterVertically)
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.logo_sin_fondo),
                     contentDescription = null,
-                    modifier = Modifier.size(180.dp).offset(100.dp,-40.dp)
+                    modifier = Modifier
+                        .size(180.dp)
+                        .offset(100.dp, -40.dp)
                 )
 
 
-                Box(modifier= Modifier
-                    .fillMaxSize()
-                    .padding(top=0.dp, end = 10.dp, start=10.dp)
-                    .offset(0.dp,-35.dp)
-                ){
-                    BodyR(navController,registroViewModel)
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 0.dp, end = 10.dp, start = 10.dp)
+                        .offset(0.dp, -35.dp)
+                ) {
+                    BodyR(navController, registroViewModel)
                 }
             }
 
@@ -104,14 +106,16 @@ fun Registro(navController: NavController,
 
     }
 }
+
 @Composable
-fun BodyR(navController: NavController,
-          registroViewModel: RegistroViewModel
-){
-    val email: String by registroViewModel.email.observeAsState(initial="")
-    val password: String by registroViewModel.password.observeAsState(initial="")
-    val nombre: String by registroViewModel.nombre.observeAsState(initial="")
-    val passwordR: String by registroViewModel.passwordR.observeAsState(initial="")
+fun BodyR(
+    navController: NavController,
+    registroViewModel: RegistroViewModel
+) {
+    val email: String by registroViewModel.email.observeAsState(initial = "")
+    val password: String by registroViewModel.password.observeAsState(initial = "")
+    val nombre: String by registroViewModel.nombre.observeAsState(initial = "")
+    val passwordR: String by registroViewModel.passwordR.observeAsState(initial = "")
     val isLogEnable: Boolean by registroViewModel.isLogEnable.observeAsState(initial = false)
 
     Box(
@@ -126,21 +130,21 @@ fun BodyR(navController: NavController,
             Text("¡Hola! Registrate para comenzar", 22, turquesaPrincipal)
 
             MostrarError(viewModel = registroViewModel)
-            TextFieldNombre(nombre){
+            TextFieldNombre(nombre) {
                 registroViewModel.onRegistroChange(it, email, password, passwordR)
             }
-            TextFieldMailR(email){
+            TextFieldMailR(email) {
                 registroViewModel.onRegistroChange(nombre, it, password, passwordR)
             }
 
-            TextFieldPasswordR(password){
+            TextFieldPasswordR(password) {
                 registroViewModel.onRegistroChange(nombre, email, it, passwordR)
             }
-            TextFieldPasswordRe(passwordR){
+            TextFieldPasswordRe(passwordR) {
                 registroViewModel.onRegistroChange(nombre, email, password, it)
             }
-            ButtonReg("Registrarse", turquesaOscuroFuerte,isLogEnable,registroViewModel,
-                navController, onClick= {})
+            ButtonReg("Registrarse", turquesaOscuroFuerte, isLogEnable, registroViewModel,
+                navController, onClick = {})
 
             Text("Registrate con", 20, turquesaOscuroFuerte)
             Row(horizontalArrangement = Arrangement.spacedBy(30.dp)) {
@@ -158,7 +162,7 @@ fun BodyR(navController: NavController,
 }
 
 @Composable
-fun IconBack(onClick:() -> Unit) {
+fun IconBack(onClick: () -> Unit) {
     Icon(
         Icons.Default.KeyboardArrowLeft, "Atras",
         tint = turquesaClaro,
@@ -177,21 +181,24 @@ fun ButtonWhith(image: Int) {
     )
 
 }
+
 @Composable
 fun Text(text: String, fontSize: Int, color: Color) {
     androidx.compose.material3.Text(text = text, fontSize = fontSize.sp, color = color)
 }
 
 @Composable
-fun ButtonReg(text: String, color: Color, logEnable: Boolean, registroViewModel: RegistroViewModel,
-              navController: NavController,
-              onClick: () -> Unit) {
+fun ButtonReg(
+    text: String, color: Color, logEnable: Boolean, registroViewModel: RegistroViewModel,
+    navController: NavController,
+    onClick: () -> Unit
+) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(30.dp),
-        onClick = {/*registroViewModel.onRegistroSelected(navController)*/},
-        enabled= logEnable,
+        onClick = {/*registroViewModel.onRegistroSelected(navController)*/ },
+        enabled = logEnable,
         colors = ButtonDefaults.buttonColors(color),
     ) {
         androidx.compose.material3.Text(text = text)
@@ -199,7 +206,7 @@ fun ButtonReg(text: String, color: Color, logEnable: Boolean, registroViewModel:
 }
 
 @Composable
-fun TextFieldPasswordR(password: String,  onTextChange: (String) -> Unit) {
+fun TextFieldPasswordR(password: String, onTextChange: (String) -> Unit) {
     TextField(modifier = Modifier
         .width(400.dp)
         .padding(top = 25.dp)
@@ -212,8 +219,9 @@ fun TextFieldPasswordR(password: String,  onTextChange: (String) -> Unit) {
         leadingIcon = { Icon(Icons.Filled.Lock, null) }
     )
 }
+
 @Composable
-fun TextFieldPasswordRe(passwordR: String,  onTextChange: (String) -> Unit) {
+fun TextFieldPasswordRe(passwordR: String, onTextChange: (String) -> Unit) {
     TextField(modifier = Modifier
         .width(400.dp)
         .padding(top = 25.dp)
@@ -229,7 +237,7 @@ fun TextFieldPasswordRe(passwordR: String,  onTextChange: (String) -> Unit) {
 
 
 @Composable
-fun TextFieldNombre(nombre: String,  onTextChange: (String) -> Unit) {
+fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
 
     TextField(
         modifier = Modifier
@@ -237,14 +245,14 @@ fun TextFieldNombre(nombre: String,  onTextChange: (String) -> Unit) {
             .padding(top = 25.dp)
             .padding(start = 10.dp),
         value = nombre,
-        onValueChange = {onTextChange(it) },
+        onValueChange = { onTextChange(it) },
         placeholder = { androidx.compose.material3.Text(text = "Nombre") },
         leadingIcon = { Icon(Icons.Default.AccountCircle, null) }
     )
 }
 
 @Composable
-fun TextFieldMailR(email: String,  onTextChange: (String) -> Unit) {
+fun TextFieldMailR(email: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .width(400.dp)

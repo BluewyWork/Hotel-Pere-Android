@@ -61,16 +61,18 @@ fun Perfil(navController: NavController) {
                 )
             ),
 
-    ) {
-        Column(modifier = Modifier.padding(20.dp),
+        ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(35.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Column(
                 modifier = Modifier
                     .size(250.dp)
                     .wrapContentHeight(align = Alignment.CenterVertically)
             ) {
-                Box{
+                Box {
                     Image(
                         painter = painterResource(id = R.drawable.perfil_muestra),
                         contentDescription = "Imagen de perfil",
@@ -86,7 +88,6 @@ fun Perfil(navController: NavController) {
                         Icon(Icons.Default.Add, contentDescription = "Editar")
                     }
                 }
-
 
 
             }
@@ -133,15 +134,15 @@ fun body() {
 
 @Composable
 fun ConjuntoTextFieldPerfil() {
-    TextFieldNombre(nombre= "Nombre"){}
-    TextFieldApellido(apellido="Apellido"){}
-    TextFieldTelefono(telefono= "666666666"){}
-    TextFieldMail(email= "Mail"){}
+    TextFieldNombre(nombre = "Nombre") {}
+    TextFieldApellido(apellido = "Apellido") {}
+    TextFieldTelefono(telefono = "666666666") {}
+    TextFieldMail(email = "Mail") {}
 
 }
 
 @Composable
-fun TextFieldMail(email:String, onTextChange: (String) -> Unit) {
+fun TextFieldMail(email: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
@@ -154,7 +155,7 @@ fun TextFieldMail(email:String, onTextChange: (String) -> Unit) {
 }
 
 @Composable
-fun TextFieldTelefono(telefono:String,onTextChange: (String) -> Unit) {
+fun TextFieldTelefono(telefono: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
@@ -167,7 +168,7 @@ fun TextFieldTelefono(telefono:String,onTextChange: (String) -> Unit) {
 }
 
 @Composable
-fun TextFieldApellido(apellido:String,onTextChange: (String) -> Unit) {
+fun TextFieldApellido(apellido: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
@@ -180,7 +181,7 @@ fun TextFieldApellido(apellido:String,onTextChange: (String) -> Unit) {
 }
 
 @Composable
-fun TextFieldNombre(nombre:String,onTextChange: (String) -> Unit) {
+fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()

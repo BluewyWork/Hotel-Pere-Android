@@ -1,4 +1,3 @@
 package com.abelgarciavicario.intermodularhotel.codigoVerificacion.ui
 
-open class CodigoVerificacionViewModel {
-}
+open class CodigoVerificacionViewModel
