@@ -1,4 +1,4 @@
-package com.intermodular.hotel.checkCambio.ui.composables
+package com.intermodular.hotel.comprobarCambio.ui.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons

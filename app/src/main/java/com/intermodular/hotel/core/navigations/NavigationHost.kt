@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.intermodular.hotel.carrito.ui.CarritoScreen
-import com.intermodular.hotel.checkCambio.ui.CheckCambio
-import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacion
+import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
+import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacionScreen
 import com.intermodular.hotel.home.ui.HomeScreen
 import com.intermodular.hotel.login.ui.LoginScreen
 import com.intermodular.hotel.perfil.ui.PerfilScreen
@@ -34,10 +34,10 @@ fun NavigationHost(
             RecuperarPasswordScreen(navController)
         }
         composable(Destinations.CodigoVerificacion.route) {
-            CodigoVerificacion(navController)
+            CodigoVerificacionScreen(navController)
         }
         composable(Destinations.CheckCambio.route) {
-            CheckCambio(navController)
+            ComprobarCambioScreen(navController)
         }
         composable(Destinations.Perfil.route) {
             PerfilScreen(navController)

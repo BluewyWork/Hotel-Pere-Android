@@ -1,4 +1,4 @@
-package com.intermodular.hotel.checkCambio.network
+package com.intermodular.hotel.comprobarCambio.network
 
 import com.google.gson.annotations.SerializedName
 

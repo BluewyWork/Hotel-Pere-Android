@@ -1,4 +1,4 @@
-package com.intermodular.hotel.checkCambio.ui
+package com.intermodular.hotel.comprobarCambio.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,10 +35,10 @@ import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
-import com.intermodular.hotel.checkCambio.ui.composables.*
+import com.intermodular.hotel.comprobarCambio.ui.composables.*
 
 @Composable
-fun CheckCambio(navController: NavController) {
+fun ComprobarCambioScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
