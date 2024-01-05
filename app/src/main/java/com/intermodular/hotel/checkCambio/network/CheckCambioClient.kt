@@ -1,3 +1,0 @@
-package com.intermodular.hotel.checkCambio.network
-
-interface CheckCambioClient

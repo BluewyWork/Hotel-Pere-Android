@@ -1,3 +1,0 @@
-package com.intermodular.hotel.recuperarPassword.domain
-
-class RecuperarPasswordUseCase

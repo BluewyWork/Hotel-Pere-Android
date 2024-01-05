@@ -1,10 +1,11 @@
-package com.intermodular.hotel.perfil.ui
+package com.intermodular.hotel.comprobarCambio.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,40 +13,32 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.perfil.ui.composables.TextFieldApellido
-import com.intermodular.hotel.perfil.ui.composables.TextFieldMail
-import com.intermodular.hotel.perfil.ui.composables.TextFieldNombre
-import com.intermodular.hotel.perfil.ui.composables.TextFieldTelefono
+import com.intermodular.hotel.comprobarCambio.ui.composables.IconAtras
+import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
+import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun PerfilScreen(navController: NavController) {
+fun ComprobarCambioScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -60,83 +53,82 @@ fun PerfilScreen(navController: NavController) {
                     )
                 )
             ),
+        contentAlignment = Alignment.Center
 
-        ) {
-        Column(
-            modifier = Modifier.padding(20.dp),
-            verticalArrangement = Arrangement.spacedBy(35.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+    ) {
+        Column(modifier = Modifier.padding(20.dp)) {
+            IconAtras {
+                navController.navigate(Destinations.Registro.route)
+            }
             Column(
                 modifier = Modifier
-                    .size(250.dp)
+                    .fillMaxWidth()
+                    .fillMaxHeight()
                     .wrapContentHeight(align = Alignment.CenterVertically)
             ) {
-                Box {
-                    Image(
-                        painter = painterResource(id = R.drawable.perfil_muestra),
-                        contentDescription = "Imagen de perfil",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(CircleShape)
-                    )
-                    FloatingActionButton(
-                        onClick = {
-                        },
-                    ) {
-                        Icon(Icons.Default.Add, contentDescription = "Editar")
-                    }
-                }
-
+                Image(
+                    painter = painterResource(id = R.drawable.logo_sin_fondo),
+                    contentDescription = null,
+                    Modifier
+                        .size(350.dp)
+                        .padding(start = 15.dp)
+                )
+                Body()
 
             }
-
-            body()
         }
     }
 }
 
 @Composable
-fun body() {
+fun Body() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(500.dp)
+            .height(400.dp)
             .background(
-                color = Color.White.copy(alpha = 0.7f),
+                color = Color(0xFFe0e0e0),
                 shape = RoundedCornerShape(16.dp)
             )
-
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(end = 15.dp, start = 15.dp, top = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(28.dp),
+                .padding(end = 15.dp, start = 15.dp, top = 40.dp),
+            verticalArrangement = Arrangement.spacedBy(35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = "Tu información",
-                fontSize = 20.sp
+            Image(
+                painter = painterResource(id = R.drawable.check),
+                contentDescription = null,
+                Modifier.size(100.dp)
             )
-            ConjuntoTextFieldPerfil()
+            Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+
+                Text(
+                    text = "¡Contraseña cambiada!",
+                    fontSize = 20.sp,
+                    color = turquesaOscuroFuerte
+                )
+                Text(
+                    text = "Tu contraseña ha sido",
+                    fontSize = 20.sp,
+                    color = turquesaOscuroFuerte
+                )
+                Text(
+                    text = "cambiada exitosamente",
+                    fontSize = 20.sp,
+                    color = turquesaOscuroFuerte
+                )
+            }
+
             Button(modifier = Modifier
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                 onClick = {
                 }) {
-                Text(text = "Actualizar")
+                Text(text = "Regresar al inicio")
             }
         }
     }
-}
-
-@Composable
-fun ConjuntoTextFieldPerfil() {
-    TextFieldNombre(nombre = "Nombre") {}
-    TextFieldApellido(apellido = "Apellido") {}
-    TextFieldTelefono(telefono = "666666666") {}
-    TextFieldMail(email = "Mail") {}
-
 }

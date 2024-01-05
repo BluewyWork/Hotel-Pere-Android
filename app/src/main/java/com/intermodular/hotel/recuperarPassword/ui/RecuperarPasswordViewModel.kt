@@ -1,3 +1,0 @@
-package com.intermodular.hotel.recuperarPassword.ui
-
-open class RecuperarPasswordViewModel

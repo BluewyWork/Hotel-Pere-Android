@@ -13,44 +13,39 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.navigations.Destinations
+import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.registro.ui.composables.ButtonLogo
+import com.intermodular.hotel.registro.ui.composables.ButtonRegistro
+import com.intermodular.hotel.registro.ui.composables.IconAtras
+import com.intermodular.hotel.registro.ui.composables.MostrarError
+import com.intermodular.hotel.registro.ui.composables.Text
+import com.intermodular.hotel.registro.ui.composables.TextFieldMail
+import com.intermodular.hotel.registro.ui.composables.TextFieldNombre
+import com.intermodular.hotel.registro.ui.composables.TextFieldPassword
+import com.intermodular.hotel.registro.ui.composables.TextFieldPasswordConfirmar
+import com.intermodular.hotel.registro.ui.composables.TextLogin
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
-import com.intermodular.hotel.ui.theme.turquesaClaro
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 
 @Composable
-fun Registro(
+fun RegistroScreen(
     navController: NavController,
     registroViewModel: RegistroViewModel
 ) {
@@ -73,7 +68,7 @@ fun Registro(
 
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
-            IconBack {
+            IconAtras {
                 navController.navigate(Destinations.Registro.route)
             }
             Column(
@@ -133,23 +128,24 @@ fun BodyR(
             TextFieldNombre(nombre) {
                 registroViewModel.onRegistroChange(it, email, password, passwordR)
             }
-            TextFieldMailR(email) {
+            TextFieldMail(email) {
                 registroViewModel.onRegistroChange(nombre, it, password, passwordR)
             }
 
-            TextFieldPasswordR(password) {
+            TextFieldPassword(password) {
                 registroViewModel.onRegistroChange(nombre, email, it, passwordR)
             }
-            TextFieldPasswordRe(passwordR) {
+            TextFieldPasswordConfirmar(passwordR) {
                 registroViewModel.onRegistroChange(nombre, email, password, it)
             }
-            ButtonReg("Registrarse", turquesaOscuroFuerte, isLogEnable, registroViewModel,
+            TextLogin(navController = navController)
+            ButtonRegistro("Registrarse", turquesaOscuroFuerte, isLogEnable, registroViewModel,
                 navController, onClick = {})
 
             Text("Registrate con", 20, turquesaOscuroFuerte)
             Row(horizontalArrangement = Arrangement.spacedBy(30.dp)) {
-                ButtonWhith(image = R.drawable.logo_facebook)
-                ButtonWhith(image = R.drawable.logo_google)
+                ButtonLogo(image = R.drawable.logo_facebook)
+                ButtonLogo(image = R.drawable.logo_google)
             }
             Row(modifier = Modifier.clickable { }) {
                 Text("¿Ya tienes cuenta?", 18, turquesaOscuroFuerte)
@@ -161,126 +157,20 @@ fun BodyR(
 
 }
 
-@Composable
-fun IconBack(onClick: () -> Unit) {
-    Icon(
-        Icons.Default.KeyboardArrowLeft, "Atras",
-        tint = turquesaClaro,
-        modifier = Modifier.clickable { onClick() }
-    )
-}
-
-@Composable
-fun ButtonWhith(image: Int) {
-    Image(
-        modifier = Modifier
-            .size(35.dp)
-            .clickable { },
-        painter = painterResource(id = image),
-        contentDescription = "null",
-    )
-
-}
-
-@Composable
-fun Text(text: String, fontSize: Int, color: Color) {
-    androidx.compose.material3.Text(text = text, fontSize = fontSize.sp, color = color)
-}
-
-@Composable
-fun ButtonReg(
-    text: String, color: Color, logEnable: Boolean, registroViewModel: RegistroViewModel,
-    navController: NavController,
-    onClick: () -> Unit
-) {
-    Button(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(30.dp),
-        onClick = {/*registroViewModel.onRegistroSelected(navController)*/ },
-        enabled = logEnable,
-        colors = ButtonDefaults.buttonColors(color),
-    ) {
-        androidx.compose.material3.Text(text = text)
-    }
-}
-
-@Composable
-fun TextFieldPasswordR(password: String, onTextChange: (String) -> Unit) {
-    TextField(modifier = Modifier
-        .width(400.dp)
-        .padding(top = 25.dp)
-        .padding(start = 10.dp),
-        value = password,
-        visualTransformation = PasswordVisualTransformation(),
-        onValueChange = { onTextChange(it) },
-        singleLine = true,
-        placeholder = { androidx.compose.material3.Text(text = "Password") },
-        leadingIcon = { Icon(Icons.Filled.Lock, null) }
-    )
-}
-
-@Composable
-fun TextFieldPasswordRe(passwordR: String, onTextChange: (String) -> Unit) {
-    TextField(modifier = Modifier
-        .width(400.dp)
-        .padding(top = 25.dp)
-        .padding(start = 10.dp),
-        value = passwordR,
-        visualTransformation = PasswordVisualTransformation(),
-        onValueChange = { onTextChange(it) },
-        singleLine = true,
-        placeholder = { androidx.compose.material3.Text(text = "Repetir Password") },
-        leadingIcon = { Icon(Icons.Filled.Lock, null) }
-    )
-}
 
 
-@Composable
-fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
 
-    TextField(
-        modifier = Modifier
-            .width(400.dp)
-            .padding(top = 25.dp)
-            .padding(start = 10.dp),
-        value = nombre,
-        onValueChange = { onTextChange(it) },
-        placeholder = { androidx.compose.material3.Text(text = "Nombre") },
-        leadingIcon = { Icon(Icons.Default.AccountCircle, null) }
-    )
-}
 
-@Composable
-fun TextFieldMailR(email: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .width(400.dp)
-            .padding(top = 25.dp)
-            .padding(start = 10.dp),
-        value = email,
-        onValueChange = { onTextChange(it) },
-        placeholder = { androidx.compose.material3.Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Email, null) }
-    )
-}
 
-@Composable
-fun MostrarError(viewModel: RegistroViewModel) {
-    val errorMessage = viewModel.errorMessage.observeAsState()
 
-    errorMessage.value?.let { message ->
-        AlertDialog(
-            onDismissRequest = { viewModel.clearErrorMessage() },
-            title = { androidx.compose.material3.Text("Error") },
-            text = { message },
-            confirmButton = {
-                Button(onClick = { viewModel.clearErrorMessage() }) {
-                    androidx.compose.material3.Text("OK")
-                }
-            }
-        )
-    }
-}
+
+
+
+
+
+
+
+
+
 
 
