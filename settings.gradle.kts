@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "IntermodularHotel"
+rootProject.name = "Hotel-Pere-Android"
 include(":app")
  
