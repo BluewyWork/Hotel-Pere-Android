@@ -33,13 +33,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.perfil.ui.composables.TextFieldApellido
+import com.intermodular.hotel.perfil.ui.composables.TextFieldMail
+import com.intermodular.hotel.perfil.ui.composables.TextFieldNombre
+import com.intermodular.hotel.perfil.ui.composables.TextFieldTelefono
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
-import com.intermodular.hotel.perfil.ui.composables.*
 
 @Composable
 fun PerfilScreen(navController: NavController) {

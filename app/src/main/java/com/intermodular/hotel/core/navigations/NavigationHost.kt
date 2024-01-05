@@ -5,8 +5,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.intermodular.hotel.carrito.ui.CarritoScreen
-import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
 import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacionScreen
+import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
 import com.intermodular.hotel.home.ui.HomeScreen
 import com.intermodular.hotel.login.ui.LoginScreen
 import com.intermodular.hotel.perfil.ui.PerfilScreen

@@ -25,6 +25,16 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
 import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.registro.ui.composables.ButtonLogo
+import com.intermodular.hotel.registro.ui.composables.ButtonRegistro
+import com.intermodular.hotel.registro.ui.composables.IconAtras
+import com.intermodular.hotel.registro.ui.composables.MostrarError
+import com.intermodular.hotel.registro.ui.composables.Text
+import com.intermodular.hotel.registro.ui.composables.TextFieldMail
+import com.intermodular.hotel.registro.ui.composables.TextFieldNombre
+import com.intermodular.hotel.registro.ui.composables.TextFieldPassword
+import com.intermodular.hotel.registro.ui.composables.TextFieldPasswordConfirmar
+import com.intermodular.hotel.registro.ui.composables.TextLogin
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -32,7 +42,6 @@ import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
-import com.intermodular.hotel.registro.ui.composables.*
 
 
 @Composable

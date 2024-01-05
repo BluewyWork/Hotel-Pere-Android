@@ -12,5 +12,5 @@ sealed class Destinations(
     object Perfil : Destinations("perfil")
     object Carrito : Destinations("carrito")
 
-    object Home: Destinations("home")
+    object Home : Destinations("home")
 }

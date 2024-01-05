@@ -26,13 +26,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.recuperarContrasenia.ui.composables.TexFieldMail
+import com.intermodular.hotel.recuperarContrasenia.ui.composables.TextIngresar
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
-import com.intermodular.hotel.recuperarContrasenia.ui.composables.*
 
 @Composable
 fun RecuperarPasswordScreen(navController: NavController) {

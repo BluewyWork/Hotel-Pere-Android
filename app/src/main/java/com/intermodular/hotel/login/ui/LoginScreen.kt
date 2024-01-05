@@ -21,6 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.login.ui.composables.ButtonLogin
+import com.intermodular.hotel.login.ui.composables.TextFieldMail
+import com.intermodular.hotel.login.ui.composables.TextFieldPassword
+import com.intermodular.hotel.login.ui.composables.TextRegister
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -28,7 +32,6 @@ import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
-import com.intermodular.hotel.login.ui.composables.*
 
 @Composable
 fun LoginScreen(
@@ -101,10 +104,14 @@ fun Body(navController: NavController) {
             TextFieldPassword(password = "Contraseña") {
 
             }
-            
+
             TextRegister(navController = navController)
 
-            ButtonLogin(text = "Iniciar sesión", color = turquesaPrincipal, navController = navController)
+            ButtonLogin(
+                text = "Iniciar sesión",
+                color = turquesaPrincipal,
+                navController = navController
+            )
 
         }
     }
