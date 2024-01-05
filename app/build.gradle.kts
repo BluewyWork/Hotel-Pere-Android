@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.abelgarciavicario.intermodularhotel"
+    namespace = "com.intermodular.hotel"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.abelgarciavicario.intermodularhotel"
+        applicationId = "com.intermodular.hotel"
         minSdk = 28
         targetSdk = 33
         versionCode = 1
