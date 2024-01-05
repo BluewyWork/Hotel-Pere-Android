@@ -64,39 +64,55 @@ fun Home() {
             ) {
                 item {
                     HotelCard()
-                    Spacer(modifier = Modifier
-                        .height(16.dp)
-                        .width(16.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .height(16.dp)
+                            .width(16.dp)
+                    )
                     HotelCard()
-                    Spacer(modifier = Modifier
-                        .height(16.dp)
-                        .width(16.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .height(16.dp)
+                            .width(16.dp)
+                    )
                     HotelCard()
-                    Spacer(modifier = Modifier
-                        .height(16.dp)
-                        .width(16.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .height(16.dp)
+                            .width(16.dp)
+                    )
                     HotelCard()
-                    Spacer(modifier = Modifier
-                        .height(16.dp)
-                        .width(16.dp))
+                    Spacer(
+                        modifier = Modifier
+                            .height(16.dp)
+                            .width(16.dp)
+                    )
                 }
             }
             HotelCard()
-            Spacer(modifier = Modifier
-                .height(16.dp)
-                .width(16.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+                    .width(16.dp)
+            )
             HotelCard()
-            Spacer(modifier = Modifier
-                .height(16.dp)
-                .width(16.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+                    .width(16.dp)
+            )
             HotelCard()
-            Spacer(modifier = Modifier
-                .height(16.dp)
-                .width(16.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+                    .width(16.dp)
+            )
             HotelCard()
-            Spacer(modifier = Modifier
-                .height(16.dp)
-                .width(16.dp))
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+                    .width(16.dp)
+            )
         }
     }
 }
