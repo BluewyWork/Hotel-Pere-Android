@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
 import com.intermodular.hotel.composables.BottomBar
+import com.intermodular.hotel.home.ui.composables.*
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -149,35 +150,4 @@ fun SmallTopBar() {
         modifier = Modifier
             .height(50.dp)
     )
-}
-
-@Composable
-fun HotelCard() {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { }
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo_app),
-                contentDescription = "Sample",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .clip(shape = RoundedCornerShape(8.dp))
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Sample Text",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.fillMaxWidth()
-            )
-        }
-    }
 }
