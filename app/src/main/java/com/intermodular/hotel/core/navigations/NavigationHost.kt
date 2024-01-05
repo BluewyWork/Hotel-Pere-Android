@@ -9,7 +9,7 @@ import com.intermodular.hotel.checkCambio.ui.CheckCambio
 import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacion
 import com.intermodular.hotel.home.ui.HomeScreen
 import com.intermodular.hotel.login.ui.LoginScreen
-import com.intermodular.hotel.perfil.ui.Perfil
+import com.intermodular.hotel.perfil.ui.PerfilScreen
 import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
 import com.intermodular.hotel.registro.ui.RegistroScreen
 import com.intermodular.hotel.registro.ui.RegistroViewModel
@@ -40,7 +40,7 @@ fun NavigationHost(
             CheckCambio(navController)
         }
         composable(Destinations.Perfil.route) {
-            Perfil(navController)
+            PerfilScreen(navController)
         }
         composable(Destinations.Carrito.route) {
             CarritoScreen(navController)

@@ -16,15 +16,11 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,9 +39,10 @@ import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
+import com.intermodular.hotel.perfil.ui.composables.*
 
 @Composable
-fun Perfil(navController: NavController) {
+fun PerfilScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -140,56 +137,3 @@ fun ConjuntoTextFieldPerfil() {
     TextFieldMail(email = "Mail") {}
 
 }
-
-@Composable
-fun TextFieldMail(email: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
-        value = email,
-        onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Email, null) }
-    )
-}
-
-@Composable
-fun TextFieldTelefono(telefono: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
-        value = telefono,
-        onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Phone, null) }
-    )
-}
-
-@Composable
-fun TextFieldApellido(apellido: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
-        value = apellido,
-        onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Face, null) }
-    )
-}
-
-@Composable
-fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
-        value = nombre,
-        onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Face, null) }
-    )
-}
-
