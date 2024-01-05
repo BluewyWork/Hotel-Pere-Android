@@ -10,8 +10,8 @@ import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacion
 import com.intermodular.hotel.home.ui.HomeScreen
 import com.intermodular.hotel.login.ui.LoginScreen
 import com.intermodular.hotel.perfil.ui.Perfil
-import com.intermodular.hotel.recuperarPassword.ui.RecuperarPassword
-import com.intermodular.hotel.registro.ui.Registro
+import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
+import com.intermodular.hotel.registro.ui.RegistroScreen
 import com.intermodular.hotel.registro.ui.RegistroViewModel
 
 @Composable
@@ -28,10 +28,10 @@ fun NavigationHost(
             LoginScreen(navController)
         }
         composable(Destinations.Registro.route) {
-            Registro(navController, registroViewModel)
+            RegistroScreen(navController, registroViewModel)
         }
         composable(Destinations.RecuperarPassword.route) {
-            RecuperarPassword(navController)
+            RecuperarPasswordScreen(navController)
         }
         composable(Destinations.CodigoVerificacion.route) {
             CodigoVerificacion(navController)

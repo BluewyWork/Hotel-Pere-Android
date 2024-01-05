@@ -1,0 +1,3 @@
+package com.intermodular.hotel.recuperarContrasenia.domain
+
+class RecuperarPasswordUseCase

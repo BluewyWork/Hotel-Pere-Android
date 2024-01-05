@@ -1,9 +1,8 @@
-package com.intermodular.hotel.recuperarPassword.ui
+package com.intermodular.hotel.recuperarContrasenia.ui
 
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,21 +13,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -38,11 +31,11 @@ import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
-import com.intermodular.hotel.ui.theme.turquesaClaro
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
+import com.intermodular.hotel.recuperarContrasenia.ui.composables.*
 
 @Composable
-fun RecuperarPassword(navController: NavController) {
+fun RecuperarPasswordScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -106,7 +99,6 @@ fun Body(navController: NavController) {
 
             }
 
-
             Button(modifier = Modifier
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
@@ -130,39 +122,3 @@ fun Body(navController: NavController) {
         }
     }
 }
-
-@Composable
-fun TextIngresar(text: String, color: Color, fontSize: TextUnit, content: () -> Unit) {
-    Text(
-        text = text,
-        color = color,
-        fontSize = fontSize
-    )
-    content()
-}
-
-
-@Composable
-fun TexFieldMail(email: String, onTextChange: (String) -> Unit) {
-    TextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
-        value = email,
-        onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
-        leadingIcon = { Icon(Icons.Default.Email, null) }
-    )
-}
-
-
-@Composable
-fun IconBack(onClick: () -> Unit) {
-    Icon(
-        Icons.Default.KeyboardArrowLeft, "Atras",
-        tint = turquesaClaro,
-        modifier = Modifier.clickable { onClick() }
-    )
-}
-
-

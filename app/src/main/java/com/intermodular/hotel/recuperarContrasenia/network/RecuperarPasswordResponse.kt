@@ -1,4 +1,4 @@
-package com.intermodular.hotel.recuperarPassword.network
+package com.intermodular.hotel.recuperarContrasenia.network
 
 import com.google.gson.annotations.SerializedName
 
