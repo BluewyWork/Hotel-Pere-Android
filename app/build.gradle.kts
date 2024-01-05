@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.intermodular.hotel"
         minSdk = 28
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
