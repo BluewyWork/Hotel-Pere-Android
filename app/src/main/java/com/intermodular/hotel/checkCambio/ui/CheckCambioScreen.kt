@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
 import com.intermodular.hotel.core.navigations.Destinations
-import com.intermodular.hotel.registro.ui.IconBack
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -36,6 +35,7 @@ import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
+import com.intermodular.hotel.checkCambio.ui.composables.*
 
 @Composable
 fun CheckCambio(navController: NavController) {
@@ -57,7 +57,7 @@ fun CheckCambio(navController: NavController) {
 
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
-            IconBack {
+            IconAtras {
                 navController.navigate(Destinations.Registro.route)
             }
             Column(

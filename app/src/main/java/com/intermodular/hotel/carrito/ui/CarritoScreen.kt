@@ -2,11 +2,8 @@ package com.intermodular.hotel.carrito.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,19 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material.icons.outlined.ShoppingCart
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.composables.BottomBar
+import com.intermodular.hotel.carrito.ui.composables.*
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -145,7 +132,7 @@ fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
                             .fillMaxWidth()
                     )
                 }
-                BillItem(superItem)
+                CardFactura(superItem)
                 Spacer(
                     Modifier
                         .width(16.dp)
@@ -159,63 +146,4 @@ fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
             )
         }
     }
-}
-
-@Composable
-fun BillItem(items: HashMap<String, Int>) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { }
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-        ) {
-            var totalCost = 0
-            for ((itemName, cost) in items) {
-                totalCost += cost
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text1(text = itemName)
-                    Text1(text = "$cost EUROS")
-                }
-                Divider(
-                    modifier = Modifier
-                        .padding(vertical = 5.dp)
-                )
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text1(text = "SUBTOTAL:")
-                Text1(text = "$totalCost Euros")
-            }
-        }
-    }
-}
-
-@Composable
-fun BuyButton() {
-    Button(
-        onClick = { /*TODO*/ },
-        modifier = Modifier
-            .clip(shape = RoundedCornerShape(8.dp))
-            .fillMaxWidth()
-    ) {
-        Text(text = "CHECKOUT")
-    }
-}
-
-@Composable
-fun Text1(text: String) {
-    Text(
-        text = text,
-        fontSize = 16.sp,
-        fontWeight = FontWeight.Bold
-    )
 }
