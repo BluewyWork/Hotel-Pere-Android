@@ -39,6 +39,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.intermodular.hotel.composables.BottomBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -47,7 +48,7 @@ fun CarritoScreen(
 ) {
     Scaffold(
         bottomBar = {
-            BottomBar()
+            BottomBar(navController)
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -157,57 +158,6 @@ fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
                     .height(80.dp)
             )
         }
-    }
-}
-
-@Composable
-fun BottomBar() {
-    NavigationBar(
-        modifier = Modifier
-            .height(50.dp),
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-        contentColor = MaterialTheme.colorScheme.primary
-    ) {
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Home,
-                    contentDescription = "Home",
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Search,
-                    contentDescription = "Search"
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = true,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.ShoppingCart,
-                    contentDescription = "Cart",
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Person,
-                    contentDescription = "Person",
-                )
-            }
-        )
     }
 }
 

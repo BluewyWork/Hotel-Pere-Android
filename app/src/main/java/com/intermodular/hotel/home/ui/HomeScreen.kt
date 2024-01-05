@@ -39,12 +39,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.composables.BottomBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen() {
-    Scaffold(topBar = { SmallTopBar() }, bottomBar = { BottomBar() }) {
+fun HomeScreen(navController: NavController) {
+    Scaffold(topBar = { SmallTopBar() }, bottomBar = { BottomBar(navController) }) {
         Home()
     }
 }
@@ -147,57 +149,6 @@ fun SmallTopBar() {
         modifier = Modifier
             .height(50.dp)
     )
-}
-
-@Composable
-fun BottomBar() {
-    NavigationBar(
-        modifier = Modifier
-            .height(50.dp),
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-        contentColor = MaterialTheme.colorScheme.primary
-    ) {
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Home,
-                    contentDescription = "Home",
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Search,
-                    contentDescription = "Search"
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.ShoppingCart,
-                    contentDescription = "Cart",
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
-            onClick = { },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Person,
-                    contentDescription = "Person",
-                )
-            }
-        )
-    }
 }
 
 @Composable

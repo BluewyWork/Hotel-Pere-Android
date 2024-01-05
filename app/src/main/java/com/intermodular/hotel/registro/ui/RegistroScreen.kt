@@ -36,7 +36,7 @@ import com.intermodular.hotel.registro.ui.composables.*
 
 
 @Composable
-fun Registro(
+fun RegistroScreen(
     navController: NavController,
     registroViewModel: RegistroViewModel
 ) {

@@ -1,4 +1,4 @@
-package com.intermodular.hotel.navigations
+package com.intermodular.hotel.core.navigations
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -7,8 +7,8 @@ import androidx.navigation.compose.rememberNavController
 import com.intermodular.hotel.carrito.ui.CarritoScreen
 import com.intermodular.hotel.checkCambio.ui.CheckCambio
 import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacion
-import com.intermodular.hotel.inicio.ui.Inicio
-import com.intermodular.hotel.login.ui.Login
+import com.intermodular.hotel.home.ui.HomeScreen
+import com.intermodular.hotel.login.ui.LoginScreen
 import com.intermodular.hotel.perfil.ui.Perfil
 import com.intermodular.hotel.recuperarPassword.ui.RecuperarPassword
 import com.intermodular.hotel.registro.ui.Registro
@@ -22,13 +22,10 @@ fun NavigationHost(
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Destinations.Perfil.route
+        startDestination = Destinations.Login.route
     ) {
-        composable(Destinations.Inicio.route) {
-            Inicio(navController)
-        }
         composable(Destinations.Login.route) {
-            Login(navController)
+            LoginScreen(navController)
         }
         composable(Destinations.Registro.route) {
             Registro(navController, registroViewModel)
@@ -45,8 +42,11 @@ fun NavigationHost(
         composable(Destinations.Perfil.route) {
             Perfil(navController)
         }
-        composable(Destinations.Perfil.route) {
+        composable(Destinations.Carrito.route) {
             CarritoScreen(navController)
+        }
+        composable(Destinations.Home.route) {
+            HomeScreen(navController)
         }
     }
 }

@@ -3,6 +3,7 @@ package com.intermodular.hotel.login.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -48,7 +49,7 @@ import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun Login(
+fun LoginScreen(
     navController: NavController
 ) {
     Box(
@@ -118,22 +119,22 @@ fun Body(navController: NavController) {
             TextFieldPassword(password = "Contraseña") {
 
             }
+            
+            TextRegister(navController = navController)
 
-            ButtonReg(text = "Iniciar sesión", color = turquesaPrincipal) {
-                // navController.navigate(Destinations.DeliveryIniciarSesion.route)
-            }
+            ButtonReg(text = "Iniciar sesión", color = turquesaPrincipal, navController = navController)
 
         }
     }
 }
 
 @Composable
-fun ButtonReg(text: String, color: Color, onClick: () -> Unit) {
+fun ButtonReg(text: String, color: Color, navController: NavController) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 20.dp, end = 30.dp, start = 40.dp),
-        onClick = onClick,
+        onClick = { navController.navigate("home") },
         colors = ButtonDefaults.buttonColors(color),
     ) {
         Text(text = text)
@@ -175,5 +176,14 @@ fun TextFieldMail(email: String, onTextChange: (String) -> Unit) {
         onValueChange = { onTextChange(it) },
         placeholder = { Text(text = "Email") },
         leadingIcon = { Icon(Icons.Default.Email, null) }
+    )
+}
+
+@Composable
+fun TextRegister(navController: NavController) {
+    Text(
+        modifier = Modifier
+            .clickable { navController.navigate("registro") },
+        text = "Haz click aqui para registrarte!"
     )
 }
