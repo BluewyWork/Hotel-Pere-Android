@@ -41,65 +41,19 @@ fun Home() {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 60.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
+            .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 66.dp)
     ) {
         item {
             LazyRow(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
+                    .padding(top = 16.dp, start = 4.dp, end = 4.dp, bottom = 16.dp)
             ) {
                 item {
-                    HotelCard()
-                    Spacer(
-                        modifier = Modifier
-                            .height(16.dp)
-                            .width(16.dp)
-                    )
-                    HotelCard()
-                    Spacer(
-                        modifier = Modifier
-                            .height(16.dp)
-                            .width(16.dp)
-                    )
-                    HotelCard()
-                    Spacer(
-                        modifier = Modifier
-                            .height(16.dp)
-                            .width(16.dp)
-                    )
-                    HotelCard()
-                    Spacer(
-                        modifier = Modifier
-                            .height(16.dp)
-                            .width(16.dp)
-                    )
+                    GenerateHotelCards()
                 }
             }
-            HotelCard()
-            Spacer(
-                modifier = Modifier
-                    .height(16.dp)
-                    .width(16.dp)
-            )
-            HotelCard()
-            Spacer(
-                modifier = Modifier
-                    .height(16.dp)
-                    .width(16.dp)
-            )
-            HotelCard()
-            Spacer(
-                modifier = Modifier
-                    .height(16.dp)
-                    .width(16.dp)
-            )
-            HotelCard()
-            Spacer(
-                modifier = Modifier
-                    .height(16.dp)
-                    .width(16.dp)
-            )
+            GenerateHotelCards()
         }
     }
 }
@@ -134,4 +88,16 @@ fun SmallTopBar() {
         modifier = Modifier
             .height(50.dp)
     )
+}
+
+@Composable
+fun GenerateHotelCards() {
+    for (i in 1..10) {
+        HotelCard()
+        Spacer(
+            modifier = Modifier
+                .height(16.dp)
+                .width(16.dp)
+        )
+    }
 }
