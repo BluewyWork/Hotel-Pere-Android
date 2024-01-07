@@ -55,7 +55,14 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("perfil") },
+            onClick = {
+                if (false) {
+                    // if user not logged in redirect to login screen
+                    //
+                } else {
+                    navController.navigate("perfil")
+                }
+            },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.Person,

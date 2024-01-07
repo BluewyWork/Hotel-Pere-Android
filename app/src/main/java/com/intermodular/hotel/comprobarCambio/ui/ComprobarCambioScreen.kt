@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.comprobarCambio.ui.composables.IconAtras
+import com.intermodular.hotel.composables.IconAtras
 import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2

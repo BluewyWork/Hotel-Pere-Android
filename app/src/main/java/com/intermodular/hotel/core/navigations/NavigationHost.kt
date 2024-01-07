@@ -22,7 +22,7 @@ fun NavigationHost(
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Destinations.Login.route
+        startDestination = Destinations.Home.route
     ) {
         composable(Destinations.Login.route) {
             LoginScreen(navController)

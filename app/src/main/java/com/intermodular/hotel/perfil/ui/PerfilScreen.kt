@@ -88,10 +88,7 @@ fun PerfilScreen(navController: NavController) {
                         Icon(Icons.Default.Add, contentDescription = "Editar")
                     }
                 }
-
-
             }
-
             body()
         }
     }

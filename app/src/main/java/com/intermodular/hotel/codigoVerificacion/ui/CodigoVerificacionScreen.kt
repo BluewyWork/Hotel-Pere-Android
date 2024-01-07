@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.codigoVerificacion.ui.composables.IconAtras
+import com.intermodular.hotel.composables.IconAtras
 import com.intermodular.hotel.codigoVerificacion.ui.composables.TextFieldNum
 import com.intermodular.hotel.codigoVerificacion.ui.composables.TextRen
 import com.intermodular.hotel.core.navigations.Destinations
