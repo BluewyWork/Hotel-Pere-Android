@@ -31,7 +31,7 @@ import com.intermodular.hotel.home.ui.composables.*
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavController) {
-    Scaffold(topBar = { SmallTopBar() }, bottomBar = { BottomBar(navController) }) {
+    Scaffold(bottomBar = { BottomBar(navController) }) {
         Home()
     }
 }
