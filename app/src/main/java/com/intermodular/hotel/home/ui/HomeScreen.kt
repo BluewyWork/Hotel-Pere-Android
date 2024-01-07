@@ -58,38 +58,6 @@ fun Home() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SmallTopBar() {
-    TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.primary,
-        ),
-        navigationIcon = {
-            IconButton(onClick = { /*TODO*/ }) {
-                Icon(
-                    imageVector = Icons.Filled.Menu,
-                    contentDescription = "Menu",
-                    modifier = Modifier.size(100.dp)
-                )
-            }
-        },
-        actions = {
-            Icon(
-                imageVector = Icons.Filled.Search,
-                contentDescription = "Search",
-                modifier = Modifier
-                    .size(50.dp)
-                    .clickable { }
-            )
-        },
-        title = { Text("") },
-        modifier = Modifier
-            .height(50.dp)
-    )
-}
-
 @Composable
 fun GenerateHotelCards() {
     for (i in 1..10) {
