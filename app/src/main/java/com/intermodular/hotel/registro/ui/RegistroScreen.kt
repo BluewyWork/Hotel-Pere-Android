@@ -27,7 +27,7 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.registro.ui.composables.ButtonLogo
 import com.intermodular.hotel.registro.ui.composables.ButtonRegistro
-import com.intermodular.hotel.registro.ui.composables.IconAtras
+import com.intermodular.hotel.composables.IconAtras
 import com.intermodular.hotel.registro.ui.composables.MostrarError
 import com.intermodular.hotel.registro.ui.composables.Text
 import com.intermodular.hotel.registro.ui.composables.TextFieldMail

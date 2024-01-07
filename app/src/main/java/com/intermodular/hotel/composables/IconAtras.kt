@@ -1,4 +1,4 @@
-package com.intermodular.hotel.recuperarContrasenia.ui.composables
+package com.intermodular.hotel.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
