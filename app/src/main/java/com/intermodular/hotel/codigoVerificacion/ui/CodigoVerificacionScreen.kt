@@ -28,9 +28,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.composables.IconAtras
 import com.intermodular.hotel.codigoVerificacion.ui.composables.TextFieldNum
 import com.intermodular.hotel.codigoVerificacion.ui.composables.TextRen
+import com.intermodular.hotel.composables.IconAtras
 import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
