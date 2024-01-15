@@ -48,53 +48,22 @@ fun CarritoScreen(
             }
         }
     ) {
-        var superItems: HashMap<String, HashMap<String, Int>> = HashMap()
-        var items: HashMap<String, Int> = HashMap()
-        items["Habitacion 1"] = 50
-        items["Habitacion 2"] = 150
-        items["Habitacion 3"] = 250
-        items["Habitacion 4"] = 350
-        items["Habitacion 5"] = 450
-        superItems["Set 1"] = items
 
-        var items2: HashMap<String, Int> = HashMap()
-        items2["Habitacion 1"] = 50
-        items2["Habitacion 2"] = 150
-        items2["Habitacion 3"] = 250
-        items2["Habitacion 4"] = 350
-        items2["Habitacion 5"] = 450
-
-        var items3: HashMap<String, Int> = HashMap()
-        items3["Habitacion 1"] = 50
-        items3["Habitacion 2"] = 150
-        items3["Habitacion 3"] = 250
-        items3["Habitacion 4"] = 350
-        items3["Habitacion 5"] = 450
-
-        superItems["Set 2"] = items2
-        superItems["Set 3"] = items3
-
-        var totalCost = 0
-        for ((setKey, itemsMini) in superItems) {
-            var subtotal = 0
-
-            for ((_, value) in itemsMini) {
-                subtotal += value
-            }
-
-            totalCost += subtotal
-        }
 
         Column {
+            Spacer(
+                Modifier
+                    .width(16.dp)
+                    .height(16.dp)
+            )
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
                     .background(MaterialTheme.colorScheme.primaryContainer)
                     .clip(RoundedCornerShape(8.dp))
             ) {
                 Text(
-                    text = "TOTAL: $totalCost EUROS",
+                    text = "TOTAL: ${sampleGetTotalCost(sampleData())} EUROS",
                     textAlign = TextAlign.Center,
                     fontSize = 16.sp,
                     modifier = Modifier
@@ -104,7 +73,7 @@ fun CarritoScreen(
             }
 
         }
-        Cart(superItems)
+        Cart(sampleData())
     }
 }
 
@@ -146,4 +115,51 @@ fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
             )
         }
     }
+}
+
+fun sampleData(): HashMap<String, HashMap<String, Int>> {
+    val superItems: HashMap<String, HashMap<String, Int>> = HashMap()
+    val items: HashMap<String, Int> = HashMap()
+    items["Habitacion 1"] = 50
+    items["Habitacion 2"] = 150
+    items["Habitacion 3"] = 250
+    items["Habitacion 4"] = 350
+    items["Habitacion 5"] = 450
+    superItems["Set 1"] = items
+
+    val items2: HashMap<String, Int> = HashMap()
+    items2["Habitacion 1"] = 50
+    items2["Habitacion 2"] = 150
+    items2["Habitacion 3"] = 250
+    items2["Habitacion 4"] = 350
+    items2["Habitacion 5"] = 450
+
+    val items3: HashMap<String, Int> = HashMap()
+    items3["Habitacion 1"] = 50
+    items3["Habitacion 2"] = 150
+    items3["Habitacion 3"] = 250
+    items3["Habitacion 4"] = 350
+    items3["Habitacion 5"] = 450
+
+    superItems["Set 2"] = items2
+    superItems["Set 3"] = items3
+
+
+
+    return superItems
+}
+
+fun sampleGetTotalCost(superItems: HashMap<String, HashMap<String, Int>>): Double {
+    var totalCost: Double = 0.0
+    for ((_, itemsMini) in superItems) {
+        var subtotal = 0
+
+        for ((_, value) in itemsMini) {
+            subtotal += value
+        }
+
+        totalCost += subtotal
+    }
+
+    return totalCost
 }
