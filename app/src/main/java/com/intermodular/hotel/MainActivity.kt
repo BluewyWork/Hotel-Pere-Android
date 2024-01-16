@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.intermodular.hotel.core.navigations.NavigationHost
+import com.intermodular.hotel.habitacionDetalles.Details
 import com.intermodular.hotel.registro.ui.RegistroViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,6 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             NavigationHost(registroViewModel)
+//            Details();
         }
     }
 }

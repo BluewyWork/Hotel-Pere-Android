@@ -13,4 +13,6 @@ sealed class Destinations(
     object Carrito : Destinations("carrito")
 
     object Home : Destinations("home")
+
+    object Details: Destinations("details")
 }
