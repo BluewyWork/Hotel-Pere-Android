@@ -5,6 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.intermodular.hotel.carrito.ui.CarritoScreen
+import com.intermodular.hotel.carrito.ui.CarritoViewModel
 import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacionScreen
 import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
 import com.intermodular.hotel.home.ui.HomeScreen
@@ -18,6 +19,7 @@ import com.intermodular.hotel.registro.ui.RegistroViewModel
 
 fun NavigationHost(
     registroViewModel: RegistroViewModel,
+    carritoViewModel: CarritoViewModel,
 ) {
     val navController = rememberNavController()
     NavHost(
@@ -43,7 +45,7 @@ fun NavigationHost(
             PerfilScreen(navController)
         }
         composable(Destinations.Carrito.route) {
-            CarritoScreen(navController)
+            CarritoScreen(navController, carritoViewModel)
         }
         composable(Destinations.Home.route) {
             HomeScreen(navController)

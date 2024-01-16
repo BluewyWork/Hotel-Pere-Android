@@ -18,6 +18,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
@@ -31,7 +33,8 @@ import com.intermodular.hotel.composables.BottomBar
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun CarritoScreen(
-    navController: NavController
+    navController: NavController,
+    carritoViewModel: CarritoViewModel
 ) {
     Scaffold(
         bottomBar = {
@@ -48,8 +51,7 @@ fun CarritoScreen(
             }
         }
     ) {
-
-
+        carritoViewModel.generateSampleData()
         Column {
             Spacer(
                 Modifier
@@ -62,18 +64,21 @@ fun CarritoScreen(
                     .background(MaterialTheme.colorScheme.primaryContainer)
                     .clip(RoundedCornerShape(8.dp))
             ) {
-                Text(
-                    text = "TOTAL: ${sampleGetTotalCost(sampleData())} EUROS",
-                    textAlign = TextAlign.Center,
-                    fontSize = 16.sp,
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                )
+                val itemsTotalCost: Double? by carritoViewModel.itemsTotalCost.observeAsState()
+                if (itemsTotalCost != null) {
+                    Text(
+                        text = "TOTAL: $itemsTotalCost EUROS",
+                        textAlign = TextAlign.Center,
+                        fontSize = 16.sp,
+                        modifier = Modifier
+                            .padding(16.dp)
+                            .fillMaxWidth()
+                    )
+                }
             }
-
         }
-        Cart(sampleData())
+        val items: HashMap<String, HashMap<String, Int>>? by carritoViewModel.items.observeAsState()
+        items?.let { Cart(it) }
     }
 }
 
@@ -115,51 +120,4 @@ fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
             )
         }
     }
-}
-
-fun sampleData(): HashMap<String, HashMap<String, Int>> {
-    val superItems: HashMap<String, HashMap<String, Int>> = HashMap()
-    val items: HashMap<String, Int> = HashMap()
-    items["Habitacion 1"] = 50
-    items["Habitacion 2"] = 150
-    items["Habitacion 3"] = 250
-    items["Habitacion 4"] = 350
-    items["Habitacion 5"] = 450
-    superItems["Set 1"] = items
-
-    val items2: HashMap<String, Int> = HashMap()
-    items2["Habitacion 1"] = 50
-    items2["Habitacion 2"] = 150
-    items2["Habitacion 3"] = 250
-    items2["Habitacion 4"] = 350
-    items2["Habitacion 5"] = 450
-
-    val items3: HashMap<String, Int> = HashMap()
-    items3["Habitacion 1"] = 50
-    items3["Habitacion 2"] = 150
-    items3["Habitacion 3"] = 250
-    items3["Habitacion 4"] = 350
-    items3["Habitacion 5"] = 450
-
-    superItems["Set 2"] = items2
-    superItems["Set 3"] = items3
-
-
-
-    return superItems
-}
-
-fun sampleGetTotalCost(superItems: HashMap<String, HashMap<String, Int>>): Double {
-    var totalCost: Double = 0.0
-    for ((_, itemsMini) in superItems) {
-        var subtotal = 0
-
-        for ((_, value) in itemsMini) {
-            subtotal += value
-        }
-
-        totalCost += subtotal
-    }
-
-    return totalCost
 }
