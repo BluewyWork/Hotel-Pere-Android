@@ -35,7 +35,8 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { TODO() },
+            //Hay que cambiarlo
+            onClick = { navController.navigate("details") },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.Search,
