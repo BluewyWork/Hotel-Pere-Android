@@ -35,6 +35,7 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
+            //Hay que cambiarlo
             onClick = { navController.navigate("details") },
             icon = {
                 Icon(
