@@ -11,9 +11,10 @@ import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.intermodular.hotel.carrito.data.model.HotelRoomModel
 
 @Composable
-fun CardFactura(items: HashMap<String, Int>) {
+fun CardHotelRooms(hotelRooms: List<HotelRoomModel>) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -24,15 +25,13 @@ fun CardFactura(items: HashMap<String, Int>) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            var totalCost = 0
-            for ((itemName, cost) in items) {
-                totalCost += cost
+            for (hotelRoom in hotelRooms) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text1(text = itemName)
-                    Text1(text = "$cost EUROS")
+                    Text1(text = hotelRoom.roomId)
+                    Text1(text = "XXX EUROS")
                 }
                 Divider(
                     modifier = Modifier
@@ -44,7 +43,7 @@ fun CardFactura(items: HashMap<String, Int>) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text1(text = "SUBTOTAL:")
-                Text1(text = "$totalCost Euros")
+                Text1(text = "XXX Euros")
             }
         }
     }

@@ -52,7 +52,7 @@ fun NavigationHost(
             HomeScreen(navController)
         }
 
-        composable(Destinations.Details.route){
+        composable(Destinations.Details.route) {
             DetailsScreen(navController)
         }
 

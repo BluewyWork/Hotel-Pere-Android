@@ -16,6 +16,8 @@ class MainActivity : ComponentActivity() {
     private val carritoViewModel: CarritoViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        carritoViewModel.onCreate()
+
         setContent {
             IntermodularHotelTheme {
                 NavigationHost(registroViewModel, carritoViewModel)

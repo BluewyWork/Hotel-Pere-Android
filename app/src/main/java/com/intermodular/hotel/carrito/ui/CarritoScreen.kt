@@ -22,11 +22,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.intermodular.hotel.carrito.data.model.HotelRoomModel
 import com.intermodular.hotel.carrito.ui.composables.*
 import com.intermodular.hotel.composables.BottomBar
 
@@ -51,7 +51,6 @@ fun CarritoScreen(
             }
         }
     ) {
-        carritoViewModel.generateSampleData()
         Column {
             Spacer(
                 Modifier
@@ -64,60 +63,32 @@ fun CarritoScreen(
                     .background(MaterialTheme.colorScheme.primaryContainer)
                     .clip(RoundedCornerShape(8.dp))
             ) {
-                val itemsTotalCost: Double? by carritoViewModel.itemsTotalCost.observeAsState()
-                if (itemsTotalCost != null) {
-                    Text(
-                        text = "TOTAL: $itemsTotalCost EUROS",
-                        textAlign = TextAlign.Center,
-                        fontSize = 16.sp,
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth()
-                    )
-                }
+                Text(
+                    text = "TOTAL: XXX EUROS",
+                    textAlign = TextAlign.Center,
+                    fontSize = 16.sp,
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                )
             }
         }
-        val items: HashMap<String, HashMap<String, Int>>? by carritoViewModel.items.observeAsState()
-        items?.let { Cart(it) }
+        Cart(carritoViewModel = carritoViewModel)
     }
 }
 
 @Composable
-fun Cart(superItems: HashMap<String, HashMap<String, Int>>) {
+fun Cart(carritoViewModel: CarritoViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(top = 75.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
     ) {
         item {
-            Spacer(
-                Modifier
-                    .width(16.dp)
-                    .height(16.dp)
-            )
-            for ((title, superItem) in superItems) {
-                Box {
-                    Text(
-                        text = title,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    )
-                }
-                CardFactura(superItem)
-                Spacer(
-                    Modifier
-                        .width(16.dp)
-                        .height(16.dp)
-                )
+            val hotelRooms: List<HotelRoomModel>? by carritoViewModel.hotelRooms.observeAsState()
+            if (!hotelRooms.isNullOrEmpty()) {
+                CardHotelRooms(hotelRooms = hotelRooms!!)
             }
-            Spacer(
-                Modifier
-                    .width(16.dp)
-                    .height(80.dp)
-            )
         }
     }
 }
