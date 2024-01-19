@@ -1,4 +1,4 @@
-package com.intermodular.hotel.carrito.ui
+package com.intermodular.hotel.cart.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -26,15 +26,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.intermodular.hotel.carrito.data.model.HotelRoomModel
-import com.intermodular.hotel.carrito.ui.composables.*
+import com.intermodular.hotel.cart.data.model.HotelRoomModel
+import com.intermodular.hotel.cart.ui.composables.*
 import com.intermodular.hotel.composables.BottomBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun CarritoScreen(
     navController: NavController,
-    carritoViewModel: CarritoViewModel
+    cartViewModel: CartViewModel
 ) {
     Scaffold(
         bottomBar = {
@@ -73,19 +73,19 @@ fun CarritoScreen(
                 )
             }
         }
-        Cart(carritoViewModel = carritoViewModel)
+        Cart(cartViewModel = cartViewModel)
     }
 }
 
 @Composable
-fun Cart(carritoViewModel: CarritoViewModel) {
+fun Cart(cartViewModel: CartViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(top = 75.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
     ) {
         item {
-            val hotelRooms: List<HotelRoomModel>? by carritoViewModel.hotelRooms.observeAsState()
+            val hotelRooms: List<HotelRoomModel>? by cartViewModel.hotelRooms.observeAsState()
             if (!hotelRooms.isNullOrEmpty()) {
                 CardHotelRooms(hotelRooms = hotelRooms!!)
             }

@@ -1,6 +1,6 @@
-package com.intermodular.hotel.carrito.data.network
+package com.intermodular.hotel.cart.data.network
 
-import com.intermodular.hotel.carrito.data.model.HotelRoomModel
+import com.intermodular.hotel.cart.data.model.HotelRoomModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

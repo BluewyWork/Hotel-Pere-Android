@@ -1,4 +1,4 @@
-package com.intermodular.hotel.carrito.ui.composables
+package com.intermodular.hotel.cart.ui.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +11,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.intermodular.hotel.carrito.data.model.HotelRoomModel
+import com.intermodular.hotel.cart.data.model.HotelRoomModel
 
 @Composable
 fun CardHotelRooms(hotelRooms: List<HotelRoomModel>) {

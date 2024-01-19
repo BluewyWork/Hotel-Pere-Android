@@ -1,4 +1,4 @@
-package com.intermodular.hotel.carrito.data.model
+package com.intermodular.hotel.cart.data.model
 
 class HotelRoomProvider {
     companion object {

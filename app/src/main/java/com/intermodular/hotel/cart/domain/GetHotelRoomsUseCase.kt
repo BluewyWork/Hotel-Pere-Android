@@ -1,7 +1,7 @@
-package com.intermodular.hotel.carrito.domain
+package com.intermodular.hotel.cart.domain
 
-import com.intermodular.hotel.carrito.data.HotelRoomRepository
-import com.intermodular.hotel.carrito.data.model.HotelRoomModel
+import com.intermodular.hotel.cart.data.HotelRoomRepository
+import com.intermodular.hotel.cart.data.model.HotelRoomModel
 
 class GetHotelRoomsUseCase {
     private val repository = HotelRoomRepository()

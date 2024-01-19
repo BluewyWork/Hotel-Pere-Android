@@ -1,4 +1,4 @@
-package com.intermodular.hotel.carrito.ui.composables
+package com.intermodular.hotel.cart.ui.composables
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
