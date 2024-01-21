@@ -10,22 +10,25 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.composables.BottomBar
+import com.intermodular.hotel.home.data.model.HotelRoomModel
 import com.intermodular.hotel.home.ui.composables.*
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel) {
     Scaffold(bottomBar = { BottomBar(navController) }) {
-        Home()
+        Home(homeViewModel)
     }
 }
 
 @Composable
-fun Home() {
+fun Home(homeViewModel: HomeViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -38,22 +41,25 @@ fun Home() {
                     .padding(top = 16.dp, start = 4.dp, end = 4.dp, bottom = 16.dp)
             ) {
                 item {
-                    GenerateHotelCards()
+                    GenerateHotelCards(homeViewModel)
                 }
             }
-            GenerateHotelCards()
+            GenerateHotelCards(homeViewModel)
         }
     }
 }
 
 @Composable
-fun GenerateHotelCards() {
-    for (i in 1..10) {
-        HotelCard()
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-                .width(16.dp)
-        )
+fun GenerateHotelCards(homeViewModel: HomeViewModel) {
+    val hotelRooms: List<HotelRoomModel>? by homeViewModel.hotelRooms.observeAsState()
+    if (!hotelRooms.isNullOrEmpty()) {
+        for (i in hotelRooms!!) {
+            HotelCard()
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+                    .width(16.dp)
+            )
+        }
     }
 }

@@ -14,5 +14,5 @@ sealed class Destinations(
 
     object Home : Destinations("home")
 
-    object Details: Destinations("details")
+    object Details : Destinations("details")
 }

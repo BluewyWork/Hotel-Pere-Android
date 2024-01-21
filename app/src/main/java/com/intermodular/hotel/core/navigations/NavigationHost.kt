@@ -4,12 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.intermodular.hotel.carrito.ui.CarritoScreen
-import com.intermodular.hotel.carrito.ui.CarritoViewModel
+import com.intermodular.hotel.cart.ui.CarritoScreen
+import com.intermodular.hotel.cart.ui.CartViewModel
 import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacionScreen
 import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
 import com.intermodular.hotel.habitacionDetalles.DetailsScreen
 import com.intermodular.hotel.home.ui.HomeScreen
+import com.intermodular.hotel.home.ui.HomeViewModel
 import com.intermodular.hotel.login.ui.LoginScreen
 import com.intermodular.hotel.perfil.ui.PerfilScreen
 import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
@@ -20,7 +21,8 @@ import com.intermodular.hotel.registro.ui.RegistroViewModel
 
 fun NavigationHost(
     registroViewModel: RegistroViewModel,
-    carritoViewModel: CarritoViewModel,
+    cartViewModel: CartViewModel,
+    homeViewModel: HomeViewModel
 ) {
     val navController = rememberNavController()
     NavHost(
@@ -46,13 +48,13 @@ fun NavigationHost(
             PerfilScreen(navController)
         }
         composable(Destinations.Carrito.route) {
-            CarritoScreen(navController, carritoViewModel)
+            CarritoScreen(navController, cartViewModel)
         }
         composable(Destinations.Home.route) {
-            HomeScreen(navController)
+            HomeScreen(navController, homeViewModel)
         }
 
-        composable(Destinations.Details.route){
+        composable(Destinations.Details.route) {
             DetailsScreen(navController)
         }
 
