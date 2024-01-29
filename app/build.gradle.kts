@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -73,6 +75,9 @@ dependencies {
 
     //
     implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+    //Room
+    implementation("androidx.room:room-ktx:2.4.0")
+    kapt("androidx.room:room-compiler:2.4.0")
 }
 
 kapt {

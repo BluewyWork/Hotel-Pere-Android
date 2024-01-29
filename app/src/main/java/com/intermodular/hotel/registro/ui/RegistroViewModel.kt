@@ -22,8 +22,8 @@ class RegistroViewModel @Inject constructor(private val registroUseCase: Registr
     val isLogEnable: LiveData<Boolean> = _isLogEnable
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLogEnable
-    private val _errorMessage = MutableLiveData<String>()
-    val errorMessage: LiveData<String> = _errorMessage
+    private val _errorMessage = MutableLiveData<String?>()
+    val errorMessage: MutableLiveData<String?> = _errorMessage
 
     fun clearErrorMessage() {
         _errorMessage.value = null

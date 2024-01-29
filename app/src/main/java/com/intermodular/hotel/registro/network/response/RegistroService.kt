@@ -1,6 +1,8 @@
-package com.intermodular.hotel.login.network.response
+package com.intermodular.hotel.registro.network.response
 
-import com.intermodular.hotel.login.network.RegistroClient
+import com.intermodular.hotel.registro.network.RegistroClient
 import javax.inject.Inject
 
-class RegistroService @Inject constructor(private val registroClient: RegistroClient)
+class RegistroService @Inject constructor(/*private val registroClient: RegistroClient*/){
+
+}

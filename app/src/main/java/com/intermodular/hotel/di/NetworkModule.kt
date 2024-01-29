@@ -1,6 +1,7 @@
-package com.intermodular.hotel.core
+package com.intermodular.hotel.di
 
-import com.intermodular.hotel.login.network.RegistroClient
+import com.intermodular.hotel.data.network.RoomApiClient
+import com.intermodular.hotel.data.network.UserApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +22,13 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideSignUpClient(retrofit: Retrofit): RegistroClient {
-        return retrofit.create(RegistroClient::class.java)
+    fun provideUserApiClient(retrofit: Retrofit): UserApiClient {
+        return retrofit.create(UserApiClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRoomApiClient(retrofit: Retrofit): RoomApiClient {
+        return retrofit.create(RoomApiClient::class.java)
     }
 }
