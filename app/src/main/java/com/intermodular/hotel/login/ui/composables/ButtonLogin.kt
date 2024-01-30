@@ -10,16 +10,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.intermodular.hotel.login.ui.LoginViewModel
 
 @Composable
-fun ButtonLogin(text: String, color: Color, navController: NavController) {
+fun ButtonLogin(loginViewModel: LoginViewModel) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 20.dp, end = 30.dp, start = 40.dp),
-        onClick = { navController.navigate("home") },
-        colors = ButtonDefaults.buttonColors(color),
+        onClick = { loginViewModel.onLoginPress()},
     ) {
-        Text(text = text)
+        Text("Iniciar Session")
     }
 }

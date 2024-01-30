@@ -1,5 +1,6 @@
 package com.intermodular.hotel.login.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,22 +11,20 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val getUserUseCase: GetUserUseCase,
-) : ViewModel(){
-    val userModel = MutableLiveData<User>()
-    val isLoading = MutableLiveData<Boolean>()
+class LoginViewModel : ViewModel(){
+    private val _email = MutableLiveData<String>()
+    val email: LiveData<String> = _email
 
-    fun onCreate(){
-        viewModelScope.launch {
-            isLoading.postValue(true)
-            val result = getUserUseCase()
+    private val _password = MutableLiveData<String>()
+    val password: LiveData<String> = _password
 
-            if(!result.isNullOrEmpty()) {
-               userModel.postValue(result[0])
-               isLoading.postValue(false)
-            }
-        }
+    fun onLoginChanged(email: String, password: String) {
+        _email.value = email
+        _password.value = password
+    }
+
+    fun onLoginPress() {
+        println(email)
+        println(password)
     }
 }

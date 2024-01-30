@@ -12,6 +12,7 @@ import com.intermodular.hotel.habitacionDetalles.DetailsScreen
 import com.intermodular.hotel.home.ui.HomeScreen
 import com.intermodular.hotel.home.ui.HomeViewModel
 import com.intermodular.hotel.login.ui.LoginScreen
+import com.intermodular.hotel.login.ui.LoginViewModel
 import com.intermodular.hotel.perfil.ui.PerfilScreen
 import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
 import com.intermodular.hotel.registro.ui.RegistroScreen
@@ -22,15 +23,16 @@ import com.intermodular.hotel.registro.ui.RegistroViewModel
 fun NavigationHost(
     registroViewModel: RegistroViewModel,
     cartViewModel: CartViewModel,
-    homeViewModel: HomeViewModel
+    homeViewModel: HomeViewModel,
+    loginViewModel: LoginViewModel
 ) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Destinations.Home.route
+        startDestination = Destinations.Login.route
     ) {
         composable(Destinations.Login.route) {
-            LoginScreen(navController)
+            LoginScreen(navController, loginViewModel)
         }
         composable(Destinations.Registro.route) {
             RegistroScreen(navController, registroViewModel)
