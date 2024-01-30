@@ -112,7 +112,6 @@ fun Body(navController: NavController) {
                 color = turquesaPrincipal,
                 navController = navController
             )
-
         }
     }
 }

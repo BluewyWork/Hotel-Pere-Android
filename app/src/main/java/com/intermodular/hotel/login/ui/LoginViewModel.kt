@@ -26,9 +26,6 @@ class LoginViewModel @Inject constructor(
                userModel.postValue(result[0])
                isLoading.postValue(false)
             }
-
-
         }
-
     }
 }
