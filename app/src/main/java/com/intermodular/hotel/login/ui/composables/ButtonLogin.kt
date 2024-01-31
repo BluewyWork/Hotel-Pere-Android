@@ -18,7 +18,7 @@ fun ButtonLogin(loginViewModel: LoginViewModel) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 20.dp, end = 30.dp, start = 40.dp),
-        onClick = { loginViewModel.onLoginPress()},
+        onClick = { loginViewModel.onLoginPress() },
     ) {
         Text("Iniciar Session")
     }
