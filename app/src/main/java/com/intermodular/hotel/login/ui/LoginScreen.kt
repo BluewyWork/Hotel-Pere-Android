@@ -113,7 +113,7 @@ fun Body(navController: NavController, loginViewModel: LoginViewModel) {
 
             // TextRegister(navController = navController)
 
-            ButtonLogin(loginViewModel)
+            ButtonLogin(loginViewModel, navController)
         }
     }
 }
