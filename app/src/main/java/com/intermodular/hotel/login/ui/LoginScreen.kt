@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -24,18 +26,17 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.login.ui.composables.ButtonLogin
 import com.intermodular.hotel.login.ui.composables.TextFieldMail
 import com.intermodular.hotel.login.ui.composables.TextFieldPassword
-import com.intermodular.hotel.login.ui.composables.TextRegister
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
-import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
 fun LoginScreen(
-    navController: NavController
+    navController: NavController,
+    loginViewModel: LoginViewModel
 ) {
     Box(
         modifier = Modifier
@@ -66,7 +67,7 @@ fun LoginScreen(
                     .height(400.dp)
                     .padding(20.dp)
             ) {
-                Body(navController)
+                Body(navController, loginViewModel)
             }
 
         }
@@ -75,8 +76,9 @@ fun LoginScreen(
 }
 
 @Composable
-fun Body(navController: NavController) {
-    // val password: String by LogViewModel.password.observeAsState(initial="")
+fun Body(navController: NavController, loginViewModel: LoginViewModel) {
+    val email: String by loginViewModel.email.observeAsState(initial = "")
+    val password: String by loginViewModel.password.observeAsState(initial = "")
     Box(
         modifier = Modifier
             .background(
@@ -97,22 +99,21 @@ fun Body(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(40.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TextFieldMail(email = "Mail") {
-
+            TextFieldMail(email = email) {
+                loginViewModel.onEmailChange(
+                    it
+                )
             }
 
-            TextFieldPassword(password = "Contraseña") {
-
+            TextFieldPassword(password = password) {
+                loginViewModel.onPasswordChange(
+                    it
+                )
             }
 
-            TextRegister(navController = navController)
+            // TextRegister(navController = navController)
 
-            ButtonLogin(
-                text = "Iniciar sesión",
-                color = turquesaPrincipal,
-                navController = navController
-            )
-
+            ButtonLogin(loginViewModel, navController)
         }
     }
 }
