@@ -41,6 +41,6 @@ fun TextFieldPassword(password: String, onTextChange: (String) -> Unit) {
                 )
             }
         },
-        leadingIcon = { Icon(Icons.Filled.Lock, null) }
+        leadingIcon = { Icon(Icons.Filled.Lock, null) },
     )
 }

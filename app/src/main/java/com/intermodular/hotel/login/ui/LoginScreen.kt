@@ -26,14 +26,12 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.login.ui.composables.ButtonLogin
 import com.intermodular.hotel.login.ui.composables.TextFieldMail
 import com.intermodular.hotel.login.ui.composables.TextFieldPassword
-import com.intermodular.hotel.login.ui.composables.TextRegister
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
 import com.intermodular.hotel.ui.theme.gradient4
 import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
-import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
 fun LoginScreen(
@@ -102,16 +100,14 @@ fun Body(navController: NavController, loginViewModel: LoginViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TextFieldMail(email = email) {
-                loginViewModel.onLoginChanged(
-                    it,
-                    email
+                loginViewModel.onEmailChange(
+                    it
                 )
             }
 
             TextFieldPassword(password = password) {
-                loginViewModel.onLoginChanged(
-                    it,
-                    password
+                loginViewModel.onPasswordChange(
+                    it
                 )
             }
 
