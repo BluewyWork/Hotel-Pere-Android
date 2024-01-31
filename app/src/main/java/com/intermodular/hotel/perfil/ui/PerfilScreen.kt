@@ -22,6 +22,8 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,7 +47,7 @@ import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun PerfilScreen(navController: NavController) {
+fun PerfilScreen(navController: NavController, perfilViewModel: PerfilViewModel) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -89,13 +91,13 @@ fun PerfilScreen(navController: NavController) {
                     }
                 }
             }
-            body()
+            Body(perfilViewModel)
         }
     }
 }
 
 @Composable
-fun body() {
+fun Body(perfilViewModel: PerfilViewModel) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -117,7 +119,7 @@ fun body() {
                 text = "Tu información",
                 fontSize = 20.sp
             )
-            ConjuntoTextFieldPerfil()
+            ConjuntoTextFieldPerfil(perfilViewModel)
             Button(modifier = Modifier
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
@@ -130,10 +132,15 @@ fun body() {
 }
 
 @Composable
-fun ConjuntoTextFieldPerfil() {
-    TextFieldNombre(nombre = "Nombre") {}
-    TextFieldApellido(apellido = "Apellido") {}
-    TextFieldTelefono(telefono = "666666666") {}
-    TextFieldMail(email = "Mail") {}
+fun ConjuntoTextFieldPerfil(perfilViewModel: PerfilViewModel) {
+    val nombre: String by perfilViewModel.nombre.observeAsState(initial = "")
+    val apellidos: String by perfilViewModel.apellidos.observeAsState(initial = "")
+    val telefono: String by perfilViewModel.numeroDeTelefono.observeAsState(initial = "")
+    val email: String by perfilViewModel.apellidos.observeAsState(initial = "")
+
+    TextFieldNombre(nombre) {}
+    TextFieldApellido(apellidos) {}
+    TextFieldTelefono(telefono) {}
+    TextFieldMail(email) {}
 
 }
