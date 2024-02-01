@@ -46,7 +46,7 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("carrito") },
+            onClick = { navController.navigate("cart") },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.ShoppingCart,

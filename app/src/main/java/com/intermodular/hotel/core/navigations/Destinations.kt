@@ -9,7 +9,7 @@ sealed class Destinations(
     object CodigoVerificacion : Destinations("codigo")
     object CheckCambio : Destinations("check")
     object Profile : Destinations("profile")
-    object Carrito : Destinations("carrito")
+    object Cart : Destinations("cart")
 
     object Home : Destinations("home")
 

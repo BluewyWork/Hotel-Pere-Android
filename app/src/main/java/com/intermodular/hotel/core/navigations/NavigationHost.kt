@@ -51,7 +51,7 @@ fun NavigationHost(
         composable(Destinations.Profile.route) {
             ProfileScreen(navController, profileViewModel)
         }
-        composable(Destinations.Carrito.route) {
+        composable(Destinations.Cart.route) {
             CarritoScreen(navController, cartViewModel)
         }
         composable(Destinations.Home.route) {
