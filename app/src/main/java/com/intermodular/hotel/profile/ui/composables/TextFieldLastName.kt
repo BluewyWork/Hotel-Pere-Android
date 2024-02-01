@@ -1,4 +1,4 @@
-package com.intermodular.hotel.perfil.ui.composables
+package com.intermodular.hotel.profile.ui.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldApellido(apellido: String, onTextChange: (String) -> Unit) {
+fun TextFieldLastName(apellido: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
