@@ -1,4 +1,4 @@
-package com.intermodular.hotel.perfil.ui
+package com.intermodular.hotel.profile.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,10 +35,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.perfil.ui.composables.TextFieldApellido
-import com.intermodular.hotel.perfil.ui.composables.TextFieldMail
-import com.intermodular.hotel.perfil.ui.composables.TextFieldNombre
-import com.intermodular.hotel.perfil.ui.composables.TextFieldTelefono
+import com.intermodular.hotel.profile.ui.composables.TextFieldLastName
+import com.intermodular.hotel.profile.ui.composables.TextFieldEmail
+import com.intermodular.hotel.profile.ui.composables.TextFieldUsername
+import com.intermodular.hotel.profile.ui.composables.TextFieldPhoneNumber
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -47,7 +47,7 @@ import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun PerfilScreen(navController: NavController, perfilViewModel: PerfilViewModel) {
+fun ProfileScreen(navController: NavController, profileViewModel: ProfileViewModel) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -91,13 +91,13 @@ fun PerfilScreen(navController: NavController, perfilViewModel: PerfilViewModel)
                     }
                 }
             }
-            Body(perfilViewModel)
+            Profile(profileViewModel)
         }
     }
 }
 
 @Composable
-fun Body(perfilViewModel: PerfilViewModel) {
+fun Profile(profileViewModel: ProfileViewModel) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -119,12 +119,14 @@ fun Body(perfilViewModel: PerfilViewModel) {
                 text = "Tu información",
                 fontSize = 20.sp
             )
-            ConjuntoTextFieldPerfil(perfilViewModel)
+            ConjuntoTextFieldPerfil(profileViewModel)
             Button(modifier = Modifier
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                 onClick = {
-                }) {
+                    profileViewModel.onUpdatePress()
+                }
+            ) {
                 Text(text = "Actualizar")
             }
         }
@@ -132,15 +134,22 @@ fun Body(perfilViewModel: PerfilViewModel) {
 }
 
 @Composable
-fun ConjuntoTextFieldPerfil(perfilViewModel: PerfilViewModel) {
-    val nombre: String by perfilViewModel.nombre.observeAsState(initial = "")
-    val apellidos: String by perfilViewModel.apellidos.observeAsState(initial = "")
-    val telefono: String by perfilViewModel.numeroDeTelefono.observeAsState(initial = "")
-    val email: String by perfilViewModel.apellidos.observeAsState(initial = "")
+fun ConjuntoTextFieldPerfil(profileViewModel: ProfileViewModel) {
+    val username: String by profileViewModel.username.observeAsState(initial = "")
+    val lastName: String by profileViewModel.lastname.observeAsState(initial = "")
+    val phoneNumber: String by profileViewModel.phoneNumber.observeAsState(initial = "")
+    val email: String by profileViewModel.lastname.observeAsState(initial = "")
 
-    TextFieldNombre(nombre) {}
-    TextFieldApellido(apellidos) {}
-    TextFieldTelefono(telefono) {}
-    TextFieldMail(email) {}
-
+    TextFieldUsername(username) {
+        profileViewModel.onUsernameChange(it)
+    }
+    TextFieldLastName(lastName) {
+        profileViewModel.onLastNameChange(it)
+    }
+    TextFieldPhoneNumber(phoneNumber) {
+        profileViewModel.onPhoneNumberChange(it)
+    }
+    TextFieldEmail(email) {
+        profileViewModel.onEmailChange(it)
+    }
 }

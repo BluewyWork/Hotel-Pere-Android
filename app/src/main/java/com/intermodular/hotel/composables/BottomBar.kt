@@ -61,7 +61,7 @@ fun BottomBar(navController: NavController) {
                     // if user not logged in redirect to login screen
                     //
                 } else {
-                    navController.navigate("perfil")
+                    navController.navigate("profile")
                 }
             },
             icon = {
