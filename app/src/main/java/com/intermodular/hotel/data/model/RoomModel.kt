@@ -15,8 +15,10 @@ data class RoomModel(
 enum class Reserved {
     @SerializedName("cancelled")
     CANCELLED,
+
     @SerializedName("confirmed")
     CONFIRMED,
+
     @SerializedName("pending")
     PENDING
 }

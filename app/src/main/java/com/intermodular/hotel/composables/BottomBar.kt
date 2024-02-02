@@ -3,6 +3,7 @@ package com.intermodular.hotel.composables
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material.icons.outlined.ShoppingCart
@@ -41,6 +42,16 @@ fun BottomBar(navController: NavController) {
                 Icon(
                     imageVector = Icons.Outlined.Search,
                     contentDescription = "Search"
+                )
+            }
+        )
+        NavigationBarItem(
+            selected = false,
+            onClick = { navController.navigate("reservationsOverview") },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.List,
+                    contentDescription = "Cart",
                 )
             }
         )
