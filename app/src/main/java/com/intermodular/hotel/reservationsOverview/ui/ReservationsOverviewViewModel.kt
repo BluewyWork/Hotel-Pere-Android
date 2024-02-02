@@ -9,7 +9,7 @@ import com.intermodular.hotel.reservationsOverview.domain.GetAllReservationsUseC
 import kotlinx.coroutines.launch
 
 class ReservationsOverviewViewModel : ViewModel() {
-    val _reservations = MutableLiveData<List<ReservationModel>>()
+    private val _reservations = MutableLiveData<List<ReservationModel>>()
     val reservations: LiveData<List<ReservationModel>> = _reservations
 
     fun onCreate() {
