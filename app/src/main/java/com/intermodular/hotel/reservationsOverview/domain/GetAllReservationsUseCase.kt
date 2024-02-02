@@ -8,7 +8,7 @@ class GetAllReservationsUseCase {
         return generateReservations() ?: emptyList()
     }
 
-    fun generateReservations(): ArrayList<ReservationModel>? {
+    private fun generateReservations(): ArrayList<ReservationModel>? {
         val reservationList = ArrayList<ReservationModel>()
 
         val reservation1 = ReservationModel(
