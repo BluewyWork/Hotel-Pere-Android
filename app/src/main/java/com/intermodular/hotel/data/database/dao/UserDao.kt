@@ -13,7 +13,7 @@ interface UserDao {
     fun getUser(): List<UserEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(users:List<UserEntity>)
+    fun insertAll(users: List<UserEntity>)
 
     @Query("DELETE FROM user_table")
     fun clearUser()

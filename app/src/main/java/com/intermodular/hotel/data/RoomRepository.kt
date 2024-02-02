@@ -10,10 +10,10 @@ import javax.inject.Inject
 class RoomRepository @Inject constructor(
     private val api: RoomService,
     //private val roomDao: RoomDao
-){
+) {
     suspend fun getRoomsFromApi(): List<Room> {
         val response: List<RoomModel> = api.getRooms()
-        return response.map {it.toDomain()}
+        return response.map { it.toDomain() }
     }
     //Para Sqlite
     /*suspend fun getUserFromDataBase(): List<Room>{

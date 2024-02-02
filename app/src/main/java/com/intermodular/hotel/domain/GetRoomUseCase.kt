@@ -5,7 +5,7 @@ import com.intermodular.hotel.domain.model.Room
 import javax.inject.Inject
 
 
-class GetRoomUseCase  @Inject constructor(private val repository: RoomRepository) {
+class GetRoomUseCase @Inject constructor(private val repository: RoomRepository) {
     suspend operator fun invoke(): List<Room> {
         val rooms = repository.getRoomsFromApi()
         return rooms

@@ -35,10 +35,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.profile.ui.composables.TextFieldLastName
 import com.intermodular.hotel.profile.ui.composables.TextFieldEmail
-import com.intermodular.hotel.profile.ui.composables.TextFieldUsername
+import com.intermodular.hotel.profile.ui.composables.TextFieldLastName
 import com.intermodular.hotel.profile.ui.composables.TextFieldPhoneNumber
+import com.intermodular.hotel.profile.ui.composables.TextFieldUsername
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3

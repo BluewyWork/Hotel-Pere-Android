@@ -11,7 +11,7 @@ class GetUserUseCase @Inject constructor(private val repository: UserRepository)
 
         return if (users.isNotEmpty()) {
             repository.clearUser()
-            repository.insertUsers(users.map {it.toDatabase()})
+            repository.insertUsers(users.map { it.toDatabase() })
             users
         } else {
             repository.getUserFromDataBase()

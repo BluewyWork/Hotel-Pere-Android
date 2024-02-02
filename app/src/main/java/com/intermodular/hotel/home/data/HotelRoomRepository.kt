@@ -1,8 +1,8 @@
 package com.intermodular.hotel.home.data
 
-import com.intermodular.hotel.home.data.network.HotelRoomService
 import com.intermodular.hotel.home.data.model.HotelRoomModel
 import com.intermodular.hotel.home.data.model.HotelRoomProvider
+import com.intermodular.hotel.home.data.network.HotelRoomService
 
 class HotelRoomRepository {
     private val api = HotelRoomService()

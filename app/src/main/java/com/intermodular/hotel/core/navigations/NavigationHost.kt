@@ -18,6 +18,8 @@ import com.intermodular.hotel.profile.ui.ProfileViewModel
 import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
 import com.intermodular.hotel.registro.ui.RegistroScreen
 import com.intermodular.hotel.registro.ui.RegistroViewModel
+import com.intermodular.hotel.reservationsOverview.ui.ReservationsOverviewScreen
+import com.intermodular.hotel.reservationsOverview.ui.ReservationsOverviewViewModel
 
 @Composable
 
@@ -26,12 +28,13 @@ fun NavigationHost(
     cartViewModel: CartViewModel,
     homeViewModel: HomeViewModel,
     loginViewModel: LoginViewModel,
-    profileViewModel: ProfileViewModel
+    profileViewModel: ProfileViewModel,
+    reservationsOverviewViewModel: ReservationsOverviewViewModel
 ) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Destinations.Login.route
+        startDestination = Destinations.ReservationsOverview.route
     ) {
         composable(Destinations.Login.route) {
             LoginScreen(navController, loginViewModel)
@@ -57,10 +60,11 @@ fun NavigationHost(
         composable(Destinations.Home.route) {
             HomeScreen(navController, homeViewModel)
         }
-
         composable(Destinations.Details.route) {
             DetailsScreen(navController)
         }
-
+        composable(Destinations.ReservationsOverview.route) {
+            ReservationsOverviewScreen(reservationsOverviewViewModel, navController)
+        }
     }
 }

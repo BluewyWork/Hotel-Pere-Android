@@ -12,8 +12,11 @@ data class RoomModel(
     @SerializedName("bed") val bed: Int
 )
 
-enum class Reserved{
-    @SerializedName("cancelled") CANCELLED,
-    @SerializedName("confirmed") CONFIRMED,
-    @SerializedName("pending") PENDING
+enum class Reserved {
+    @SerializedName("cancelled")
+    CANCELLED,
+    @SerializedName("confirmed")
+    CONFIRMED,
+    @SerializedName("pending")
+    PENDING
 }
