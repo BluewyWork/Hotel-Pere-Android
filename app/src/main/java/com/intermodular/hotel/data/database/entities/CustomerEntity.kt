@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.intermodular.hotel.domain.model.Customer
 
-@Entity(tableName = "user_table")
+@Entity(tableName = "customer_table")
 data class CustomerEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
     @ColumnInfo(name = "email") val email: String,
