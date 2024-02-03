@@ -133,10 +133,10 @@ fun Profile(profileViewModel: ProfileViewModel) {
 
 @Composable
 fun ConjuntoTextFieldPerfil(profileViewModel: ProfileViewModel) {
-    val username: String by profileViewModel.username.observeAsState(initial = "")
-    val lastName: String by profileViewModel.lastname.observeAsState(initial = "")
+    val username: String by profileViewModel.name.observeAsState(initial = "")
+    val lastName: String by profileViewModel.surname.observeAsState(initial = "")
     val phoneNumber: String by profileViewModel.phoneNumber.observeAsState(initial = "")
-    val email: String by profileViewModel.lastname.observeAsState(initial = "")
+    val email: String by profileViewModel.surname.observeAsState(initial = "")
 
     TextFieldUsername(username) {
         profileViewModel.onUsernameChange(it)

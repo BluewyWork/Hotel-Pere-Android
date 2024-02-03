@@ -13,11 +13,11 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     private val getCustomerUseCase: GetCustomerUseCase
 ) : ViewModel() {
-    private val _username = MutableLiveData<String>()
-    val username: LiveData<String> = _username
+    private val _name = MutableLiveData<String>()
+    val name: LiveData<String> = _name
 
-    private val _lastname = MutableLiveData<String>()
-    val lastname: LiveData<String> = _lastname
+    private val _surname = MutableLiveData<String>()
+    val surname: LiveData<String> = _surname
 
     private val _phoneNumber = MutableLiveData<String>()
     val phoneNumber: LiveData<String> = _phoneNumber
@@ -25,12 +25,12 @@ class ProfileViewModel @Inject constructor(
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
 
-    fun onUsernameChange(username: String) {
-        _username.postValue(username)
+    fun onUsernameChange(name: String) {
+        _name.postValue(name)
     }
 
-    fun onLastNameChange(lastName: String) {
-        _lastname.postValue(lastName)
+    fun onLastNameChange(surname: String) {
+        _surname.postValue(surname)
     }
 
     fun onPhoneNumberChange(phoneNumber: String) {
@@ -45,8 +45,8 @@ class ProfileViewModel @Inject constructor(
         viewModelScope.launch {
             val customer = getCustomerUseCase.invoke() ?: return@launch
 
-            _username.postValue(customer.name)
-            _lastname.postValue(customer.surname)
+            _name.postValue(customer.name)
+            _surname.postValue(customer.surname)
             _email.postValue(customer.email)
         }
     }
