@@ -7,6 +7,6 @@ import com.intermodular.hotel.data.database.entities.CustomerEntity
 
 @Database(entities = [CustomerEntity::class], version = 1)//dentro del corchete van todas las
 // entidades que necesitemos crear
-abstract class HotelDataBase : RoomDatabase() {
+abstract class HotelDatabase : RoomDatabase() {
     abstract fun getUserDao(): CustomerDao//cada objeto Dao es una abstract fun
 }

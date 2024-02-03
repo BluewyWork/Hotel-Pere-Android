@@ -2,7 +2,7 @@ package com.intermodular.hotel.di
 
 import android.content.Context
 import androidx.room.Room
-import com.intermodular.hotel.data.database.HotelDataBase
+import com.intermodular.hotel.data.database.HotelDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,11 +18,11 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideRoom(@ApplicationContext context: Context) =
-        Room.databaseBuilder(context, HotelDataBase::class.java, HOTEL_DATABASE_NAME).build()
+        Room.databaseBuilder(context, HotelDatabase::class.java, HOTEL_DATABASE_NAME).build()
 
     @Singleton
     @Provides
-    fun provideUserDao(db: HotelDataBase) = db.getUserDao()
+    fun provideUserDao(db: HotelDatabase) = db.getUserDao()
     /*@Singleton
     @Provides
     fun provideRoomDao(db:HotelDataBase) = db.getRoomDao()*/
