@@ -28,8 +28,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.domain.model.Room
 import com.intermodular.hotel.presentation.composables.BottomBar
-import com.intermodular.hotel.presentation.screens.cart.composables.CardHotelRooms
-import com.intermodular.hotel.presentation.screens.cart.composables.Text1
+import com.intermodular.hotel.presentation.screens.cart.composables.HotelRoomCard
+import com.intermodular.hotel.presentation.screens.cart.composables.CustomText
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -48,7 +48,7 @@ fun CarritoScreen(
                     .fillMaxWidth()
                     .offset(x = 15.dp)
             ) {
-                Text1("Checkout")
+                CustomText("Checkout")
             }
         }
     ) {
@@ -88,7 +88,7 @@ fun Cart(cartViewModel: CartViewModel) {
         item {
             val hotelRooms: List<Room>? by cartViewModel.hotelRooms.observeAsState()
             if (!hotelRooms.isNullOrEmpty()) {
-                CardHotelRooms(hotelRooms = hotelRooms!!)
+                HotelRoomCard(hotelRooms = hotelRooms!!)
             }
         }
     }

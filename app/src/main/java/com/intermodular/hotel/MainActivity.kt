@@ -9,14 +9,14 @@ import com.intermodular.hotel.core.navigations.NavigationHost
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileViewModel
-import com.intermodular.hotel.presentation.screens.registro.RegistroViewModel
+import com.intermodular.hotel.presentation.screens.register.RegisterViewModel
 import com.intermodular.hotel.presentation.screens.reservationsOverview.ReservationsOverviewViewModel
 import com.intermodular.hotel.ui.theme.IntermodularHotelTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val registroViewModel: RegistroViewModel by viewModels()
+    private val registerViewModel: RegisterViewModel by viewModels()
     private val loginViewModel: LoginViewModel by viewModels()
     private val cartViewModel: CartViewModel by viewModels()
     private val homeViewModel: HomeViewModel by viewModels()
@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             IntermodularHotelTheme {
                 NavigationHost(
-                    registroViewModel,
+                    registerViewModel,
                     cartViewModel,
                     homeViewModel,
                     loginViewModel,

@@ -6,25 +6,25 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.intermodular.hotel.presentation.screens.cart.CarritoScreen
 import com.intermodular.hotel.presentation.screens.cart.CartViewModel
-import com.intermodular.hotel.presentation.screens.codigoVerificacion.CodigoVerificacionScreen
-import com.intermodular.hotel.presentation.screens.comprobarCambio.ComprobarCambioScreen
-import com.intermodular.hotel.presentation.screens.habitacionDetalles.DetailsScreen
+import com.intermodular.hotel.presentation.screens.verificationCode.VerificationCodeScreen
+import com.intermodular.hotel.presentation.screens.checkChange.CheckChangeScreen
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetails
 import com.intermodular.hotel.presentation.screens.home.HomeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginScreen
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileScreen
 import com.intermodular.hotel.presentation.screens.profile.ProfileViewModel
-import com.intermodular.hotel.presentation.screens.recuperarContrasenia.RecuperarPasswordScreen
-import com.intermodular.hotel.presentation.screens.registro.RegistroScreen
-import com.intermodular.hotel.presentation.screens.registro.RegistroViewModel
+import com.intermodular.hotel.presentation.screens.recoverPassword.RecoverPasswordScreen
+import com.intermodular.hotel.presentation.screens.register.RegisterScreen
+import com.intermodular.hotel.presentation.screens.register.RegisterViewModel
 import com.intermodular.hotel.presentation.screens.reservationsOverview.ReservationsOverviewScreen
 import com.intermodular.hotel.presentation.screens.reservationsOverview.ReservationsOverviewViewModel
 
 @Composable
 
 fun NavigationHost(
-    registroViewModel: RegistroViewModel,
+    registerViewModel: RegisterViewModel,
     cartViewModel: CartViewModel,
     homeViewModel: HomeViewModel,
     loginViewModel: LoginViewModel,
@@ -40,16 +40,16 @@ fun NavigationHost(
             LoginScreen(navController, loginViewModel)
         }
         composable(Destinations.Registro.route) {
-            RegistroScreen(navController, registroViewModel)
+            RegisterScreen(navController, registerViewModel)
         }
         composable(Destinations.RecuperarPassword.route) {
-            RecuperarPasswordScreen(navController)
+            RecoverPasswordScreen(navController)
         }
         composable(Destinations.CodigoVerificacion.route) {
-            CodigoVerificacionScreen(navController)
+            VerificationCodeScreen(navController)
         }
         composable(Destinations.CheckCambio.route) {
-            ComprobarCambioScreen(navController)
+            CheckChangeScreen(navController)
         }
         composable(Destinations.Profile.route) {
             ProfileScreen(navController, profileViewModel)
@@ -61,7 +61,7 @@ fun NavigationHost(
             HomeScreen(navController, homeViewModel)
         }
         composable(Destinations.Details.route) {
-            DetailsScreen(navController)
+            HotelRoomDetails(navController)
         }
         composable(Destinations.ReservationsOverview.route) {
             ReservationsOverviewScreen(reservationsOverviewViewModel, navController)
