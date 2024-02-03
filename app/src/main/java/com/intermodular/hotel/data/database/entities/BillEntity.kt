@@ -11,3 +11,9 @@ data class BillEntity(
     @ColumnInfo(name = "customerSurname") val customerSurname: String,
     @ColumnInfo(name = "totalAmountDue") val totalAmountDue: Double
 )
+
+fun BillEntity.toDatabase() = BillEntity(
+    customerName = customerName,
+    customerSurname = customerSurname,
+    totalAmountDue = totalAmountDue
+)

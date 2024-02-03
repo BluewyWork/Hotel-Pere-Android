@@ -17,6 +17,10 @@ data class HotelRoomEntity(
 )
 
 fun HotelRoom.toDatabase() = HotelRoomEntity(
-    number = number, section = section, image = image,
-    pricePerNight = pricePerNight, reserved = reserved, bed = bed
+    number = number,
+    section = section,
+    image = image,
+    pricePerNight = pricePerNight,
+    reserved = reserved,
+    bed = bed
 )

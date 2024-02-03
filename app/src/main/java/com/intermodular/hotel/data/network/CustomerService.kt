@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class UserService @Inject constructor(private val api: UserApiClient) {
+class CustomerService @Inject constructor(private val api: UserApiClient) {
     suspend fun getUser(): List<CustomerModel> {
         return withContext(Dispatchers.IO) {
             val response = api.getUser()

@@ -10,8 +10,21 @@ data class ReservationEntity(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "customerName") val customerName: String,
     @ColumnInfo(name = "customerSurname") val customerSurname: String,
+    @ColumnInfo(name = "customerEmail") val customerEmail: String,
     @ColumnInfo(name = "roomNumber") val roomNumber: Int,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
     @ColumnInfo(name = "checkIn") val checkIn: Date,
-    @ColumnInfo(name = "checkOut") val checkOut: Date
+    @ColumnInfo(name = "checkOut") val checkOut: Date,
+    @ColumnInfo(name = "reserved") val reserved: Boolean
+)
+
+fun ReservationEntity.toDatabase() = ReservationEntity(
+    customerName = customerName,
+    customerSurname = customerSurname,
+    customerEmail = customerEmail,
+    roomNumber = roomNumber,
+    pricePerNight = pricePerNight,
+    checkIn = checkIn,
+    checkOut = checkOut,
+    reserved = reserved
 )

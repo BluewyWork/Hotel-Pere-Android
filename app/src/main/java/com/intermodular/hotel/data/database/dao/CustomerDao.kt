@@ -15,5 +15,5 @@ interface CustomerDao {
     fun insertAll(users: List<CustomerEntity>)
 
     @Query("DELETE FROM user_table")
-    fun clearUser()
+    fun clearCustomer()
 }
