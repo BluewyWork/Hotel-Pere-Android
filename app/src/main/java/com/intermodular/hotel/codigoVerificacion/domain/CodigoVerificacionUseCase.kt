@@ -1,3 +1,0 @@
-package com.intermodular.hotel.codigoVerificacion.domain
-
-class CodigoVerificacionUseCase

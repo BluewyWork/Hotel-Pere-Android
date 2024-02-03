@@ -4,22 +4,22 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.intermodular.hotel.cart.ui.CarritoScreen
-import com.intermodular.hotel.cart.ui.CartViewModel
-import com.intermodular.hotel.codigoVerificacion.ui.CodigoVerificacionScreen
-import com.intermodular.hotel.comprobarCambio.ui.ComprobarCambioScreen
-import com.intermodular.hotel.habitacionDetalles.DetailsScreen
-import com.intermodular.hotel.home.ui.HomeScreen
-import com.intermodular.hotel.home.ui.HomeViewModel
-import com.intermodular.hotel.login.ui.LoginScreen
-import com.intermodular.hotel.login.ui.LoginViewModel
-import com.intermodular.hotel.profile.ui.ProfileScreen
-import com.intermodular.hotel.profile.ui.ProfileViewModel
-import com.intermodular.hotel.recuperarContrasenia.ui.RecuperarPasswordScreen
-import com.intermodular.hotel.registro.ui.RegistroScreen
-import com.intermodular.hotel.registro.ui.RegistroViewModel
-import com.intermodular.hotel.reservationsOverview.ui.ReservationsOverviewScreen
-import com.intermodular.hotel.reservationsOverview.ui.ReservationsOverviewViewModel
+import com.intermodular.hotel.presentation.screens.cart.CarritoScreen
+import com.intermodular.hotel.presentation.screens.cart.CartViewModel
+import com.intermodular.hotel.presentation.screens.codigoVerificacion.CodigoVerificacionScreen
+import com.intermodular.hotel.presentation.screens.comprobarCambio.ComprobarCambioScreen
+import com.intermodular.hotel.presentation.screens.habitacionDetalles.DetailsScreen
+import com.intermodular.hotel.presentation.screens.home.HomeScreen
+import com.intermodular.hotel.presentation.screens.home.HomeViewModel
+import com.intermodular.hotel.presentation.screens.login.LoginScreen
+import com.intermodular.hotel.presentation.screens.login.LoginViewModel
+import com.intermodular.hotel.presentation.screens.profile.ProfileScreen
+import com.intermodular.hotel.presentation.screens.profile.ProfileViewModel
+import com.intermodular.hotel.presentation.screens.recuperarContrasenia.RecuperarPasswordScreen
+import com.intermodular.hotel.presentation.screens.registro.RegistroScreen
+import com.intermodular.hotel.presentation.screens.registro.RegistroViewModel
+import com.intermodular.hotel.presentation.screens.reservationsOverview.ReservationsOverviewScreen
+import com.intermodular.hotel.presentation.screens.reservationsOverview.ReservationsOverviewViewModel
 
 @Composable
 

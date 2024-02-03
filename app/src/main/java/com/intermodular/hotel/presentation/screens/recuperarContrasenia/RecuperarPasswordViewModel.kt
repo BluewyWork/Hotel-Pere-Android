@@ -1,0 +1,3 @@
+package com.intermodular.hotel.presentation.screens.recuperarContrasenia
+
+open class RecuperarPasswordViewModel
