@@ -1,8 +1,8 @@
 package com.intermodular.hotel.presentation.screens.hotelRoomDetails
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -28,12 +28,15 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
-
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HotelRoomDetails(navController: NavController) {
-    Scaffold(bottomBar = { BottomBar(navController) }) {
-        HotelRoomDetails()
+    Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
+        Column(
+            Modifier
+                .padding(innerPadding)
+        ) {
+            HotelRoomDetails()
+        }
     }
 }
 
@@ -53,27 +56,23 @@ fun HotelRoomDetails() {
                     .fillMaxWidth()
                     .height(280.dp)
                     .clip(shape = RoundedCornerShape(10.dp))
-            );
+            )
 
-            Spacer(modifier = Modifier.height(20.dp));
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = "Habitación Standard",
                 Modifier.padding(start = 16.dp),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold
-            );
-            Spacer(modifier = Modifier.height(20.dp));
-
+            )
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = "Contrary to popular belief, Lorem Ipsum is not simply random text. " +
                         "It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ",
                 modifier = Modifier.padding(start = 16.dp),
                 fontSize = 18.sp
             )
-
-            Spacer(modifier = Modifier.height(20.dp));
-
-
+            Spacer(modifier = Modifier.height(20.dp))
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
                     .fillMaxSize()
@@ -84,12 +83,10 @@ fun HotelRoomDetails() {
                     Modifier.padding(start = 16.dp),
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold
-                );
+                )
 
-                Text(text = "2", Modifier.padding(start = 16.dp), fontSize = 25.sp);
+                Text(text = "2", Modifier.padding(start = 16.dp), fontSize = 25.sp)
             }
-
-
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
                     .fillMaxSize()
@@ -100,8 +97,8 @@ fun HotelRoomDetails() {
                     Modifier.padding(start = 16.dp),
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold
-                );
-                Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp);
+                )
+                Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp)
             }
 
             Row(
@@ -114,19 +111,19 @@ fun HotelRoomDetails() {
                     Modifier.padding(start = 16.dp),
                     fontSize = 25.sp,
                     fontWeight = FontWeight.Bold
-                );
+                )
 
-                Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp);
+                Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp)
             }
 
-            Spacer(modifier = Modifier.height(30.dp));
+            Spacer(modifier = Modifier.height(30.dp))
 
             Text(
                 text = "200€/noche",
                 Modifier.padding(start = 16.dp),
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold
-            );
+            )
 
             Button(modifier = Modifier
                 .fillMaxWidth()
@@ -136,10 +133,7 @@ fun HotelRoomDetails() {
                 }) {
                 Text(text = "Reservar")
             }
-
         }
     }
-
-
 }
 

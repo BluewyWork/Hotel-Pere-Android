@@ -11,6 +11,4 @@ interface UserApiClient {
 
     @POST("/.json")//modificar segun endPoint
     suspend fun insertOne(customerModel: CustomerModel)
-
-
 }

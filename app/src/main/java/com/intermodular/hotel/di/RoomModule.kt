@@ -13,7 +13,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RoomModule {
-
     private const val HOTEL_DATABASE_NAME = "HotelDataBase"
 
     @Singleton
@@ -24,7 +23,6 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideUserDao(db: HotelDataBase) = db.getUserDao()
-
     /*@Singleton
     @Provides
     fun provideRoomDao(db:HotelDataBase) = db.getRoomDao()*/

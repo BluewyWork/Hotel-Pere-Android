@@ -57,7 +57,6 @@ fun VerificationCodeScreen(navController: NavController) {
                 )
             ),
         contentAlignment = Alignment.Center
-
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             IconAtras {
@@ -99,7 +98,6 @@ fun VerificationCode() {
             verticalArrangement = Arrangement.spacedBy(35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             Text(
                 text = "Ingrese el código de verificación que acabamos de enviar a su correo",
                 fontSize = 20.sp,
@@ -112,7 +110,6 @@ fun VerificationCode() {
             ) {
                 repeat(4) {
                     NumberTextField {
-
                     }
                 }
             }

@@ -54,7 +54,6 @@ fun CheckChangeScreen(navController: NavController) {
                 )
             ),
         contentAlignment = Alignment.Center
-
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             IconAtras {
@@ -74,7 +73,6 @@ fun CheckChangeScreen(navController: NavController) {
                         .padding(start = 15.dp)
                 )
                 CheckChange()
-
             }
         }
     }
@@ -104,7 +102,6 @@ fun CheckChange() {
                 Modifier.size(100.dp)
             )
             Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
-
                 Text(
                     text = "¡Contraseña cambiada!",
                     fontSize = 20.sp,

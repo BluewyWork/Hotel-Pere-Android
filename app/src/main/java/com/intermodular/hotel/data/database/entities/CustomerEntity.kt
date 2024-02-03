@@ -15,4 +15,5 @@ data class CustomerEntity(
     @ColumnInfo(name = "surname") val surname: String
 )
 
-fun Customer.toDatabase() = CustomerEntity(name = name, surname = surname, email = email, token = token)
+fun Customer.toDatabase() =
+    CustomerEntity(name = name, surname = surname, email = email, token = token)

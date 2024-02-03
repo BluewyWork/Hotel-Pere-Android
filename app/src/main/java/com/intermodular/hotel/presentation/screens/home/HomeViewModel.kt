@@ -11,9 +11,7 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
     private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
     val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
-
     var getAllHotelRoomsUseCase = GetAllHotelRoomsUseCase()
-
     fun onCreate() {
         viewModelScope.launch {
             val result = getAllHotelRoomsUseCase()

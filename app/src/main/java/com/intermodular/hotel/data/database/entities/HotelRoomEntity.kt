@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.intermodular.hotel.domain.model.HotelRoom
 
-
 @Entity(tableName = "room_table")
 data class HotelRoomEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,

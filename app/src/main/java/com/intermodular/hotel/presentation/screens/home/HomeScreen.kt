@@ -1,6 +1,6 @@
 package com.intermodular.hotel.presentation.screens.home
 
-import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -19,11 +19,15 @@ import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.presentation.screens.home.composables.HotelCard
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel) {
-    Scaffold(bottomBar = { BottomBar(navController) }) {
-        Home(homeViewModel)
+    Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
+        Column(
+            Modifier
+                .padding(innerPadding)
+        ) {
+            Home(homeViewModel)
+        }
     }
 }
 
@@ -32,7 +36,7 @@ fun Home(homeViewModel: HomeViewModel) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 66.dp)
+            .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 0.dp)
     ) {
         item {
             LazyRow(

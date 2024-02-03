@@ -10,9 +10,7 @@ sealed class Destinations(
     object CheckChange : Destinations("CheckChange")
     object Profile : Destinations("profile")
     object Cart : Destinations("cart")
-
     object Home : Destinations("home")
-
     object Details : Destinations("details")
     object ReservationsOverview : Destinations("reservationsOverview")
 }

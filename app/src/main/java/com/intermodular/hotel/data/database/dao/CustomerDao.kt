@@ -8,7 +8,6 @@ import com.intermodular.hotel.data.database.entities.CustomerEntity
 
 @Dao
 interface CustomerDao {
-
     @Query("SELECT * FROM user_table ")
     fun getUser(): List<CustomerEntity>
 

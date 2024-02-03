@@ -17,5 +17,4 @@ class GetUserUseCase @Inject constructor(private val repository: UserRepository)
             repository.getUserFromDataBase()
         }
     }
-
 }

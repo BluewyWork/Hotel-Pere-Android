@@ -4,7 +4,6 @@ import com.intermodular.hotel.data.model.HotelRoomModel
 import com.intermodular.hotel.data.network.RoomService
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.domain.model.toDomain
-
 import javax.inject.Inject
 
 class RoomRepository @Inject constructor(

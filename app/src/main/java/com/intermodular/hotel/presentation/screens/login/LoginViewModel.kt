@@ -11,10 +11,8 @@ import kotlinx.coroutines.launch
 class LoginViewModel : ViewModel() {
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
-
     private val _password = MutableLiveData<String>()
     val password: LiveData<String> = _password
-
     fun onEmailChange(email: String) {
         _email.postValue(email)
     }
@@ -26,7 +24,6 @@ class LoginViewModel : ViewModel() {
     fun onLoginPress(navController: NavController) {
         viewModelScope.launch {
             val loginCustomerUseCase = LoginCustomerUseCase()
-
             val email = _email.value
             val password = _password.value
 

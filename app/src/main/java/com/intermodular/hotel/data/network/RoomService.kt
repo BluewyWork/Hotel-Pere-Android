@@ -12,5 +12,4 @@ class RoomService @Inject constructor(private val api: RoomApiClient) {
             response.body() ?: emptyList()
         }
     }
-
 }

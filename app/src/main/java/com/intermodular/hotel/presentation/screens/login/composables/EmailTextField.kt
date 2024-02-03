@@ -19,6 +19,5 @@ fun EmailTextField(email: String, onTextFieldChange: (String) -> Unit) {
         maxLines = 1,
         placeholder = { Text(text = "Email") },
         leadingIcon = { Icon(Icons.Default.Email, null) }
-
     )
 }

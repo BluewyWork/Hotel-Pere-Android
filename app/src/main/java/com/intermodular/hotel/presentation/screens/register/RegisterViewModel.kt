@@ -21,7 +21,6 @@ class RegisterViewModel @Inject constructor() :
     val isLoading: LiveData<Boolean> = _isLogEnable
     private val _errorMessage = MutableLiveData<String?>()
     val errorMessage: MutableLiveData<String?> = _errorMessage
-
     fun clearErrorMessage() {
         _errorMessage.value = null
     }
@@ -41,10 +40,7 @@ class RegisterViewModel @Inject constructor() :
         _password.value = password
         _passwordR.value = passwordR
         _isLogEnable.value = enableLog(nombre, email, passwordR, password)
-
     }
-
-
     /* fun onRegistroSelected(navController: NavController){
 
          viewModelScope.launch {

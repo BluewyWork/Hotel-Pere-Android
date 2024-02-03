@@ -15,13 +15,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-
 private val DarkColorScheme = darkColorScheme(
     primary = turquesaPrincipal,
     secondary = turquesaOscuroMedio,
     tertiary = turquesaOscuroFuerte
 )
-
 private val LightColorScheme = lightColorScheme(
     primary = turquesaPrincipal,
     secondary = turquesaMedioClaro,
@@ -43,11 +41,9 @@ fun IntermodularHotelTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
-
     val primaryColor = colorScheme.primary
     val secondaryColor = colorScheme.secondary
     val tertiaryColor = colorScheme.tertiary
-
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {

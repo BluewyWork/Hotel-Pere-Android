@@ -1,6 +1,5 @@
 package com.intermodular.hotel.presentation.screens.recoverPassword
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -63,9 +62,7 @@ fun RecoverPasswordScreen(navController: NavController) {
             )
             Body(navController)
         }
-
     }
-
 }
 
 @Composable
@@ -97,7 +94,6 @@ fun Body(navController: NavController) {
             )
 
             TexFieldMail("Mail") {
-
             }
 
             Button(modifier = Modifier
@@ -117,9 +113,7 @@ fun Body(navController: NavController) {
                 color = turquesaPrincipal,
                 fontSize = 18.sp,
             ) {
-
             }
-
         }
     }
 }

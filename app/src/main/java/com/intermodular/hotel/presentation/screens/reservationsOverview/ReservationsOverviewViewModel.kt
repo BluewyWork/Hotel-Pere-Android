@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class ReservationsOverviewViewModel : ViewModel() {
     private val _reservations = MutableLiveData<List<ReservationModel>>()
     val reservations: LiveData<List<ReservationModel>> = _reservations
-
     fun onCreate() {
         viewModelScope.launch {
             val getAllReservationsUseCase = GetAllReservationsUseCase()

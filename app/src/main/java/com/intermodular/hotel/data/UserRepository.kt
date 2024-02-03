@@ -8,7 +8,6 @@ import com.intermodular.hotel.domain.model.Customer
 import com.intermodular.hotel.domain.model.toDomain
 import javax.inject.Inject
 
-
 class UserRepository @Inject constructor(
     private val api: UserService,
     private val customerDao: CustomerDao
@@ -21,7 +20,6 @@ class UserRepository @Inject constructor(
     suspend fun getUserFromDataBase(): List<Customer> {
         val response: List<CustomerEntity> = customerDao.getUser()
         return response.map { it.toDomain() }
-
     }
 
     suspend fun insertUsers(users: List<CustomerEntity>) {

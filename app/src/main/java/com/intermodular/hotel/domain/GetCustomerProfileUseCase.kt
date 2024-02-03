@@ -2,7 +2,6 @@ package com.intermodular.hotel.domain
 
 class GetCustomerProfileUseCase {
     // private val api = Repository()
-
     suspend fun getUsername(): String {
         return "Asier"
     }

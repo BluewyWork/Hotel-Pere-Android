@@ -11,16 +11,12 @@ import kotlinx.coroutines.launch
 class ProfileViewModel : ViewModel() {
     private val _username = MutableLiveData<String>()
     val username: LiveData<String> = _username
-
     private val _lastname = MutableLiveData<String>()
     val lastname: LiveData<String> = _lastname
-
     private val _phoneNumber = MutableLiveData<String>()
     val phoneNumber: LiveData<String> = _phoneNumber
-
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
-
     fun onUsernameChange(username: String) {
         _username.postValue(username)
     }
@@ -40,7 +36,6 @@ class ProfileViewModel : ViewModel() {
     fun onCreate() {
         viewModelScope.launch {
             val getCustomerProfileUseCase = GetCustomerProfileUseCase()
-
             val username = getCustomerProfileUseCase.getUsername()
             val lastName = getCustomerProfileUseCase.getLastName()
             val phoneNumber = getCustomerProfileUseCase.getPhoneNumber()
@@ -56,7 +51,6 @@ class ProfileViewModel : ViewModel() {
     fun onUpdatePress() {
         viewModelScope.launch {
             val updateCustomerProfileUseCase = UpdateCustomerProfileUseCase()
-
             val username = _username.value
             val lastName = _lastname.value
             val phoneNumber = _phoneNumber.value

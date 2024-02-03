@@ -43,13 +43,11 @@ import com.intermodular.hotel.ui.theme.gradient5
 import com.intermodular.hotel.ui.theme.turquesaOscuroFuerte
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
-
 @Composable
 fun RegisterScreen(
     navController: NavController,
     registerViewModel: RegisterViewModel
 ) {
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -65,7 +63,6 @@ fun RegisterScreen(
                 )
             ),
         contentAlignment = Alignment.Center
-
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             IconAtras {
@@ -95,10 +92,7 @@ fun RegisterScreen(
                     Register(navController, registerViewModel)
                 }
             }
-
-
         }
-
     }
 }
 
@@ -121,7 +115,6 @@ fun Register(
             verticalArrangement = Arrangement.spacedBy(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             Text("¡Hola! Registrate para comenzar", 22, turquesaPrincipal)
 
             MostrarError(viewModel = registerViewModel)
@@ -152,9 +145,7 @@ fun Register(
                 Text("Inicia sesión aqui", 18, turquesaOscuroFuerte)
             }
         }
-
     }
-
 }
 
 

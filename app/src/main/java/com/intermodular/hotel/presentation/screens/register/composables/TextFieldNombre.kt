@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
-
     TextField(
         modifier = Modifier
             .width(400.dp)

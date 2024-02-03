@@ -1,8 +1,8 @@
 package com.intermodular.hotel.data.database.entities
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity(tableName = "bill_table")
 data class BillEntity(

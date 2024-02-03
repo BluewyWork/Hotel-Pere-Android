@@ -17,5 +17,4 @@ fun ButtonLogo(image: Int) {
         painter = painterResource(id = image),
         contentDescription = "null",
     )
-
 }

@@ -62,8 +62,7 @@ fun ProfileScreen(navController: NavController, profileViewModel: ProfileViewMod
                     )
                 )
             ),
-
-        ) {
+    ) {
         Column(
             modifier = Modifier.padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(35.dp),
@@ -106,7 +105,6 @@ fun Profile(profileViewModel: ProfileViewModel) {
                 color = Color.White.copy(alpha = 0.7f),
                 shape = RoundedCornerShape(16.dp)
             )
-
     ) {
         Column(
             modifier = Modifier

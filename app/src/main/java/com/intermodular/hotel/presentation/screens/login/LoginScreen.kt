@@ -53,7 +53,6 @@ fun LoginScreen(
                 )
             ),
         contentAlignment = Alignment.Center
-
     ) {
         Column {
             Image(
@@ -69,9 +68,7 @@ fun LoginScreen(
             ) {
                 Login(navController, loginViewModel)
             }
-
         }
-
     }
 }
 
@@ -110,9 +107,7 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
-
             // TextRegister(navController = navController)
-
             LoginButton(loginViewModel, navController)
         }
     }

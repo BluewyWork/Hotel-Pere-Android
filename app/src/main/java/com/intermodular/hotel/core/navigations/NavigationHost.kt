@@ -22,7 +22,6 @@ import com.intermodular.hotel.presentation.screens.reservationsOverview.Reservat
 import com.intermodular.hotel.presentation.screens.verificationCode.VerificationCodeScreen
 
 @Composable
-
 fun NavigationHost(
     registerViewModel: RegisterViewModel,
     cartViewModel: CartViewModel,
