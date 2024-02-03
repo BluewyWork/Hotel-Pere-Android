@@ -61,7 +61,7 @@ fun VerificationCodeScreen(navController: NavController) {
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             IconAtras {
-                navController.navigate(Destinations.Registro.route)
+                navController.navigate(Destinations.Register.route)
             }
             Column(
                 modifier = Modifier

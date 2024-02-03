@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.intermodular.hotel.presentation.screens.cart.CarritoScreen
+import com.intermodular.hotel.presentation.screens.cart.CartScreen
 import com.intermodular.hotel.presentation.screens.cart.CartViewModel
 import com.intermodular.hotel.presentation.screens.verificationCode.VerificationCodeScreen
 import com.intermodular.hotel.presentation.screens.checkChange.CheckChangeScreen
@@ -39,23 +39,23 @@ fun NavigationHost(
         composable(Destinations.Login.route) {
             LoginScreen(navController, loginViewModel)
         }
-        composable(Destinations.Registro.route) {
+        composable(Destinations.Register.route) {
             RegisterScreen(navController, registerViewModel)
         }
-        composable(Destinations.RecuperarPassword.route) {
+        composable(Destinations.RecoverPassword.route) {
             RecoverPasswordScreen(navController)
         }
-        composable(Destinations.CodigoVerificacion.route) {
+        composable(Destinations.VerificationCode.route) {
             VerificationCodeScreen(navController)
         }
-        composable(Destinations.CheckCambio.route) {
+        composable(Destinations.CheckChange.route) {
             CheckChangeScreen(navController)
         }
         composable(Destinations.Profile.route) {
             ProfileScreen(navController, profileViewModel)
         }
         composable(Destinations.Cart.route) {
-            CarritoScreen(navController, cartViewModel)
+            CartScreen(navController, cartViewModel)
         }
         composable(Destinations.Home.route) {
             HomeScreen(navController, homeViewModel)

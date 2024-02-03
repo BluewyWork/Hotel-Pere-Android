@@ -4,10 +4,10 @@ sealed class Destinations(
     val route: String
 ) {
     object Login : Destinations("login")
-    object Registro : Destinations("registro")
-    object RecuperarPassword : Destinations("recuperar")
-    object CodigoVerificacion : Destinations("codigo")
-    object CheckCambio : Destinations("check")
+    object Register : Destinations("register")
+    object RecoverPassword : Destinations("recoverPassword")
+    object VerificationCode : Destinations("verificationCode")
+    object CheckChange : Destinations("CheckChange")
     object Profile : Destinations("profile")
     object Cart : Destinations("cart")
 

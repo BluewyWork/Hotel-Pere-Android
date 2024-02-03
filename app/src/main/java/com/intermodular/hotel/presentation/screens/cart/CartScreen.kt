@@ -33,7 +33,7 @@ import com.intermodular.hotel.presentation.screens.cart.composables.CustomText
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun CarritoScreen(
+fun CartScreen(
     navController: NavController,
     cartViewModel: CartViewModel
 ) {
