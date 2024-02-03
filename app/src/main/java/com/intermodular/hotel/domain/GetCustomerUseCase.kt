@@ -6,13 +6,13 @@ import com.intermodular.hotel.domain.model.Customer
 import javax.inject.Inject
 
 class GetCustomerUseCase @Inject constructor(private val repository: CustomerRepository) {
-    suspend operator fun invoke(): List<Customer> {
-        val users = repository.getCustomerFromApi()
+    suspend operator fun invoke(): Customer? {
+        val customer = repository.getCustomerFromApi()
 
-        return if (users.isNotEmpty()) {
+        return if (customer != null) {
             repository.clearCustomer()
-            repository.insertCustomer(users.map { it.toDatabase() })
-            users
+            repository.insertCustomer(customer.toDatabase())
+            customer
         } else {
             repository.getCustomerFromDataBase()
         }

@@ -12,18 +12,18 @@ class CustomerRepository @Inject constructor(
     private val api: CustomerService,
     private val customerDao: CustomerDao
 ) {
-    suspend fun getCustomerFromApi(): List<Customer> {
-        val response: List<CustomerModel> = api.getUser()
-        return response.map { it.toDomain() }
+    suspend fun getCustomerFromApi(): Customer? {
+        val response: CustomerModel? = api.getCustomer()
+        return response?.toDomain()
     }
 
-    suspend fun getCustomerFromDataBase(): List<Customer> {
-        val response: List<CustomerEntity> = customerDao.getUser()
-        return response.map { it.toDomain() }
+    suspend fun getCustomerFromDataBase(): Customer? {
+        val response: CustomerEntity? = customerDao.getCustomer()
+        return response?.toDomain()
     }
 
-    suspend fun insertCustomer(users: List<CustomerEntity>) {
-        customerDao.insertAll(users)
+    suspend fun insertCustomer(customer: CustomerEntity) {
+        customerDao.insertAll(customer)
     }
 
     suspend fun clearCustomer() {

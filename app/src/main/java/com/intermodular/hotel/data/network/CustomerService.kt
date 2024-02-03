@@ -5,11 +5,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CustomerService @Inject constructor(private val api: UserApiClient) {
-    suspend fun getUser(): List<CustomerModel> {
+class CustomerService @Inject constructor(private val api: CustomerApiClient) {
+    suspend fun getCustomer(): CustomerModel? {
         return withContext(Dispatchers.IO) {
-            val response = api.getUser()
-            response.body() ?: emptyList()
+            val response = api.getOneCustomer()
+            response.body()
         }
     }
 }
