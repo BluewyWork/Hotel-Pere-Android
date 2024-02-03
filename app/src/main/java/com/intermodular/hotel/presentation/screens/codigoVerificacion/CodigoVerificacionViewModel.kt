@@ -1,0 +1,3 @@
+package com.intermodular.hotel.presentation.screens.codigoVerificacion
+
+open class CodigoVerificacionViewModel

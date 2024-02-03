@@ -4,7 +4,6 @@ import android.media.Image
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.intermodular.hotel.data.model.Reserved
 import com.intermodular.hotel.domain.model.Room
 
 
@@ -13,9 +12,9 @@ data class RoomEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
     @ColumnInfo(name = "number") val number: Int,
     @ColumnInfo(name = "section") val section: String,
-    @ColumnInfo(name = "image") val image: Image,
+    @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
-    @ColumnInfo(name = "reserved") val reserved: Reserved,
+    @ColumnInfo(name = "reserved") val reserved: Boolean,
     @ColumnInfo(name = "bed") val bed: Int
 )
 
