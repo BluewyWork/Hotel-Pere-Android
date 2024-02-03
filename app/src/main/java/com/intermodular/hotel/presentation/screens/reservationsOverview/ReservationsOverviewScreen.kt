@@ -13,8 +13,8 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.data.model.ReservationModel
+import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.presentation.screens.reservationsOverview.composables.ReservationCard
 
 @Composable

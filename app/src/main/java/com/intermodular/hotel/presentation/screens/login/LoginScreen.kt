@@ -23,8 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.presentation.screens.login.composables.LoginButton
 import com.intermodular.hotel.presentation.screens.login.composables.EmailTextField
+import com.intermodular.hotel.presentation.screens.login.composables.LoginButton
 import com.intermodular.hotel.presentation.screens.login.composables.PasswordTextField
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2

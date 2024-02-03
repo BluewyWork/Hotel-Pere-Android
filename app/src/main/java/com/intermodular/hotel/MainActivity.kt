@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.intermodular.hotel.presentation.screens.cart.CartViewModel
 import com.intermodular.hotel.core.navigations.NavigationHost
+import com.intermodular.hotel.presentation.screens.cart.CartViewModel
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileViewModel

@@ -11,7 +11,8 @@ data class CustomerEntity(
     @ColumnInfo(name = "email") val email: String,
     @ColumnInfo(name = "token") val token: String,
     //@ColumnInfo (name="image") val image: ByteArray?,
-    @ColumnInfo(name = "name") val name: String
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "surname") val surname: String
 )
 
-fun Customer.toDatabase() = CustomerEntity(name = name, email = email, token = token)
+fun Customer.toDatabase() = CustomerEntity(name = name, surname = surname, email = email, token = token)

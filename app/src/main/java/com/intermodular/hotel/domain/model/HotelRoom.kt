@@ -1,10 +1,9 @@
 package com.intermodular.hotel.domain.model
 
-import android.media.Image
-import com.intermodular.hotel.data.model.RoomModel
+import com.intermodular.hotel.data.model.HotelRoomModel
 
 
-data class Room(
+data class HotelRoom(
     val number: Int, val section: String,
     val pricePerNight: Double,
     val reserved: Boolean,
@@ -12,5 +11,5 @@ data class Room(
     val bed: Int
 )
 
-fun RoomModel.toDomain() = Room(number, section, pricePerNight, reserved, image, bed)
+fun HotelRoomModel.toDomain() = HotelRoom(number, section, pricePerNight, reserved, image, bed)
 // fun RoomEntity.toDomain() = Room(number,section,pricePerNight,reserved, image, bed)

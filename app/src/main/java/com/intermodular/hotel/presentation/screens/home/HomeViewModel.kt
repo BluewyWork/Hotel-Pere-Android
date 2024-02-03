@@ -5,12 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.intermodular.hotel.domain.GetAllHotelRoomsUseCase
-import com.intermodular.hotel.domain.model.Room
+import com.intermodular.hotel.domain.model.HotelRoom
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
-    private val _hotelRooms = MutableLiveData<List<Room>>()
-    val hotelRooms: LiveData<List<Room>> = _hotelRooms
+    private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
+    val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
 
     var getAllHotelRoomsUseCase = GetAllHotelRoomsUseCase()
 

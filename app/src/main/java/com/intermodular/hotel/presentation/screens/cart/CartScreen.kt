@@ -26,10 +26,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.intermodular.hotel.domain.model.Room
+import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
-import com.intermodular.hotel.presentation.screens.cart.composables.HotelRoomCard
 import com.intermodular.hotel.presentation.screens.cart.composables.CustomText
+import com.intermodular.hotel.presentation.screens.cart.composables.HotelRoomCard
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -86,9 +86,9 @@ fun Cart(cartViewModel: CartViewModel) {
             .padding(top = 75.dp, start = 16.dp, end = 16.dp, bottom = 60.dp)
     ) {
         item {
-            val hotelRooms: List<Room>? by cartViewModel.hotelRooms.observeAsState()
-            if (!hotelRooms.isNullOrEmpty()) {
-                HotelRoomCard(hotelRooms = hotelRooms!!)
+            val hotelHotelRooms: List<HotelRoom>? by cartViewModel.hotelRooms.observeAsState()
+            if (!hotelHotelRooms.isNullOrEmpty()) {
+                HotelRoomCard(hotelHotelRooms = hotelHotelRooms!!)
             }
         }
     }

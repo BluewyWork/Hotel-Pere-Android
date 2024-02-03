@@ -1,9 +1,8 @@
 package com.intermodular.hotel.data.model
 
-import android.media.Image
 import com.google.gson.annotations.SerializedName
 
-data class RoomModel(
+data class HotelRoomModel(
     @SerializedName("number") val number: Int,
     @SerializedName("section") val section: String,
     @SerializedName("pricePerNight") val pricePerNight: Double,

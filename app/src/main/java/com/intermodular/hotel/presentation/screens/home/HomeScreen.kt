@@ -15,7 +15,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.intermodular.hotel.domain.model.Room
+import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.presentation.screens.home.composables.HotelCard
 
@@ -51,9 +51,9 @@ fun Home(homeViewModel: HomeViewModel) {
 
 @Composable
 fun GenerateHotelCards(homeViewModel: HomeViewModel) {
-    val hotelRooms: List<Room>? by homeViewModel.hotelRooms.observeAsState()
-    if (!hotelRooms.isNullOrEmpty()) {
-        for (i in hotelRooms!!) {
+    val hotelHotelRooms: List<HotelRoom>? by homeViewModel.hotelRooms.observeAsState()
+    if (!hotelHotelRooms.isNullOrEmpty()) {
+        for (i in hotelHotelRooms!!) {
             HotelCard()
             Spacer(
                 modifier = Modifier

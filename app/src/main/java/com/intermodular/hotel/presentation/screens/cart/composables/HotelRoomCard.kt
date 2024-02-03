@@ -11,10 +11,10 @@ import androidx.compose.material3.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.intermodular.hotel.domain.model.Room
+import com.intermodular.hotel.domain.model.HotelRoom
 
 @Composable
-fun HotelRoomCard(hotelRooms: List<Room>) {
+fun HotelRoomCard(hotelHotelRooms: List<HotelRoom>) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -25,7 +25,7 @@ fun HotelRoomCard(hotelRooms: List<Room>) {
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
-            for (hotelRoom in hotelRooms) {
+            for (hotelRoom in hotelHotelRooms) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween

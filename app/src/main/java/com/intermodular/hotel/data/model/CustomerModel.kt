@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class CustomerModel(
     @SerializedName("name") val name: String,
+    @SerializedName("surname") val surname: String,
     @SerializedName("email") val email: String,
     @SerializedName("token") val token: String
 )

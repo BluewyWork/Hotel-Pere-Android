@@ -24,8 +24,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.presentation.composables.IconAtras
 import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.presentation.composables.IconAtras
 import com.intermodular.hotel.presentation.screens.register.composables.ButtonLogo
 import com.intermodular.hotel.presentation.screens.register.composables.ButtonRegistro
 import com.intermodular.hotel.presentation.screens.register.composables.MostrarError

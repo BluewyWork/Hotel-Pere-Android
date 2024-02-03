@@ -1,14 +1,13 @@
 package com.intermodular.hotel.data.database.entities
 
-import android.media.Image
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.intermodular.hotel.domain.model.Room
+import com.intermodular.hotel.domain.model.HotelRoom
 
 
 @Entity(tableName = "room_table")
-data class RoomEntity(
+data class HotelRoomEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
     @ColumnInfo(name = "number") val number: Int,
     @ColumnInfo(name = "section") val section: String,
@@ -18,7 +17,7 @@ data class RoomEntity(
     @ColumnInfo(name = "bed") val bed: Int
 )
 
-fun Room.toDatabase() = RoomEntity(
+fun HotelRoom.toDatabase() = HotelRoomEntity(
     number = number, section = section, image = image,
     pricePerNight = pricePerNight, reserved = reserved, bed = bed
 )

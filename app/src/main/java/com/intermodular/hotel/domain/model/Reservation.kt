@@ -4,6 +4,7 @@ import java.util.Date
 
 data class Reservation(
     val customerName: String,
+    val customerSurname: String,
     val customerEmail: String,
     val roomNumber: Int,
     val pricePerNight: Double,

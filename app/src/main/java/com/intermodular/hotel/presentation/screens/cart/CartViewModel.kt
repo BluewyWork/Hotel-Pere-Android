@@ -3,15 +3,13 @@ package com.intermodular.hotel.presentation.screens.cart
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.intermodular.hotel.domain.model.Room
-import kotlinx.coroutines.launch
+import com.intermodular.hotel.domain.model.HotelRoom
 
 class CartViewModel : ViewModel() {
-    private val _hotelRooms = MutableLiveData<List<Room>>()
-    val hotelRooms: LiveData<List<Room>> = _hotelRooms
+    private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
+    val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
 
-//    var getHotelRoomsUseCase = GetHotelRoomsUseCase()
+    //    var getHotelRoomsUseCase = GetHotelRoomsUseCase()
     fun onCreate() {
 //        viewModelScope.launch {
 //            val result = getHotelRoomsUseCase()
