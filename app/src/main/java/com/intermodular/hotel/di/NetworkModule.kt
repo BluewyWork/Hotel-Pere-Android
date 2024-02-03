@@ -1,7 +1,7 @@
 package com.intermodular.hotel.di
 
-import com.intermodular.hotel.data.network.RoomApiClient
 import com.intermodular.hotel.data.network.CustomerApiClient
+import com.intermodular.hotel.data.network.RoomApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

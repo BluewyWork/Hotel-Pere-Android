@@ -5,7 +5,7 @@ import java.util.Date
 
 data class ReservationModel(
     @SerializedName("customerName") val customerName: String,
-    @SerializedName("customerSurname")  val customerSurname: String,
+    @SerializedName("customerSurname") val customerSurname: String,
     @SerializedName("customerEmail") val customerEmail: String,
     @SerializedName("roomNumber") val roomNumber: Int,
     @SerializedName("pricePerNight") val pricePerNight: Double,

@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getHotelRoomListUseCase: GetHotelRoomListUseCase
-): ViewModel() {
+) : ViewModel() {
     private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
     val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
 

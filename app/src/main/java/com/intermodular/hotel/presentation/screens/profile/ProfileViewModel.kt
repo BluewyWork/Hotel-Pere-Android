@@ -52,6 +52,6 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun onUpdatePress() {
-       TODO()
+        TODO()
     }
 }

@@ -1,7 +1,6 @@
 package com.intermodular.hotel.domain
 
 import com.intermodular.hotel.data.CustomerRepository
-import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.domain.model.Customer
 import javax.inject.Inject
 
