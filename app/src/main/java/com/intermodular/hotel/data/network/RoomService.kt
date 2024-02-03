@@ -6,10 +6,9 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RoomService @Inject constructor(private val api: RoomApiClient) {
-    suspend fun getRooms(): List<HotelRoomModel> {
+    suspend fun getHotelRoomList(): List<HotelRoomModel> {
         return withContext(Dispatchers.IO) {
-            val response = api.getRooms()
-            response.body() ?: emptyList()
+            api.getHotelRoomList().body() ?: emptyList()
         }
     }
 }

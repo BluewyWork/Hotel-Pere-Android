@@ -10,8 +10,8 @@ class RoomRepository @Inject constructor(
     private val api: RoomService,
     //private val roomDao: RoomDao
 ) {
-    suspend fun getRoomsFromApi(): List<HotelRoom> {
-        val response: List<HotelRoomModel> = api.getRooms()
+    suspend fun getHotelRoomListFromApi(): List<HotelRoom> {
+        val response: List<HotelRoomModel> = api.getHotelRoomList()
         return response.map { it.toDomain() }
     }
     //Para Sqlite

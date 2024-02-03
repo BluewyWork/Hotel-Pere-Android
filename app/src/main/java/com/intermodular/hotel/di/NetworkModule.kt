@@ -16,7 +16,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder().baseUrl("https://clutrtqceergafdtqjeb.supabase.co/")
+        return Retrofit.Builder().baseUrl("https://localhost:8000")
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
