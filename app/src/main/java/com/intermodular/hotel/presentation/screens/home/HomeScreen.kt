@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
-import com.intermodular.hotel.presentation.screens.home.composables.HotelCard
+import com.intermodular.hotel.presentation.screens.home.composables.HotelRoomCard
 
 @Composable
 fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel) {
@@ -58,7 +58,11 @@ fun GenerateHotelCards(homeViewModel: HomeViewModel) {
     val hotelHotelRooms: List<HotelRoom>? by homeViewModel.hotelRooms.observeAsState()
     if (!hotelHotelRooms.isNullOrEmpty()) {
         for (i in hotelHotelRooms!!) {
-            HotelCard()
+            HotelRoomCard(
+                numberOfBeds = i.numberOfBeds,
+                pricePerNight = i.pricePerNight,
+                hotelRoomNumber = i.number
+            )
             Spacer(
                 modifier = Modifier
                     .height(16.dp)

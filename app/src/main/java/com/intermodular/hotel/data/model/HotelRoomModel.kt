@@ -6,9 +6,9 @@ data class HotelRoomModel(
     @SerializedName("number") val number: Int,
     @SerializedName("section") val section: String,
     @SerializedName("pricePerNight") val pricePerNight: Double,
-    @SerializedName("reserved") val reserved: Boolean,
+    @SerializedName("reserved") val description: Boolean,
     @SerializedName("image") val image: String,
-    @SerializedName("bed") val bed: Int
+    @SerializedName("bed") val numberOfBeds: Int
 )
 
 

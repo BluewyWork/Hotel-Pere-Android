@@ -7,9 +7,9 @@ import com.intermodular.hotel.domain.model.HotelRoom
 
 @Entity(tableName = "room_table")
 data class HotelRoomEntity(
-    @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "number") val number: Int,
-    @ColumnInfo(name = "section") val section: String,
+    @ColumnInfo(name = "section") val description: String,
     @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
     @ColumnInfo(name = "reserved") val reserved: Boolean,
@@ -18,9 +18,9 @@ data class HotelRoomEntity(
 
 fun HotelRoom.toDatabase() = HotelRoomEntity(
     number = number,
-    section = section,
+    description = description,
     image = image,
     pricePerNight = pricePerNight,
     reserved = reserved,
-    bed = bed
+    bed = numberOfBeds
 )
