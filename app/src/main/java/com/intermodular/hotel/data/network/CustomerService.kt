@@ -6,11 +6,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CustomerService @Inject constructor(private val api: CustomerApiClient) {
-    suspend fun getCustomer(): CustomerModel? {
+class CustomerService @Inject constructor(private val customerApi: CustomerApiClient) {
+    suspend fun getAuthenticatedCustomer(): CustomerModel? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = api.getOneCustomer()
+                val response = customerApi.getOneCustomer()
                 response.body()
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")

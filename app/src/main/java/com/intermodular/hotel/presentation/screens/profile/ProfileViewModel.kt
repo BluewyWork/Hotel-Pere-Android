@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.intermodular.hotel.domain.GetCustomerUseCase
+import com.intermodular.hotel.domain.GetAuthenticatedCustomerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val getCustomerUseCase: GetCustomerUseCase
+    private val getAuthenticatedCustomerUseCase: GetAuthenticatedCustomerUseCase
 ) : ViewModel() {
     private val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
@@ -36,7 +36,7 @@ class ProfileViewModel @Inject constructor(
 
     fun onCreate() {
         viewModelScope.launch {
-            val result = getCustomerUseCase() ?: return@launch
+            val result = getAuthenticatedCustomerUseCase() ?: return@launch
 
             _name.postValue(result.name)
             _surname.postValue(result.surname)

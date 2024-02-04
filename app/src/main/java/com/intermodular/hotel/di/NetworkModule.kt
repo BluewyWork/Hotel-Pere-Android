@@ -2,7 +2,7 @@ package com.intermodular.hotel.di
 
 import com.intermodular.hotel.data.network.CustomerApiClient
 import com.intermodular.hotel.data.network.ReservationApiClient
-import com.intermodular.hotel.data.network.RoomApiClient
+import com.intermodular.hotel.data.network.HotelRoomApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,8 +29,8 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRoomApiClient(retrofit: Retrofit): RoomApiClient {
-        return retrofit.create(RoomApiClient::class.java)
+    fun provideRoomApiClient(retrofit: Retrofit): HotelRoomApiClient {
+        return retrofit.create(HotelRoomApiClient::class.java)
     }
 
     @Singleton

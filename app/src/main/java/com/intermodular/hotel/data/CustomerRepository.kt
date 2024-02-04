@@ -14,14 +14,14 @@ class CustomerRepository @Inject constructor(
     private val api: CustomerService,
     private val customerDao: CustomerDao
 ) {
-    suspend fun getCustomerFromApi(): Customer? {
-        val response: CustomerModel? = api.getCustomer()
+    suspend fun getAuthenticatedCustomerFromApi(): Customer? {
+        val response: CustomerModel? = api.getAuthenticatedCustomer()
         return response?.toDomain()
     }
 
-    suspend fun getCustomerFromDataBase(): Customer? {
+    suspend fun getAuthenticatedCustomerFromDataBase(): Customer? {
         return withContext(Dispatchers.IO) {
-            customerDao.getCustomer()?.toDomain()
+            customerDao.getAuthenticatedCustomer()?.toDomain()
         }
     }
 
@@ -30,6 +30,6 @@ class CustomerRepository @Inject constructor(
     }
 
     suspend fun clearCustomer() {
-        customerDao.clearCustomer()
+        customerDao.clearAll()
     }
 }
