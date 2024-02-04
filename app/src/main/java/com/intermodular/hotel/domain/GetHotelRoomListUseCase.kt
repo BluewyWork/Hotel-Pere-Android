@@ -9,13 +9,6 @@ class GetHotelRoomListUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(): List<HotelRoom> {
 //        return repository.getHotelRoomListFromApi()
-        /*return if (rooms.isNotEmpty()) {
-            repository.clearRooms()
-            repository.insertRooms(rooms.map {it.toDatabase()})
-            rooms
-        } else {
-            repository.getRoomsFromDataBase()
-        }*/
         return emptyList()
     }
 }
