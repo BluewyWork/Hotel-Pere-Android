@@ -9,10 +9,10 @@ import javax.inject.Inject
 class ReservationService @Inject constructor(
     private val api: ReservationApiClient
 ) {
-    suspend fun getReservationListOfCustomer(): List<ReservationModel> {
+    suspend fun getReservationListOfAuthenticatedCustomer(): List<ReservationModel> {
         return withContext(Dispatchers.IO) {
             try {
-                api.getReservationListOfCustomer()
+                api.getReservationListOfAuthenticatedCustomer()
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
             }

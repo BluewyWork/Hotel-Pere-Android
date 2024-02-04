@@ -1,13 +1,27 @@
 package com.intermodular.hotel.domain
 
 import com.intermodular.hotel.data.CustomerRepository
+import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.domain.model.Customer
 import javax.inject.Inject
 
 class GetCustomerUseCase @Inject constructor(private val repository: CustomerRepository) {
     suspend operator fun invoke(): Customer? {
-        return repository.getCustomerFromApi() ?: repository.getCustomerFromDataBase()
-        ?: generateCustomer()
+        val customerFromApi = repository.getCustomerFromApi()
+
+        return if (customerFromApi != null) {
+            repository.clearCustomer()
+            repository.insertCustomer(customerFromApi.toDatabase())
+            customerFromApi
+        } else {
+            val customerFromDatabase = repository.getCustomerFromDataBase()
+
+            if (customerFromDatabase != null) {
+                return customerFromDatabase
+            }
+
+            generateCustomer()
+        }
     }
 
     suspend fun generateCustomer(): Customer {

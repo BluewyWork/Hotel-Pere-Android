@@ -10,9 +10,24 @@ class GetReservationListOfCustomerUseCase @Inject constructor(
     private val api: ReservationRepository
 ) {
     suspend operator fun invoke(): List<Reservation> {
-        val reservations = api.getReservationListOfCustomer()
+        val reservationsFromApi = api.getReservationListOfAuthenticatedCustomerFromApi()
 
-        return reservations.ifEmpty {
+        return if (reservationsFromApi.isNotEmpty()) {
+            api.clearReservationListOfAuthenticatedCustomer()
+
+            for (reservation in reservationsFromApi) {
+                api.insertReservationOfAuthenticatedCustomer(reservation)
+            }
+
+            reservationsFromApi
+        } else {
+            val reservationsFromDatabase =
+                api.getReservationListOfAuthenticatedCustomerFromDatabase()
+
+            if (reservationsFromDatabase.isNotEmpty()) {
+                return reservationsFromDatabase
+            }
+
             generateReservations()
         }
     }
