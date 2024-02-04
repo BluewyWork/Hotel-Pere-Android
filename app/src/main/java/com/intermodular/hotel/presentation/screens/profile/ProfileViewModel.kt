@@ -19,9 +19,6 @@ class ProfileViewModel @Inject constructor(
     private val _surname = MutableLiveData<String>()
     val surname: LiveData<String> = _surname
 
-    private val _phoneNumber = MutableLiveData<String>()
-    val phoneNumber: LiveData<String> = _phoneNumber
-
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
 
@@ -31,10 +28,6 @@ class ProfileViewModel @Inject constructor(
 
     fun onLastNameChange(surname: String) {
         _surname.postValue(surname)
-    }
-
-    fun onPhoneNumberChange(phoneNumber: String) {
-        _phoneNumber.postValue(phoneNumber)
     }
 
     fun onEmailChange(email: String) {

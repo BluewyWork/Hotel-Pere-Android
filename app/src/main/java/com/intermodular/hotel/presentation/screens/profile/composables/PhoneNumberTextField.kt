@@ -12,14 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldPhoneNumber(telefono: String, onTextChange: (String) -> Unit) {
+fun PhoneNumberTextField(telefono: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 15.dp, end = 15.dp),
         value = telefono,
         onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
+        placeholder = { Text(text = "Phone Number") },
         leadingIcon = { Icon(Icons.Default.Phone, null) }
     )
 }

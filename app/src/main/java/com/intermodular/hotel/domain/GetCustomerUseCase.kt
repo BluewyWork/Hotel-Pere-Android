@@ -6,15 +6,15 @@ import javax.inject.Inject
 
 class GetCustomerUseCase @Inject constructor(private val repository: CustomerRepository) {
     suspend operator fun invoke(): Customer? {
-//        val customer = repository.getCustomerFromApi()
-//
-//        return if (customer != null) {
-//            repository.clearCustomer()
-//            repository.insertCustomer(customer.toDatabase())
-//            customer
-//        } else {
-//            repository.getCustomerFromDataBase()
-//        }
-        return null
+        return repository.getCustomerFromApi() ?: repository.getCustomerFromDataBase() ?: generateCustomer()
+    }
+
+    suspend fun generateCustomer(): Customer {
+        val name = "John"
+        val surname = "Doe"
+        val email = "john.doe@example.com"
+        val token = "239tn_3nus3t4ner3o"
+
+        return Customer(name, surname, email, token)
     }
 }
