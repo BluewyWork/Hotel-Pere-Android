@@ -12,7 +12,7 @@ interface CustomerDao {
     fun getCustomer(): CustomerEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(users: CustomerEntity)
+    fun insertOne(customer: CustomerEntity)
 
     @Query("DELETE FROM customer_table")
     fun clearCustomer()

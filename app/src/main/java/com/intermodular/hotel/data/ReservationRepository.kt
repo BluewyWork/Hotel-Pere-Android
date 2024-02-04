@@ -1,6 +1,7 @@
 package com.intermodular.hotel.data
 
 import com.intermodular.hotel.data.database.dao.ReservationDao
+import com.intermodular.hotel.data.database.entities.ReservationEntity
 import com.intermodular.hotel.data.network.ReservationService
 import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.domain.model.toDomain
@@ -18,11 +19,11 @@ class ReservationRepository @Inject constructor(
         return reservationDao.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
     }
 
-    suspend fun insertReservationOfAuthenticatedCustomer(reservation: Reservation) {
-        TODO()
+    suspend fun insertOneReservationOfAuthenticatedCustomer(reservation: ReservationEntity) {
+        reservationDao.insertOne(reservation)
     }
 
     suspend fun clearReservationListOfAuthenticatedCustomer() {
-        TODO()
+        reservationDao.clearAll()
     }
 }

@@ -26,7 +26,7 @@ class CustomerRepository @Inject constructor(
     }
 
     suspend fun insertCustomer(customer: CustomerEntity) {
-        customerDao.insertAll(customer)
+        customerDao.insertOne(customer)
     }
 
     suspend fun clearCustomer() {
