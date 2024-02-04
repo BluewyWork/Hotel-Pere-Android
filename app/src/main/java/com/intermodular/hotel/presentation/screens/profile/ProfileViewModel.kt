@@ -43,15 +43,15 @@ class ProfileViewModel @Inject constructor(
 
     fun onCreate() {
         viewModelScope.launch {
-            val customer = getCustomerUseCase.invoke() ?: return@launch
+            val result = getCustomerUseCase() ?: return@launch
 
-            _name.postValue(customer.name)
-            _surname.postValue(customer.surname)
-            _email.postValue(customer.email)
+            _name.postValue(result.name)
+            _surname.postValue(result.surname)
+            _email.postValue(result.email)
         }
     }
 
     fun onUpdatePress() {
-       TODO()
+        TODO()
     }
 }

@@ -27,12 +27,12 @@ fun ReservationModel.toDomain() = Reservation(
 )
 
 fun ReservationEntity.toDomain() = Reservation(
-customerName = customerName,
-customerSurname = customerSurname,
-customerEmail = customerEmail,
-roomNumber = roomNumber,
-pricePerNight = pricePerNight,
-checkIn = checkIn,
-checkOut = checkOut,
-reserved = reserved
+    customerName = customerName,
+    customerSurname = customerSurname,
+    customerEmail = customerEmail,
+    roomNumber = roomNumber,
+    pricePerNight = pricePerNight,
+    checkIn = checkIn,
+    checkOut = checkOut,
+    reserved = reserved
 )

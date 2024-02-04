@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface RoomApiClient {
-    @GET("/getAllCancelled")//modificar segun endPoint
-    suspend fun getRooms(): Response<List<HotelRoomModel>>
+    @GET("/null")
+    suspend fun getHotelRoomList(): Response<List<HotelRoomModel>>
 }
