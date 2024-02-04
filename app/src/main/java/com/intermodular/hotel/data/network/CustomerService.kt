@@ -1,6 +1,5 @@
 package com.intermodular.hotel.data.network
 
-import com.intermodular.hotel.core.RetrofitHelper
 import com.intermodular.hotel.data.model.CustomerModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
