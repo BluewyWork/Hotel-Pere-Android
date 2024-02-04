@@ -8,7 +8,6 @@ class GetHotelRoomListUseCase @Inject constructor(
     private val repository: RoomRepository
 ) {
     suspend operator fun invoke(): List<HotelRoom> {
-//        return repository.getHotelRoomListFromApi()
-        return emptyList()
+        return repository.getHotelRoomListFromApi()
     }
 }
