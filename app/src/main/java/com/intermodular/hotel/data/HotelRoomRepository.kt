@@ -6,7 +6,7 @@ import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.domain.model.toDomain
 import javax.inject.Inject
 
-class RoomRepository @Inject constructor(
+class HotelRoomRepository @Inject constructor(
     private val api: HotelRoomService,
 ) {
     suspend fun getHotelRoomListFromApi(): List<HotelRoom> {

@@ -12,14 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldLastName(apellido: String, onTextChange: (String) -> Unit) {
+fun SurnameTextField(apellido: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 15.dp, end = 15.dp),
         value = apellido,
         onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Email") },
+        placeholder = { Text(text = "Surname") },
         leadingIcon = { Icon(Icons.Default.Face, null) }
     )
 }

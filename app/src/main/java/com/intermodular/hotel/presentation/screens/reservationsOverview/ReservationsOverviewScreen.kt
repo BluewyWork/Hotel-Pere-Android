@@ -13,7 +13,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.intermodular.hotel.data.model.ReservationModel
+import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.presentation.screens.reservationsOverview.composables.ReservationCard
 
@@ -40,7 +40,7 @@ fun ReservationsOverview(reservationsOverviewViewModel: ReservationsOverviewView
 
 @Composable
 fun Reservations(reservationsOverviewViewModel: ReservationsOverviewViewModel) {
-    val reservations: List<ReservationModel>? by reservationsOverviewViewModel.reservations.observeAsState()
+    val reservations: List<Reservation>? by reservationsOverviewViewModel.reservations.observeAsState()
 
     if (reservations.isNullOrEmpty()) {
         return

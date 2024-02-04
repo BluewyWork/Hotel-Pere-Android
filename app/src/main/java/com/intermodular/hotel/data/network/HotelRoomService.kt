@@ -6,7 +6,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class HotelRoomService @Inject constructor(private val api: RoomApiClient) {
+class HotelRoomService @Inject constructor(
+    private val api: RoomApiClient
+) {
     suspend fun getHotelRoomList(): List<HotelRoomModel> {
         return withContext(Dispatchers.IO) {
             try {

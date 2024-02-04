@@ -35,10 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.presentation.screens.profile.composables.TextFieldEmail
-import com.intermodular.hotel.presentation.screens.profile.composables.TextFieldLastName
-import com.intermodular.hotel.presentation.screens.profile.composables.TextFieldPhoneNumber
-import com.intermodular.hotel.presentation.screens.profile.composables.TextFieldUsername
+import com.intermodular.hotel.presentation.screens.profile.composables.EmailTextField
+import com.intermodular.hotel.presentation.screens.profile.composables.NameTextField
+import com.intermodular.hotel.presentation.screens.profile.composables.SurnameTextField
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -133,21 +132,17 @@ fun Profile(profileViewModel: ProfileViewModel) {
 
 @Composable
 fun ConjuntoTextFieldPerfil(profileViewModel: ProfileViewModel) {
-    val username: String by profileViewModel.name.observeAsState(initial = "")
-    val lastName: String by profileViewModel.surname.observeAsState(initial = "")
-    val phoneNumber: String by profileViewModel.phoneNumber.observeAsState(initial = "")
-    val email: String by profileViewModel.surname.observeAsState(initial = "")
+    val name: String by profileViewModel.name.observeAsState(initial = "")
+    val surname: String by profileViewModel.surname.observeAsState(initial = "")
+    val email: String by profileViewModel.email.observeAsState(initial = "")
 
-    TextFieldUsername(username) {
+    NameTextField(name) {
         profileViewModel.onUsernameChange(it)
     }
-    TextFieldLastName(lastName) {
+    SurnameTextField(surname) {
         profileViewModel.onLastNameChange(it)
     }
-    TextFieldPhoneNumber(phoneNumber) {
-        profileViewModel.onPhoneNumberChange(it)
-    }
-    TextFieldEmail(email) {
+    EmailTextField(email) {
         profileViewModel.onEmailChange(it)
     }
 }

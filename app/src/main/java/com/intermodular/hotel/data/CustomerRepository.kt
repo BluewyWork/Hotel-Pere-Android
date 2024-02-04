@@ -6,6 +6,8 @@ import com.intermodular.hotel.data.model.CustomerModel
 import com.intermodular.hotel.data.network.CustomerService
 import com.intermodular.hotel.domain.model.Customer
 import com.intermodular.hotel.domain.model.toDomain
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class CustomerRepository @Inject constructor(
@@ -18,8 +20,9 @@ class CustomerRepository @Inject constructor(
     }
 
     suspend fun getCustomerFromDataBase(): Customer? {
-        val response: CustomerEntity? = customerDao.getCustomer()
-        return response?.toDomain()
+        return withContext(Dispatchers.IO) {
+            customerDao.getCustomer()?.toDomain()
+        }
     }
 
     suspend fun insertCustomer(customer: CustomerEntity) {
