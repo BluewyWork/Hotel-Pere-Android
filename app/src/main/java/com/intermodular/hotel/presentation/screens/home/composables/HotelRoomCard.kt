@@ -25,6 +25,8 @@ import com.intermodular.hotel.R
 
 @Composable
 fun HotelRoomCard(
+    // this might be needed in order to navigate to details screen
+    number: Int,
     pricePerNight: Double,
     numberOfBeds: Int
 ) {
@@ -65,7 +67,7 @@ fun HotelRoomCard(
                     text = "$numberOfBeds Beds",
                     style = TextStyle(
                         fontSize = 16.sp,
-                        color = Color.Gray
+                        color = Color.Black
                     ),
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
@@ -73,7 +75,7 @@ fun HotelRoomCard(
                     text = "$$pricePerNight per night",
                     style = TextStyle(
                         fontSize = 16.sp,
-                        color = Color.Gray
+                        color = Color.Black
                     ),
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )

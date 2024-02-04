@@ -1,18 +1,18 @@
 package com.intermodular.hotel.data.network
 
 import android.util.Log
-import com.intermodular.hotel.data.model.HotelRoomModel
+import com.intermodular.hotel.data.model.ReservationModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class HotelRoomService @Inject constructor(
-    private val api: RoomApiClient
+class ReservationService @Inject constructor(
+    private val api: ReservationApiClient
 ) {
-    suspend fun getHotelRoomList(): List<HotelRoomModel> {
+    suspend fun getReservationListOfCustomer(): List<ReservationModel> {
         return withContext(Dispatchers.IO) {
             try {
-                api.getHotelRoomList().body()
+                api.getReservationListOfCustomer()
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
             }

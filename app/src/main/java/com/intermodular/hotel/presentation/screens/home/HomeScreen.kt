@@ -49,6 +49,7 @@ fun GenerateHotelCards(homeViewModel: HomeViewModel) {
     if (!hotelHotelRooms.isNullOrEmpty()) {
         for (i in hotelHotelRooms!!) {
             HotelRoomCard(
+                number = i.number,
                 numberOfBeds = i.numberOfBeds,
                 pricePerNight = i.pricePerNight,
             )

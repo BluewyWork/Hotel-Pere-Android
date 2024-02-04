@@ -4,18 +4,22 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.intermodular.hotel.data.model.ReservationModel
-import com.intermodular.hotel.domain.GetAllReservationsUseCase
+import com.intermodular.hotel.domain.GetReservationListOfCustomerUseCase
+import com.intermodular.hotel.domain.model.Reservation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ReservationsOverviewViewModel : ViewModel() {
-    private val _reservations = MutableLiveData<List<ReservationModel>>()
-    val reservations: LiveData<List<ReservationModel>> = _reservations
+@HiltViewModel
+class ReservationsOverviewViewModel @Inject constructor(
+    private val getReservationListOfCustomerUseCase: GetReservationListOfCustomerUseCase
+) : ViewModel() {
+    private val _reservations = MutableLiveData<List<Reservation>>()
+    val reservations: LiveData<List<Reservation>> = _reservations
     fun onCreate() {
         viewModelScope.launch {
-            val getAllReservationsUseCase = GetAllReservationsUseCase()
 
-            _reservations.postValue(getAllReservationsUseCase.invoke())
+            _reservations.postValue(getReservationListOfCustomerUseCase())
         }
     }
 }
