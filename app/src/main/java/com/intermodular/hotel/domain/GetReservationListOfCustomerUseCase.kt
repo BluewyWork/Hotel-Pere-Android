@@ -5,6 +5,7 @@ import com.intermodular.hotel.domain.model.Reservation
 import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
+import com.intermodular.hotel.data.database.entities.toDatabase
 
 class GetReservationListOfCustomerUseCase @Inject constructor(
     private val api: ReservationRepository
@@ -15,9 +16,8 @@ class GetReservationListOfCustomerUseCase @Inject constructor(
         return if (reservationsFromApi.isNotEmpty()) {
             api.clearReservationListOfAuthenticatedCustomer()
 
-            for (reservation in reservationsFromApi) {
-                api.insertReservationOfAuthenticatedCustomer(reservation)
-            }
+            // unable to convert toDatabase ???????
+            TODO()
 
             reservationsFromApi
         } else {

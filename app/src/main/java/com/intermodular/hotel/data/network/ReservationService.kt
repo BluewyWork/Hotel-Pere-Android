@@ -7,12 +7,12 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ReservationService @Inject constructor(
-    private val api: ReservationApiClient
+    private val reservationApi: ReservationApiClient
 ) {
     suspend fun getReservationListOfAuthenticatedCustomer(): List<ReservationModel> {
         return withContext(Dispatchers.IO) {
             try {
-                api.getReservationListOfAuthenticatedCustomer()
+                reservationApi.getReservationListOfAuthenticatedCustomer()
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
             }

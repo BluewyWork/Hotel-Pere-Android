@@ -9,11 +9,11 @@ import com.intermodular.hotel.data.database.entities.CustomerEntity
 @Dao
 interface CustomerDao {
     @Query("SELECT * FROM customer_table ")
-    fun getCustomer(): CustomerEntity?
+    fun getAuthenticatedCustomer(): CustomerEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(users: CustomerEntity)
+    fun insertOne(customer: CustomerEntity)
 
     @Query("DELETE FROM customer_table")
-    fun clearCustomer()
+    fun clearAll()
 }

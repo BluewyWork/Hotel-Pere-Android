@@ -4,7 +4,7 @@ import com.intermodular.hotel.data.model.HotelRoomModel
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface RoomApiClient {
+interface HotelRoomApiClient {
     @GET("/null")
     suspend fun getHotelRoomList(): Response<List<HotelRoomModel>>
 }
