@@ -6,7 +6,8 @@ import javax.inject.Inject
 
 class GetCustomerUseCase @Inject constructor(private val repository: CustomerRepository) {
     suspend operator fun invoke(): Customer? {
-        return repository.getCustomerFromApi() ?: repository.getCustomerFromDataBase() ?: generateCustomer()
+        return repository.getCustomerFromApi() ?: repository.getCustomerFromDataBase()
+        ?: generateCustomer()
     }
 
     suspend fun generateCustomer(): Customer {

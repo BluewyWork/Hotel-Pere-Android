@@ -36,9 +36,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
 import com.intermodular.hotel.presentation.screens.profile.composables.EmailTextField
-import com.intermodular.hotel.presentation.screens.profile.composables.SurnameTextField
-import com.intermodular.hotel.presentation.screens.profile.composables.PhoneNumberTextField
 import com.intermodular.hotel.presentation.screens.profile.composables.NameTextField
+import com.intermodular.hotel.presentation.screens.profile.composables.SurnameTextField
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
