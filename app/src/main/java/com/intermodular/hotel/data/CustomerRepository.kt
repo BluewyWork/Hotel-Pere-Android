@@ -15,7 +15,7 @@ class CustomerRepository @Inject constructor(
     private val customerDao: CustomerDao
 ) {
     suspend fun getAuthenticatedCustomerFromApi(): Customer? {
-        val response: CustomerModel? = api.getAuthenticatedCustomer()
+        val response: CustomerModel? = api.getAuthenticatedCustomerFromApi()
         return response?.toDomain()
     }
 

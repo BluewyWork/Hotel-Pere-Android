@@ -9,7 +9,7 @@ import javax.inject.Inject
 class HotelRoomService @Inject constructor(
     private val hotelRoomApi: HotelRoomApiClient
 ) {
-    suspend fun getHotelRoomList(): List<HotelRoomModel> {
+    suspend fun getHotelRoomListFromApi(): List<HotelRoomModel> {
         return withContext(Dispatchers.IO) {
             try {
                 hotelRoomApi.getHotelRoomList().body()
@@ -20,7 +20,7 @@ class HotelRoomService @Inject constructor(
         }
     }
 
-    suspend fun getOneHotelRoom(roomNumber: Int): HotelRoomModel? {
+    suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoomModel? {
         return withContext(Dispatchers.IO) {
             try {
                 return@withContext hotelRoomApi.getOneHotelRoom(roomNumber).body()

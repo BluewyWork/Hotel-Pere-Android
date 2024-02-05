@@ -15,13 +15,13 @@ class ReservationRepository @Inject constructor(
     private val reservationDao: ReservationDao
 ) {
     suspend fun getReservationListOfAuthenticatedCustomerFromApi(): List<Reservation> {
-        return api.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
+        return api.getReservationListOfAuthenticatedCustomerFromApi().map { it.toDomain() }
     }
 
     suspend fun getReservationListOfAuthenticatedCustomerFromDatabase(): List<Reservation> {
         try {
             return withContext(Dispatchers.IO) {
-                api.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
+                reservationDao.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
             }
         } catch(e: Exception) {
             Log.e("LOOK AT ME", "${e.message}")
