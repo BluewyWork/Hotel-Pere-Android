@@ -33,6 +33,10 @@ class ReservationRepository @Inject constructor(
         reservationDao.insertOne(reservation)
     }
 
+    suspend fun insertReservationListOfAuthenticatedCustomer(reservations: List<ReservationEntity>) {
+        reservationDao.insertMany(reservations)
+    }
+
     suspend fun clearReservationListOfAuthenticatedCustomer() {
         reservationDao.clearAll()
     }

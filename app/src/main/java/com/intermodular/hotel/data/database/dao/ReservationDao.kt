@@ -14,6 +14,9 @@ interface ReservationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOne(reservation: ReservationEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertMany(reservations: List<ReservationEntity>)
+
     @Query("DELETE FROM reservation_table")
     fun clearAll()
 }
