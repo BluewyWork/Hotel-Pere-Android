@@ -1,10 +1,12 @@
 package com.intermodular.hotel.data.database.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.intermodular.hotel.data.database.entities.ReservationEntity
 
+@Dao
 interface ReservationDao {
     @Query("SELECT * FROM reservation_table")
     fun getReservationListOfAuthenticatedCustomer(): List<ReservationEntity>
