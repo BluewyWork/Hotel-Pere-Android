@@ -7,4 +7,7 @@ import retrofit2.http.GET
 interface HotelRoomApiClient {
     @GET("/null")
     suspend fun getHotelRoomList(): Response<List<HotelRoomModel>>
+
+    @GET("/number")
+    suspend fun getOneHotelRoom(roomNumber: Int): Response<HotelRoomModel>
 }

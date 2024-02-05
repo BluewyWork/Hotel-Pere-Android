@@ -5,7 +5,6 @@ import com.intermodular.hotel.domain.model.Reservation
 import java.util.Calendar
 import java.util.Date
 import javax.inject.Inject
-import com.intermodular.hotel.data.database.entities.toDatabase
 
 class GetReservationListOfCustomerUseCase @Inject constructor(
     private val api: ReservationRepository

@@ -13,4 +13,9 @@ class HotelRoomRepository @Inject constructor(
         val response: List<HotelRoomModel> = api.getHotelRoomList()
         return response.map { it.toDomain() }
     }
+
+    suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoom? {
+        val response: HotelRoomModel? = api.getOneHotelRoom(roomNumber)
+        return response?.toDomain()
+    }
 }

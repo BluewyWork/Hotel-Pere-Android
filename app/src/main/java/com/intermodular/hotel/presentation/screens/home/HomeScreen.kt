@@ -25,33 +25,34 @@ fun HomeScreen(navController: NavController, homeViewModel: HomeViewModel) {
             Modifier
                 .padding(innerPadding)
         ) {
-            Home(homeViewModel)
+            Home(homeViewModel, navController)
         }
     }
 }
 
 @Composable
-fun Home(homeViewModel: HomeViewModel) {
+fun Home(homeViewModel: HomeViewModel, navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(top = 16.dp, start = 16.dp, end = 16.dp, bottom = 0.dp)
     ) {
         item {
-            GenerateHotelCards(homeViewModel)
+            GenerateHotelCards(homeViewModel, navController)
         }
     }
 }
 
 @Composable
-fun GenerateHotelCards(homeViewModel: HomeViewModel) {
+fun GenerateHotelCards(homeViewModel: HomeViewModel, navController: NavController) {
     val hotelHotelRooms: List<HotelRoom>? by homeViewModel.hotelRooms.observeAsState()
     if (!hotelHotelRooms.isNullOrEmpty()) {
         for (i in hotelHotelRooms!!) {
             HotelRoomCard(
+                navController = navController,
                 number = i.number,
                 numberOfBeds = i.numberOfBeds,
-                pricePerNight = i.pricePerNight,
+                pricePerNight = i.pricePerNight
             )
             Spacer(
                 modifier = Modifier

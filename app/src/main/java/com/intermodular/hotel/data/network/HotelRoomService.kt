@@ -19,4 +19,15 @@ class HotelRoomService @Inject constructor(
             emptyList()
         }
     }
+
+    suspend fun getOneHotelRoom(roomNumber: Int): HotelRoomModel? {
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext hotelRoomApi.getOneHotelRoom(roomNumber).body()
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+            }
+            null
+        }
+    }
 }

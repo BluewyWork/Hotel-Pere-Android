@@ -1,6 +1,7 @@
 package com.intermodular.hotel.presentation.screens.home.composables
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,11 +22,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 
 @Composable
 fun HotelRoomCard(
-    // this might be needed in order to navigate to details screen
+    navController: NavController,
     number: Int,
     pricePerNight: Double,
     numberOfBeds: Int
@@ -35,6 +38,7 @@ fun HotelRoomCard(
             .fillMaxWidth()
             .height(250.dp)
             .padding(8.dp)
+            .clickable { navController.navigate("details") }
     ) {
         Column(
             modifier = Modifier
