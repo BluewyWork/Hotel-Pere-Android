@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.intermodular.hotel.domain.GetDetailsOfRoomUseCase
 import com.intermodular.hotel.domain.GetHotelRoomListUseCase
 import com.intermodular.hotel.domain.model.HotelRoom

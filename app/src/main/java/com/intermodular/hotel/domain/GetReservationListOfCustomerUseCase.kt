@@ -2,9 +2,10 @@ package com.intermodular.hotel.domain
 
 import com.intermodular.hotel.data.ReservationRepository
 import com.intermodular.hotel.domain.model.Reservation
-import java.util.Calendar
-import java.util.Date
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
+import kotlin.random.Random
 
 class GetReservationListOfCustomerUseCase @Inject constructor(
     private val api: ReservationRepository
@@ -27,35 +28,35 @@ class GetReservationListOfCustomerUseCase @Inject constructor(
                 return reservationsFromDatabase
             }
 
-            generateReservations()
+            generateRandomReservations()
         }
     }
 
-    private fun generateReservations(): List<Reservation> {
+    fun generateRandomReservations(): List<Reservation> {
         val reservations = mutableListOf<Reservation>()
 
-        val currentDate = Date()
+        val roomCount = 10
+        val dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
-        for (i in 1..10) {
-            val randomDays = (1..10).random()
-            val checkInDate = Calendar.getInstance()
-            checkInDate.time = currentDate
-            checkInDate.add(Calendar.DAY_OF_YEAR, randomDays)
-
-            val randomStay = (2..7).random()
-            val checkOutDate = Calendar.getInstance()
-            checkOutDate.time = checkInDate.time
-            checkOutDate.add(Calendar.DAY_OF_YEAR, randomStay)
+        for (i in 1..roomCount) {
+            val customerName = "Customer$i"
+            val customerSurname = "Surname$i"
+            val customerEmail = "customer$i@example.com"
+            val roomNumber = i
+            val pricePerNight = Random.nextDouble(50.0, 200.0)
+            val checkIn = LocalDateTime.now().plusDays(Random.nextLong(1, 10))
+            val checkOut = checkIn.plusDays(Random.nextLong(1, 10))
+            val reserved = Random.nextBoolean()
 
             val reservation = Reservation(
-                "Customer$i",
-                "Surname$i",
-                "customer$i@example.com",
-                (101 + i),
-                100.0,
-                checkInDate.time,
-                checkOutDate.time,
-                true
+                customerName,
+                customerSurname,
+                customerEmail,
+                roomNumber,
+                pricePerNight,
+                checkIn,
+                checkOut,
+                reserved
             )
 
             reservations.add(reservation)

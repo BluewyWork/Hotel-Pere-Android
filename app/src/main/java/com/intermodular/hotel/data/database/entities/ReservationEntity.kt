@@ -3,7 +3,6 @@ package com.intermodular.hotel.data.database.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Date
 
 @Entity(tableName = "reservation_table")
 data class ReservationEntity(
@@ -13,8 +12,8 @@ data class ReservationEntity(
     @ColumnInfo(name = "customerEmail") val customerEmail: String,
     @ColumnInfo(name = "roomNumber") val roomNumber: Int,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
-    @ColumnInfo(name = "checkIn") val checkIn: Date,
-    @ColumnInfo(name = "checkOut") val checkOut: Date,
+    @ColumnInfo(name = "checkIn") val checkIn: String,
+    @ColumnInfo(name = "checkOut") val checkOut: String,
     @ColumnInfo(name = "reserved") val reserved: Boolean
 )
 

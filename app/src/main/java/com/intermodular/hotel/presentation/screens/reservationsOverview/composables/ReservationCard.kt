@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import java.util.Date
+import java.time.LocalDateTime
 
 @Composable
 fun ReservationCard(
@@ -19,8 +19,8 @@ fun ReservationCard(
     customerEmail: String,
     roomNumber: Int,
     pricePerNight: Double,
-    checkIn: Date,
-    checkOut: Date
+    checkIn: LocalDateTime,
+    checkOut: LocalDateTime
 ) {
     Card(
         Modifier

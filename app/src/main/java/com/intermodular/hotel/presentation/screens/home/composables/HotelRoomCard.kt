@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
-import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 
 @Composable
 fun HotelRoomCard(
