@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ReservationService @Inject constructor(
     private val reservationApi: ReservationApiClient
 ) {
-    suspend fun getReservationListOfAuthenticatedCustomer(): List<ReservationModel> {
+    suspend fun getReservationListOfAuthenticatedCustomerFromApi(): List<ReservationModel> {
         return withContext(Dispatchers.IO) {
             try {
                 reservationApi.getReservationListOfAuthenticatedCustomer()
