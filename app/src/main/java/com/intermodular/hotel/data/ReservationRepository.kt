@@ -23,7 +23,7 @@ class ReservationRepository @Inject constructor(
             return withContext(Dispatchers.IO) {
                 reservationDao.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
             }
-        } catch(e: Exception) {
+        } catch (e: Exception) {
             Log.e("LOOK AT ME", "${e.message}")
         }
         return emptyList()
