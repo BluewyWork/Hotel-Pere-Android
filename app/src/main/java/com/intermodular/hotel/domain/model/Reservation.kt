@@ -6,9 +6,9 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 data class Reservation(
-    val customerName: String,
-    val customerSurname: String,
-    val customerEmail: String,
+    val guestName: String,
+    val guestSurname: String,
+    val guestEmail: String,
     val roomNumber: Int,
     val pricePerNight: Double,
     val checkIn: LocalDateTime,
@@ -23,9 +23,9 @@ fun convertToLocalDateTime(dateString: String): LocalDateTime {
 }
 
 fun ReservationModel.toDomain() = Reservation(
-    customerName = customerName,
-    customerSurname = customerSurname,
-    customerEmail = customerEmail,
+    guestName = guestName,
+    guestSurname = guestSurname,
+    guestEmail = guestEmail,
     roomNumber = roomNumber,
     pricePerNight = pricePerNight,
     checkIn = convertToLocalDateTime(checkIn),
@@ -34,9 +34,9 @@ fun ReservationModel.toDomain() = Reservation(
 )
 
 fun ReservationEntity.toDomain() = Reservation(
-    customerName = customerName,
-    customerSurname = customerSurname,
-    customerEmail = customerEmail,
+    guestName = guestName,
+    guestSurname = guestSurname,
+    guestEmail = guestEmail,
     roomNumber = roomNumber,
     pricePerNight = pricePerNight,
     checkIn = convertToLocalDateTime(checkIn),

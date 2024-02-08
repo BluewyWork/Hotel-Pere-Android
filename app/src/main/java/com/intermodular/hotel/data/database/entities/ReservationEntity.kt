@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "reservation_table")
 data class ReservationEntity(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "customerName") val customerName: String,
-    @ColumnInfo(name = "customerSurname") val customerSurname: String,
-    @ColumnInfo(name = "customerEmail") val customerEmail: String,
+    @ColumnInfo(name = "customerName") val guestName: String,
+    @ColumnInfo(name = "customerSurname") val guestSurname: String,
+    @ColumnInfo(name = "customerEmail") val guestEmail: String,
     @ColumnInfo(name = "roomNumber") val roomNumber: Int,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
     @ColumnInfo(name = "checkIn") val checkIn: String,
@@ -18,9 +18,9 @@ data class ReservationEntity(
 )
 
 fun ReservationEntity.toDatabase() = ReservationEntity(
-    customerName = customerName,
-    customerSurname = customerSurname,
-    customerEmail = customerEmail,
+    guestName = guestName,
+    guestSurname = guestSurname,
+    guestEmail = guestEmail,
     roomNumber = roomNumber,
     pricePerNight = pricePerNight,
     checkIn = checkIn,

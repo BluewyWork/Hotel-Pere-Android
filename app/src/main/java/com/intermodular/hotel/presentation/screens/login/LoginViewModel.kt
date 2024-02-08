@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
-import com.intermodular.hotel.domain.AuthenticateCustomerUseCase
+import com.intermodular.hotel.domain.AuthenticateGuestUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val authenticateCustomerUseCase: AuthenticateCustomerUseCase
+    private val authenticateGuestUseCase: AuthenticateGuestUseCase
 ) : ViewModel() {
     private val _email = MutableLiveData<String>()
     val email: LiveData<String> = _email
@@ -36,7 +36,7 @@ class LoginViewModel @Inject constructor(
                 return@launch
             }
 
-            val isSuccessful = authenticateCustomerUseCase.login(email, password)
+            val isSuccessful = authenticateGuestUseCase.login(email, password)
 
             if (isSuccessful) {
                 navController.navigate(route = "home")

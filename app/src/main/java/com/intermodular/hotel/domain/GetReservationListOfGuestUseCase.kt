@@ -7,14 +7,14 @@ import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 import kotlin.random.Random
 
-class GetReservationListOfCustomerUseCase @Inject constructor(
+class GetReservationListOfGuestUseCase @Inject constructor(
     private val api: ReservationRepository
 ) {
     suspend operator fun invoke(): List<Reservation> {
-        val reservationsFromApi = api.getReservationListOfAuthenticatedCustomerFromApi()
+        val reservationsFromApi = api.getReservationListOfAuthenticatedGuestFromApi()
 
         return if (reservationsFromApi.isNotEmpty()) {
-            api.clearReservationListOfAuthenticatedCustomer()
+            api.clearReservationListOfAuthenticatedGuest()
 
             // unable to convert toDatabase ???????
             TODO()
@@ -22,7 +22,7 @@ class GetReservationListOfCustomerUseCase @Inject constructor(
             reservationsFromApi
         } else {
             val reservationsFromDatabase =
-                api.getReservationListOfAuthenticatedCustomerFromDatabase()
+                api.getReservationListOfAuthenticatedGuestFromDatabase()
 
             if (reservationsFromDatabase.isNotEmpty()) {
                 return reservationsFromDatabase

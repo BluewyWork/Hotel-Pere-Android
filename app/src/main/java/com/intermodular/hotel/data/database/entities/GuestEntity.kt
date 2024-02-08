@@ -3,10 +3,10 @@ package com.intermodular.hotel.data.database.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.intermodular.hotel.domain.model.Customer
+import com.intermodular.hotel.domain.model.Guest
 
 @Entity(tableName = "customer_table")
-data class CustomerEntity(
+data class GuestEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
     @ColumnInfo(name = "email") val email: String,
     @ColumnInfo(name = "token") val token: String,
@@ -15,7 +15,7 @@ data class CustomerEntity(
     @ColumnInfo(name = "surname") val surname: String
 )
 
-fun Customer.toDatabase() = CustomerEntity(
+fun Guest.toDatabase() = GuestEntity(
     name = name,
     surname = surname,
     email = email,

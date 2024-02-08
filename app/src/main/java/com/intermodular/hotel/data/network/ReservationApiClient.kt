@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ReservationApiClient {
     @GET("/path")
-    suspend fun getReservationListOfAuthenticatedCustomer(): Response<ReservationModel>
+    suspend fun getReservationListOfAuthenticatedGuest(): Response<ReservationModel>
 }

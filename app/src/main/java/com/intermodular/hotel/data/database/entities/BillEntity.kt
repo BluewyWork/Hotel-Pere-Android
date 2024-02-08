@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "bill_table")
 data class BillEntity(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "customerName") val customerName: String,
-    @ColumnInfo(name = "customerSurname") val customerSurname: String,
+    @ColumnInfo(name = "customerName") val guestName: String,
+    @ColumnInfo(name = "customerSurname") val guestSurname: String,
     @ColumnInfo(name = "totalAmountDue") val totalAmountDue: Double
 )
 
 fun BillEntity.toDatabase() = BillEntity(
-    customerName = customerName,
-    customerSurname = customerSurname,
+    guestName = guestName,
+    guestSurname = guestSurname,
     totalAmountDue = totalAmountDue
 )

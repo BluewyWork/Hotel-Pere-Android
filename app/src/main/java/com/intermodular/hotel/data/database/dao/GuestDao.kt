@@ -4,15 +4,15 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.intermodular.hotel.data.database.entities.CustomerEntity
+import com.intermodular.hotel.data.database.entities.GuestEntity
 
 @Dao
-interface CustomerDao {
+interface GuestDao {
     @Query("SELECT * FROM customer_table ")
-    fun getAuthenticatedCustomer(): CustomerEntity?
+    fun getAuthenticatedGuest(): GuestEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertOne(customer: CustomerEntity)
+    fun insertOne(customer: GuestEntity)
 
     @Query("DELETE FROM customer_table")
     fun clearAll()
