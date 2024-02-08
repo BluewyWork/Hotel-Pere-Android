@@ -16,8 +16,7 @@ class AuthenticateGuestUseCase @Inject constructor(
         val loginModel = LoginModel(email, password)
         val guestToken = tokenRepository.getGuestTokenFromApi(loginModel)
 
-        val guestModel = guestRepository.getAuthenticatedGuestFromApi(guestToken) ?: return false
-        val guest = guestModel.toDomain()
+        val guest = guestRepository.getAuthenticatedGuestFromApi(guestToken) ?: return false
 
         val tokenEntity = TokenEntity(guestToken)
         tokenRepository.clearAllTokensFromDatabase()

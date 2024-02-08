@@ -14,8 +14,8 @@ class GuestRepository @Inject constructor(
     private val api: GuestService,
     private val guestDao: GuestDao
 ) {
-    suspend fun getAuthenticatedGuestFromApi(token: String): GuestModel? {
-        return api.getAuthenticatedGuestFromApi(token)
+    suspend fun getAuthenticatedGuestFromApi(token: String): Guest? {
+        return api.getAuthenticatedGuestFromApi(token)?.toDomain()
     }
 
     suspend fun getAuthenticatedGuestFromDataBase(): Guest? {
