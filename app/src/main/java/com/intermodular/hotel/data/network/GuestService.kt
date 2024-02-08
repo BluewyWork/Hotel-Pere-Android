@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class GuestService @Inject constructor(
-    private val guestApi: GuestApiClient
+    private val guestApi: GuestApi
 ) {
     suspend fun getAuthenticatedGuestFromApi(token: String): GuestModel? {
         return withContext(Dispatchers.IO) {
