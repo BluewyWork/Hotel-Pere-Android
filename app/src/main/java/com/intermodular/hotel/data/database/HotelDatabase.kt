@@ -9,7 +9,10 @@ import com.intermodular.hotel.data.database.entities.GuestEntity
 import com.intermodular.hotel.data.database.entities.ReservationEntity
 import com.intermodular.hotel.data.database.entities.TokenEntity
 
-@Database(entities = [GuestEntity::class, ReservationEntity::class, TokenEntity::class], version = 1)
+@Database(
+    entities = [GuestEntity::class, ReservationEntity::class, TokenEntity::class],
+    version = 1
+)
 abstract class HotelDatabase : RoomDatabase() {
     abstract fun getGuestDao(): GuestDao
     abstract fun getReservationDao(): ReservationDao

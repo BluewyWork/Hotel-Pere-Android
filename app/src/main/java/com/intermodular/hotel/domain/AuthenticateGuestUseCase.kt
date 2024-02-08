@@ -5,7 +5,6 @@ import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.data.database.entities.TokenEntity
 import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.model.LoginModel
-import com.intermodular.hotel.domain.model.toDomain
 import javax.inject.Inject
 
 class AuthenticateGuestUseCase @Inject constructor(
@@ -16,7 +15,8 @@ class AuthenticateGuestUseCase @Inject constructor(
         val loginModel = LoginModel(email, password)
         val guestToken = tokenRepository.getGuestTokenFromApi(loginModel)
 
-        val guest = guestRepository.getAuthenticatedGuestFromApi(guestToken) ?: return false
+        val guest = guestRepository.getAuthenticatedGuestFromApi(guestToken)
+            ?: return false
 
         val tokenEntity = TokenEntity(guestToken)
         tokenRepository.clearAllTokensFromDatabase()

@@ -2,7 +2,6 @@ package com.intermodular.hotel.data
 
 import com.intermodular.hotel.data.database.dao.GuestDao
 import com.intermodular.hotel.data.database.entities.GuestEntity
-import com.intermodular.hotel.data.model.GuestModel
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
 import com.intermodular.hotel.domain.model.toDomain
