@@ -28,7 +28,7 @@ class GuestService @Inject constructor(private val guestApi: GuestApiClient) {
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
                     if (loginResponse != null && loginResponse.ok) {
-                        loginResponse.data
+                        loginResponse.data.token
                     } else {
                         ""
                     }
