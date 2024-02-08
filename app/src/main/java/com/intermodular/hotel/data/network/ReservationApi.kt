@@ -4,7 +4,7 @@ import com.intermodular.hotel.data.model.ReservationModel
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface ReservationApiClient {
+interface ReservationApi {
     @GET("/path")
     suspend fun getReservationListOfAuthenticatedGuest(): Response<ReservationModel>
 }

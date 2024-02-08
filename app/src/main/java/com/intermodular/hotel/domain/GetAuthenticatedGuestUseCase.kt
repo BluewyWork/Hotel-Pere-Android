@@ -7,21 +7,7 @@ import javax.inject.Inject
 
 class GetAuthenticatedGuestUseCase @Inject constructor(private val repository: GuestRepository) {
     suspend operator fun invoke(): Guest? {
-        val customerFromApi = repository.getAuthenticatedGuestFromApi()
-
-        return if (customerFromApi != null) {
-            repository.clearGuest()
-            repository.insertOneGuest(customerFromApi.toDatabase())
-            customerFromApi
-        } else {
-            val customerFromDatabase = repository.getAuthenticatedGuestFromDataBase()
-
-            if (customerFromDatabase != null) {
-                return customerFromDatabase
-            }
-
-            generateGuest()
-        }
+      return generateGuest()
     }
 
     private suspend fun generateGuest(): Guest {

@@ -7,7 +7,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ReservationService @Inject constructor(
-    private val reservationApi: ReservationApiClient
+    private val reservationApi: ReservationApi
 ) {
     suspend fun getReservationListOfAuthenticatedGuestFromApi(): List<ReservationModel> {
         return withContext(Dispatchers.IO) {
