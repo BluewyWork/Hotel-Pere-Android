@@ -9,7 +9,7 @@ import com.intermodular.hotel.data.database.entities.ReservationEntity
 @Dao
 interface ReservationDao {
     @Query("SELECT * FROM reservation_table")
-    fun getReservationListOfAuthenticatedCustomer(): List<ReservationEntity>
+    fun getReservationListOfAuthenticatedGuest(): List<ReservationEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOne(reservation: ReservationEntity)

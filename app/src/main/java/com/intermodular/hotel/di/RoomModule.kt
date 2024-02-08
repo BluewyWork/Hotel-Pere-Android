@@ -22,7 +22,7 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideCustomerDao(db: HotelDatabase) = db.getCustomerDao()
+    fun provideGuestDao(db: HotelDatabase) = db.getGuestDao()
 
     @Singleton
     @Provides

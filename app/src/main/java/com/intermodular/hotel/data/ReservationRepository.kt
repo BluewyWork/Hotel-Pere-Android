@@ -14,14 +14,14 @@ class ReservationRepository @Inject constructor(
     private val api: ReservationService,
     private val reservationDao: ReservationDao
 ) {
-    suspend fun getReservationListOfAuthenticatedCustomerFromApi(): List<Reservation> {
-        return api.getReservationListOfAuthenticatedCustomerFromApi().map { it.toDomain() }
+    suspend fun getReservationListOfAuthenticatedGuestFromApi(): List<Reservation> {
+        return api.getReservationListOfAuthenticatedGuestFromApi().map { it.toDomain() }
     }
 
-    suspend fun getReservationListOfAuthenticatedCustomerFromDatabase(): List<Reservation> {
+    suspend fun getReservationListOfAuthenticatedGuestFromDatabase(): List<Reservation> {
         try {
             return withContext(Dispatchers.IO) {
-                reservationDao.getReservationListOfAuthenticatedCustomer().map { it.toDomain() }
+                reservationDao.getReservationListOfAuthenticatedGuest().map { it.toDomain() }
             }
         } catch (e: Exception) {
             Log.e("LOOK AT ME", "${e.message}")
@@ -29,15 +29,15 @@ class ReservationRepository @Inject constructor(
         return emptyList()
     }
 
-    suspend fun insertOneReservationOfAuthenticatedCustomer(reservation: ReservationEntity) {
+    suspend fun insertOneReservationOfAuthenticatedGuest(reservation: ReservationEntity) {
         reservationDao.insertOne(reservation)
     }
 
-    suspend fun insertReservationListOfAuthenticatedCustomer(reservations: List<ReservationEntity>) {
+    suspend fun insertReservationListOfAuthenticatedGuest(reservations: List<ReservationEntity>) {
         reservationDao.insertMany(reservations)
     }
 
-    suspend fun clearReservationListOfAuthenticatedCustomer() {
+    suspend fun clearReservationListOfAuthenticatedGuest() {
         reservationDao.clearAll()
     }
 }

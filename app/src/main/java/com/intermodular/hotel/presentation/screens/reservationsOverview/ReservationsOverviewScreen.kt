@@ -54,8 +54,8 @@ fun Reservations(reservationsOverviewViewModel: ReservationsOverviewViewModel) {
         item {
             for (reservation in reservations!!) {
                 ReservationCard(
-                    customerName = reservation.customerName,
-                    customerEmail = reservation.customerEmail,
+                    customerName = reservation.guestName,
+                    customerEmail = reservation.guestEmail,
                     roomNumber = reservation.roomNumber,
                     pricePerNight = reservation.pricePerNight,
                     checkIn = reservation.checkIn,
