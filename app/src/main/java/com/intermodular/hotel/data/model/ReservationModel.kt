@@ -1,6 +1,7 @@
 package com.intermodular.hotel.data.model
 
 import com.google.gson.annotations.SerializedName
+import com.intermodular.hotel.domain.model.Reservation
 
 data class ReservationModel(
     @SerializedName("customerName") val guestName: String,
@@ -11,4 +12,15 @@ data class ReservationModel(
     @SerializedName("checkIn") val checkIn: String,
     @SerializedName("checkOut") val checkOut: String,
     @SerializedName("reserved") val reserved: Boolean
+)
+
+fun Reservation.toModel() = ReservationModel(
+    guestName = guestName,
+    guestSurname = guestSurname,
+    guestEmail = guestEmail,
+    roomNumber = roomNumber,
+    pricePerNight = pricePerNight,
+    checkIn = checkIn.toString(),
+    checkOut = checkOut.toString(),
+    reserved = reserved
 )

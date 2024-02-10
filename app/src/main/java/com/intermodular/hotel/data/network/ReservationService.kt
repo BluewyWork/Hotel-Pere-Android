@@ -19,4 +19,22 @@ class ReservationService @Inject constructor(
             emptyList()
         }
     }
+
+    suspend fun makeReservation(reservation: ReservationModel): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = reservationApi.makeReservation(reservation)
+
+                if (!response.isSuccessful) {
+                    return@withContext false
+                }
+
+                return@withContext response.body()?.ok ?: false
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+
+                false
+            }
+        }
+    }
 }

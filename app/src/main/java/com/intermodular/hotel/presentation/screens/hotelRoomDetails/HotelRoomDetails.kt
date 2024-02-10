@@ -41,13 +41,16 @@ fun HotelRoomDetails(
             Modifier
                 .padding(innerPadding)
         ) {
-            HotelRoomDetails(hotelRoomDetailsViewModel)
+            HotelRoomDetails(hotelRoomDetailsViewModel, navController)
         }
     }
 }
 
 @Composable
-fun HotelRoomDetails(hotelRoomDetailsViewModel: HotelRoomDetailsViewModel) {
+fun HotelRoomDetails(
+    hotelRoomDetailsViewModel: HotelRoomDetailsViewModel,
+    navController: NavController
+) {
     val hotelRoom: HotelRoom? by hotelRoomDetailsViewModel.hotelRoom.observeAsState()
 
     if (hotelRoom == null) {
@@ -140,12 +143,20 @@ fun HotelRoomDetails(hotelRoomDetailsViewModel: HotelRoomDetailsViewModel) {
                 fontWeight = FontWeight.Bold
             )
 
+            val isLoggedIn: Boolean by hotelRoomDetailsViewModel.isLoggedIn.observeAsState(initial = false)
+
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                 onClick = {
-                }) {
+                    hotelRoomDetailsViewModel.onReservePress()
+
+                    if (!isLoggedIn) {
+                        navController.navigate("login")
+                    }
+                }
+            ) {
                 Text(text = "Reservar")
             }
         }

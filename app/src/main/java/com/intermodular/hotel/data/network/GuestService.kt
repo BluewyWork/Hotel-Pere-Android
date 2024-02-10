@@ -13,11 +13,21 @@ class GuestService @Inject constructor(
         return withContext(Dispatchers.IO) {
             try {
                 val response = guestApi.getOneGuest(token)
-                response.body()
+
+                if (!response.isSuccessful || response.body() == null) {
+                    return@withContext null
+                }
+
+                val responseData = response.body()!!.data
+                return@withContext GuestModel(
+                    responseData.name,
+                    responseData.surname,
+                    responseData.email
+                )
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
+                return@withContext null
             }
-            null
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.intermodular.hotel.data
 
+import android.util.Log
 import com.intermodular.hotel.data.database.dao.GuestDao
 import com.intermodular.hotel.data.database.entities.GuestEntity
+import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
 import com.intermodular.hotel.domain.model.toDomain
@@ -19,15 +21,32 @@ class GuestRepository @Inject constructor(
 
     suspend fun getAuthenticatedGuestFromDataBase(): Guest? {
         return withContext(Dispatchers.IO) {
-            guestDao.getAuthenticatedGuest()?.toDomain()
+            try {
+                guestDao.getAuthenticatedGuest()?.toDomain()
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+                null
+            }
         }
     }
 
-    suspend fun insertOneGuestToDatabase(guest: GuestEntity) {
-        guestDao.insertOne(guest)
+    suspend fun insertOneGuestToDatabase(guest: Guest) {
+        return withContext(Dispatchers.IO) {
+            try {
+                guestDao.insertOne(guest.toDatabase())
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+            }
+        }
     }
 
     suspend fun clearGuestFromDatabase() {
-        guestDao.clearAll()
+        return withContext(Dispatchers.IO) {
+            try {
+                guestDao.clearAll()
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+            }
+        }
     }
 }

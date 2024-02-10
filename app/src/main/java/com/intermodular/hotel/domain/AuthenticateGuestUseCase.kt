@@ -1,5 +1,6 @@
 package com.intermodular.hotel.domain
 
+import android.util.Log
 import com.intermodular.hotel.data.GuestRepository
 import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.data.database.entities.TokenEntity
@@ -15,15 +16,26 @@ class AuthenticateGuestUseCase @Inject constructor(
         val loginModel = LoginModel(email, password)
         val guestToken = tokenRepository.getGuestTokenFromApi(loginModel)
 
+        Log.d("LOOK At ME", guestToken)
+
+        if (guestToken.isBlank()) {
+            Log.e("LOOK AT ME", "login failed...")
+            return false
+        }
+
         val guest = guestRepository.getAuthenticatedGuestFromApi(guestToken)
-            ?: return false
+
+        if (guest == null) {
+            Log.e("LOOK AT ME", "login failed 2...")
+            return false
+        }
 
         val tokenEntity = TokenEntity(guestToken)
         tokenRepository.clearAllTokensFromDatabase()
         tokenRepository.insertOneTokenToDatabase(tokenEntity)
 
         guestRepository.clearGuestFromDatabase()
-        guestRepository.insertOneGuestToDatabase(guest.toDatabase())
+        guestRepository.insertOneGuestToDatabase(guest)
 
         return true
     }

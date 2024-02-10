@@ -39,6 +39,12 @@ class TokenRepository @Inject constructor(
     }
 
     suspend fun clearAllTokensFromDatabase() {
-        tokenDao.clearAll()
+        return withContext(Dispatchers.IO) {
+            try {
+                tokenDao.clearAll()
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+            }
+        }
     }
 }
