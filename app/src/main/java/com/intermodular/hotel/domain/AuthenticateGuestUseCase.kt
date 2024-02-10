@@ -4,7 +4,6 @@ import android.util.Log
 import com.intermodular.hotel.data.GuestRepository
 import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.data.database.entities.TokenEntity
-import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.model.LoginModel
 import javax.inject.Inject
 

@@ -2,7 +2,6 @@ package com.intermodular.hotel.data
 
 import android.util.Log
 import com.intermodular.hotel.data.database.dao.GuestDao
-import com.intermodular.hotel.data.database.entities.GuestEntity
 import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
