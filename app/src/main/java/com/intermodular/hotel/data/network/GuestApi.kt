@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface GuestApi {
-    @GET("/guest/me")
+    @GET(Endpoints.RETRIEVE_GUEST)
     suspend fun getOneGuest(@Header("Authorization") token: String): Response<GuestResponse>
 }

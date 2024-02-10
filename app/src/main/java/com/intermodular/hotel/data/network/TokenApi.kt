@@ -7,6 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface TokenApi {
-    @POST("/auth/guest/login")
+    @POST(Endpoints.LOGIN_GUEST)
     suspend fun getGuestToken(@Body loginModel: LoginModel): Response<TokenResponse>
 }

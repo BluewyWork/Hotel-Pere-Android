@@ -7,9 +7,9 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ReservationApi {
-    @GET("/path")
+    @GET(Endpoints.RETRIEVE_ALL_HOTEL_ROOMS)
     suspend fun getReservationListOfAuthenticatedGuest(): Response<ReservationModel>
 
-    @POST("/replace_with_actual_endpoint")
+    @POST(Endpoints.MAKE_RESERVATION)
     suspend fun makeReservation(reservation: ReservationModel): Response<CustomResponse>
 }
