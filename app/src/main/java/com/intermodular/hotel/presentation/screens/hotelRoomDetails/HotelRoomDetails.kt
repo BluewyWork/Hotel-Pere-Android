@@ -17,6 +17,8 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -25,23 +27,33 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun HotelRoomDetails(navController: NavController) {
+fun HotelRoomDetails(
+    navController: NavController,
+    hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
+) {
     Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
         ) {
-            HotelRoomDetails()
+            HotelRoomDetails(hotelRoomDetailsViewModel)
         }
     }
 }
 
 @Composable
-fun HotelRoomDetails() {
+fun HotelRoomDetails(hotelRoomDetailsViewModel: HotelRoomDetailsViewModel) {
+    val hotelRoom: HotelRoom? by hotelRoomDetailsViewModel.hotelRoom.observeAsState()
+
+    if (hotelRoom == null) {
+        return
+    }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -59,6 +71,10 @@ fun HotelRoomDetails() {
             )
 
             Spacer(modifier = Modifier.height(20.dp))
+
+            Text(text = "${hotelRoom!!.number}")
+
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = "Habitación Standard",
                 Modifier.padding(start = 16.dp),
@@ -67,8 +83,7 @@ fun HotelRoomDetails() {
             )
             Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = "Contrary to popular belief, Lorem Ipsum is not simply random text. " +
-                        "It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ",
+                text = hotelRoom!!.description,
                 modifier = Modifier.padding(start = 16.dp),
                 fontSize = 18.sp
             )

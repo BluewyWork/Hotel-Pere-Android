@@ -1,21 +1,30 @@
 package com.intermodular.hotel.domain
 
 import com.intermodular.hotel.data.HotelRoomRepository
+import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.domain.model.HotelRoom
 import javax.inject.Inject
 
 class GetDetailsOfRoomUseCase @Inject constructor(
-    private val repository: HotelRoomRepository
+    private val hotelRoomRepository: HotelRoomRepository,
+    private val tokenRepository: TokenRepository
 ) {
-    suspend fun getDetailsOfRoom(roomNumber: Int): HotelRoom {
-        val hotelRoom = repository.getOneHotelRoomFromApi(roomNumber)
+    suspend fun isLoggedIn(): Boolean {
+        val token = tokenRepository.getGuestTokenFromDatabase()
 
-        return hotelRoom ?: generateHotelRoom()
+        return token.isNotBlank()
     }
 
-    private fun generateHotelRoom(): HotelRoom {
+    suspend fun getDetailsOfRoom(roomNumber: Int): HotelRoom {
+
+        val hotelRoom = hotelRoomRepository.getOneHotelRoomFromApi(roomNumber)
+
+        return hotelRoom ?: generateHotelRoom(roomNumber)
+    }
+
+    private fun generateHotelRoom(roomNumber: Int): HotelRoom {
         return HotelRoom(
-            number = 1,
+            number = roomNumber,
             description = "Very beautiful room!",
             pricePerNight = 100.0 + 1 * 10,
             reserved = false,
