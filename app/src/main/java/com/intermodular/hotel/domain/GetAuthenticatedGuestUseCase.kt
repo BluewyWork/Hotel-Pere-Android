@@ -15,6 +15,6 @@ class GetAuthenticatedGuestUseCase @Inject constructor(private val repository: G
         val email = "john.doe@example.com"
         val token = "239tn_3nus3t4ner3o"
 
-        return Guest(name, surname, email, token)
+        return Guest(name, surname, email)
     }
 }

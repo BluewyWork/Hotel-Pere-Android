@@ -9,7 +9,6 @@ import com.intermodular.hotel.domain.model.Guest
 data class GuestEntity(
     @PrimaryKey(autoGenerate = false)//En caso de necesitar id autogenerado true @ColumnInfo(name="id") val id: Int =0,
     @ColumnInfo(name = "email") val email: String,
-    @ColumnInfo(name = "token") val token: String,
     //@ColumnInfo (name="image") val image: ByteArray?,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "surname") val surname: String
@@ -18,6 +17,5 @@ data class GuestEntity(
 fun Guest.toDatabase() = GuestEntity(
     name = name,
     surname = surname,
-    email = email,
-    token = token
+    email = email
 )
