@@ -25,9 +25,6 @@ fun PasswordTextField(password: String, onTextChange: (String) -> Unit) {
     var isPasswordVisible by remember { mutableStateOf(false) }
 
     TextField(
-        modifier = Modifier
-            .width(400.dp)
-            .padding(start = 15.dp, end = 15.dp),
         value = password,
         visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         onValueChange = { onTextChange(it) },

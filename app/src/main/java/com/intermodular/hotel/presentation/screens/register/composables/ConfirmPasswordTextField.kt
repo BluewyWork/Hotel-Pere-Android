@@ -15,9 +15,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ConfirmPasswordTextField(passwordR: String, onTextChange: (String) -> Unit) {
     TextField(modifier = Modifier
-        .width(400.dp)
-        .padding(top = 25.dp)
-        .padding(start = 10.dp),
+        .padding(start = 8.dp, end = 8.dp),
         value = passwordR,
         visualTransformation = PasswordVisualTransformation(),
         onValueChange = { onTextChange(it) },

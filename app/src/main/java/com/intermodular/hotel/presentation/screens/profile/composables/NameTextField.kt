@@ -16,7 +16,7 @@ fun NameTextField(nombre: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
+            .padding(start = 8.dp, end = 8.dp),
         value = nombre,
         onValueChange = { onTextChange(it) },
         placeholder = { Text(text = "Name") },

@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
@@ -94,7 +95,7 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 40.dp),
-            verticalArrangement = Arrangement.spacedBy(40.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             EmailTextField(email = email) {
@@ -102,7 +103,6 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
-
             PasswordTextField(password = password) {
                 loginViewModel.onPasswordChange(
                     it

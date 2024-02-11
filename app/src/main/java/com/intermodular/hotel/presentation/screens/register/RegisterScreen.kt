@@ -82,8 +82,6 @@ fun RegisterScreen(
                         .size(180.dp)
                         .offset(100.dp, -40.dp)
                 )
-
-
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -115,7 +113,7 @@ fun Register(
         contentAlignment = Alignment.Center
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text("¡Hola! Registrate para comenzar", 22, turquesaPrincipal)
@@ -136,11 +134,9 @@ fun Register(
                 registerViewModel.onConfirmPasswordChange(it)
             }
             LoginText(navController = navController)
-            RegisterButton("Registrarse", turquesaOscuroFuerte, isLogEnable, registerViewModel,
-                navController, onClick = {
-                    registerViewModel.onRegisterPress(navController)
-                })
-
+            RegisterButton(
+                onClick = { registerViewModel.onRegisterPress(navController) }
+            )
             Text("Registrate con", 20, turquesaOscuroFuerte)
             Row(horizontalArrangement = Arrangement.spacedBy(30.dp)) {
                 LogoButton(image = R.drawable.logo_facebook)

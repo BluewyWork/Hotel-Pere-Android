@@ -14,18 +14,14 @@ import com.intermodular.hotel.presentation.screens.register.RegisterViewModel
 
 @Composable
 fun RegisterButton(
-    text: String, color: Color, logEnable: Boolean, registerViewModel: RegisterViewModel,
-    navController: NavController,
     onClick: () -> Unit
 ) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(30.dp),
-        onClick = {/*registroViewModel.onRegistroSelected(navController)*/ },
-        enabled = logEnable,
-        colors = ButtonDefaults.buttonColors(color),
+            .padding(16.dp),
+        onClick = onClick
     ) {
-        Text(text = text)
+        Text("Register")
     }
 }

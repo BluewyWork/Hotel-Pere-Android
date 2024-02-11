@@ -15,7 +15,7 @@ fun LoginButton(loginViewModel: LoginViewModel, navController: NavController) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 20.dp, end = 30.dp, start = 40.dp),
+            .padding(16.dp),
         onClick = { loginViewModel.onLoginPress(navController) },
     ) {
         Text("Iniciar Session")
