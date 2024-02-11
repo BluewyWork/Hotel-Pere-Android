@@ -39,9 +39,6 @@ class RegisterViewModel @Inject constructor(
         _errorMessage.value = null
     }
 
-    private fun enableLog(nombre: String, email: String, passwordR: String, password: String) =
-        password.length > 6 && nombre.length > 1 && email.length > 1 && passwordR.length > 1
-
     private fun comparePassword() {
         val pass = _password.value
         val pass2 = _confirmPassword.value
