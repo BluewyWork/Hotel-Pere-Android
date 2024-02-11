@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 fun RegisterTextField(navController: NavController) {
     Text(
         modifier = Modifier
-            .clickable { navController.navigate("registro") },
+            .clickable { navController.navigate("register") },
         text = "Haz click aqui para registrarte!"
     )
 }

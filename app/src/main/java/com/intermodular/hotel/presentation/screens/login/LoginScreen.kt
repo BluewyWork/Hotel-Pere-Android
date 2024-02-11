@@ -26,6 +26,7 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.presentation.screens.login.composables.EmailTextField
 import com.intermodular.hotel.presentation.screens.login.composables.LoginButton
 import com.intermodular.hotel.presentation.screens.login.composables.PasswordTextField
+import com.intermodular.hotel.presentation.screens.login.composables.RegisterTextField
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -93,7 +94,7 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 40.dp),
-            verticalArrangement = Arrangement.spacedBy(40.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             EmailTextField(email = email) {
@@ -101,13 +102,12 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
-
             PasswordTextField(password = password) {
                 loginViewModel.onPasswordChange(
                     it
                 )
             }
-            // TextRegister(navController = navController)
+            RegisterTextField(navController = navController)
             LoginButton(loginViewModel, navController)
         }
     }

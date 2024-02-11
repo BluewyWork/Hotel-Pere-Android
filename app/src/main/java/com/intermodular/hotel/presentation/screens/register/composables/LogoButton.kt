@@ -9,7 +9,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ButtonLogo(image: Int) {
+fun LogoButton(image: Int) {
     Image(
         modifier = Modifier
             .size(35.dp)

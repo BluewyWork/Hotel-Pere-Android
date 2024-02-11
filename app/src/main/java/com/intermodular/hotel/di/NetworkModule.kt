@@ -30,7 +30,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideReserationApiClient(retrofit: Retrofit): ReservationApi {
+    fun provideReservationApiClient(retrofit: Retrofit): ReservationApi {
         return retrofit.create(ReservationApi::class.java)
     }
 
