@@ -24,22 +24,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.domain.model.HotelRoom
+import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 
 @Composable
 fun HotelRoomCard(
     navController: NavController,
-    number: Int,
-    pricePerNight: Double,
-    numberOfBeds: Int
+    room: HotelRoom,
+    homeViewModel: HomeViewModel
 ) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(250.dp)
             .padding(8.dp)
-            .clickable {
-                navController.navigate("details/$number")
-            }
+            .clickable { homeViewModel.roomSelected(navController, room) }
     ) {
         Column(
             modifier = Modifier
@@ -69,7 +68,7 @@ fun HotelRoomCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "$numberOfBeds Beds",
+                    text = "${room.numberOfBeds} Beds",
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = Color.Black
@@ -77,7 +76,7 @@ fun HotelRoomCard(
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
                 Text(
-                    text = "$$pricePerNight per night",
+                    text = "${room.pricePerNight} per night",
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = Color.Black

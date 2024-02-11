@@ -4,6 +4,7 @@ import com.intermodular.hotel.data.model.HotelRoomModel
 import com.intermodular.hotel.data.network.HotelRoomService
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.domain.model.toDomain
+import retrofit2.Response
 import javax.inject.Inject
 
 class HotelRoomRepository @Inject constructor(
@@ -11,7 +12,8 @@ class HotelRoomRepository @Inject constructor(
 ) {
     suspend fun getHotelRoomListFromApi(): List<HotelRoom> {
         val response: List<HotelRoomModel> = api.getHotelRoomListFromApi()
-        return response.map { it.toDomain() }
+        val nombre:List<HotelRoom>  =response.map { it.toDomain() }
+        return nombre
     }
 
     suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoom? {
