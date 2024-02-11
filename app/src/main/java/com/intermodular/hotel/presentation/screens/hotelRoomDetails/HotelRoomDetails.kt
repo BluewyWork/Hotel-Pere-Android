@@ -32,7 +32,11 @@ import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun HotelRoomDetails(navController: NavController, hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDetailsViewModel) {
+fun HotelRoomDetails(
+    navController: NavController,
+    hotelRoom: HotelRoom,
+    hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
+) {
     Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
         Column(
             Modifier
@@ -44,8 +48,10 @@ fun HotelRoomDetails(navController: NavController, hotelRoom: HotelRoom,hotelRoo
 }
 
 @Composable
-fun HotelRoomDetails(hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDetailsViewModel,
-                     navController: NavController) {
+fun HotelRoomDetails(
+    hotelRoom: HotelRoom, hotelRoomDetailsViewModel: HotelRoomDetailsViewModel,
+    navController: NavController
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -89,7 +95,11 @@ fun HotelRoomDetails(hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDe
                     fontWeight = FontWeight.Bold
                 )
 
-                Text(text = hotelRoom.numberOfBeds.toString(), Modifier.padding(start = 16.dp), fontSize = 25.sp)
+                Text(
+                    text = hotelRoom.numberOfBeds.toString(),
+                    Modifier.padding(start = 16.dp),
+                    fontSize = 25.sp
+                )
             }
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
@@ -123,7 +133,7 @@ fun HotelRoomDetails(hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDe
             Spacer(modifier = Modifier.height(30.dp))
 
             Text(
-                text = hotelRoom.pricePerNight.toString() +"€/noche",
+                text = hotelRoom.pricePerNight.toString() + "€/noche",
                 Modifier.padding(start = 16.dp),
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold

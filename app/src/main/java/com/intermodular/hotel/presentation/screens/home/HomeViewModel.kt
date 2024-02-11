@@ -20,7 +20,7 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
     private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
     val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
-    var room:HotelRoom= HotelRoom(1,"",0.00, false, "", 0)
+    var room: HotelRoom = HotelRoom(1, "", 0.00, false, "", 0)
 
     fun onCreate() {
         viewModelScope.launch {
@@ -38,8 +38,8 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun roomSelected(navController: NavController, roomSelected:HotelRoom){
-        room=roomSelected
+    fun roomSelected(navController: NavController, roomSelected: HotelRoom) {
+        room = roomSelected
         navController.navigate(Destinations.Details.route)
     }
 }
