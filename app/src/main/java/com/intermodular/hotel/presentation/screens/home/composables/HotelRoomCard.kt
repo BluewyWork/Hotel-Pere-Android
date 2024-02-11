@@ -37,7 +37,9 @@ fun HotelRoomCard(
             .fillMaxWidth()
             .height(250.dp)
             .padding(8.dp)
-            .clickable { navController.navigate("details") }
+            .clickable {
+                navController.navigate("details/$number")
+            }
     ) {
         Column(
             modifier = Modifier

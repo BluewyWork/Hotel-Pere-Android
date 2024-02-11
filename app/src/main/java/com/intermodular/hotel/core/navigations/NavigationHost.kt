@@ -10,6 +10,7 @@ import com.intermodular.hotel.presentation.screens.checkChange.CheckChangeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetails
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetailsViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginScreen
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileScreen
@@ -28,12 +29,13 @@ fun NavigationHost(
     homeViewModel: HomeViewModel,
     loginViewModel: LoginViewModel,
     profileViewModel: ProfileViewModel,
-    reservationsOverviewViewModel: ReservationsOverviewViewModel
+    reservationsOverviewViewModel: ReservationsOverviewViewModel,
+    hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
 ) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Destinations.Login.route
+        startDestination = Destinations.Home.route
     ) {
         composable(Destinations.Login.route) {
             LoginScreen(navController, loginViewModel)
@@ -59,8 +61,13 @@ fun NavigationHost(
         composable(Destinations.Home.route) {
             HomeScreen(navController, homeViewModel)
         }
-        composable(Destinations.Details.route) {
-            HotelRoomDetails(navController)
+        composable("${Destinations.Details.route}/{roomNumber}") { navBackStackEntry ->
+            val roomNumber = navBackStackEntry.arguments?.getString("roomNumber")
+
+            val hotelRoomDetailsViewModel = hotelRoomDetailsViewModel
+            hotelRoomDetailsViewModel.getHotelRoom(roomNumber)
+
+            HotelRoomDetails(navController, hotelRoomDetailsViewModel)
         }
         composable(Destinations.ReservationsOverview.route) {
             ReservationsOverviewScreen(reservationsOverviewViewModel, navController)

@@ -7,10 +7,9 @@ data class Guest(
     val name: String,
     val surname: String,
     val email: String,
-    val token: String
 )
 
-fun GuestModel.toDomain() = Guest(name, surname, email, token)
-fun GuestEntity.toDomain() = Guest(name, surname, email, token)
+fun GuestModel.toDomain() = Guest(name, surname, email)
+fun GuestEntity.toDomain() = Guest(name, surname, email)
 
 

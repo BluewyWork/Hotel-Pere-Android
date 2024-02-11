@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import com.intermodular.hotel.core.navigations.NavigationHost
 import com.intermodular.hotel.presentation.screens.cart.CartViewModel
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetailsViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileViewModel
 import com.intermodular.hotel.presentation.screens.register.RegisterViewModel
@@ -22,6 +23,7 @@ class MainActivity : ComponentActivity() {
     private val homeViewModel: HomeViewModel by viewModels()
     private val profileViewModel: ProfileViewModel by viewModels()
     private val reservationsOverviewViewModel: ReservationsOverviewViewModel by viewModels()
+    private val hotelRoomDetailsViewModel: HotelRoomDetailsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         cartViewModel.onCreate()
@@ -37,7 +39,8 @@ class MainActivity : ComponentActivity() {
                     homeViewModel,
                     loginViewModel,
                     profileViewModel,
-                    reservationsOverviewViewModel
+                    reservationsOverviewViewModel,
+                    hotelRoomDetailsViewModel
                 )
             }
         }

@@ -30,12 +30,6 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRoomApiClient(retrofit: Retrofit): HotelRoomApi {
-        return retrofit.create(HotelRoomApi::class.java)
-    }
-
-    @Singleton
-    @Provides
     fun provideReserationApiClient(retrofit: Retrofit): ReservationApi {
         return retrofit.create(ReservationApi::class.java)
     }
@@ -44,5 +38,11 @@ class NetworkModule {
     @Provides
     fun provideTokenApiClient(retrofit: Retrofit): TokenApi {
         return retrofit.create(TokenApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHotelRoomApiClient(retrofit: Retrofit): HotelRoomApi {
+        return retrofit.create(HotelRoomApi::class.java)
     }
 }

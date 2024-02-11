@@ -3,6 +3,7 @@ package com.intermodular.hotel.data
 import android.util.Log
 import com.intermodular.hotel.data.database.dao.ReservationDao
 import com.intermodular.hotel.data.database.entities.ReservationEntity
+import com.intermodular.hotel.data.model.toModel
 import com.intermodular.hotel.data.network.ReservationService
 import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.domain.model.toDomain
@@ -39,5 +40,9 @@ class ReservationRepository @Inject constructor(
 
     suspend fun clearReservationListOfAuthenticatedGuest() {
         reservationDao.clearAll()
+    }
+
+    suspend fun makeReservation(reservation: Reservation): Boolean {
+        return api.makeReservation(reservation.toModel())
     }
 }
