@@ -119,23 +119,21 @@ fun Register(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text("¡Hola! Registrate para comenzar", 22, turquesaPrincipal)
-
             MostrarError(viewModel = registerViewModel)
             NameTextField(name) {
-                registerViewModel.onRegistroChange(it, email, password, confirmPassword)
+                registerViewModel.onNameChange(it)
             }
             SurnameTextField(apellido = surname) {
-                registerViewModel.onRegistroChange(name, it, password, confirmPassword)
+                registerViewModel.onSurnameChange(it)
             }
             EmailTextField(email) {
-                registerViewModel.onRegistroChange(name, it, password, confirmPassword)
+                registerViewModel.onEmailChange(it)
             }
-
             PasswordTextField(password) {
-                registerViewModel.onRegistroChange(name, email, it, confirmPassword)
+                registerViewModel.onPasswordChange(it)
             }
             ConfirmPasswordTextField(confirmPassword) {
-                registerViewModel.onRegistroChange(name, email, password, it)
+                registerViewModel.onConfirmPasswordChange(it)
             }
             LoginText(navController = navController)
             RegisterButton("Registrarse", turquesaOscuroFuerte, isLogEnable, registerViewModel,

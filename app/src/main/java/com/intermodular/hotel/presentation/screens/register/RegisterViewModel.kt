@@ -51,12 +51,24 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
-    fun onRegistroChange(nombre: String, email: String, password: String, passwordR: String) {
-        _name.value = nombre
-        _email.value = email
-        _password.value = password
-        _confirmPassword.value = passwordR
-        _isLogEnabled.value = enableLog(nombre, email, passwordR, password)
+    fun onNameChange(name: String) {
+        _name.postValue(name)
+    }
+
+    fun onSurnameChange(surname: String) {
+        _surname.postValue(surname)
+    }
+
+    fun onEmailChange(email: String) {
+        _email.postValue(email)
+    }
+
+    fun onPasswordChange(password: String) {
+        _password.postValue(password)
+    }
+
+    fun onConfirmPasswordChange(confirmPassword: String) {
+        _confirmPassword.postValue(confirmPassword)
     }
 
     fun onRegisterPress(navController: NavController) {
