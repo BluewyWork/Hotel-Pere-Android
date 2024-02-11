@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 import com.intermodular.hotel.presentation.screens.register.RegisterViewModel
 
 @Composable
-fun ButtonRegistro(
+fun RegisterButton(
     text: String, color: Color, logEnable: Boolean, registerViewModel: RegisterViewModel,
     navController: NavController,
     onClick: () -> Unit

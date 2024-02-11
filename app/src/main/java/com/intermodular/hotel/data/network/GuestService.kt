@@ -12,7 +12,7 @@ class GuestService @Inject constructor(
     suspend fun getAuthenticatedGuestFromApi(token: String): GuestModel? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = guestApi.getOneGuest(token)
+                val response = guestApi.retrieveGuest(token)
 
                 if (!response.isSuccessful || response.body() == null) {
                     return@withContext null
@@ -22,11 +22,30 @@ class GuestService @Inject constructor(
                 return@withContext GuestModel(
                     responseData.name,
                     responseData.surname,
-                    responseData.email
+                    responseData.email,
+                    ""
                 )
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
                 return@withContext null
+            }
+        }
+    }
+
+    suspend fun registerGuestToApi(guestModel: GuestModel): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = guestApi.registerGuest(guestModel)
+
+                if (!response.isSuccessful) {
+                    return@withContext false
+                }
+
+                return@withContext response.body()?.ok ?: false
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+
+                false
             }
         }
     }

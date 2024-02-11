@@ -13,16 +13,16 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldPasswordConfirmar(passwordR: String, onTextChange: (String) -> Unit) {
+fun PasswordTextField(password: String, onTextChange: (String) -> Unit) {
     TextField(modifier = Modifier
         .width(400.dp)
         .padding(top = 25.dp)
         .padding(start = 10.dp),
-        value = passwordR,
+        value = password,
         visualTransformation = PasswordVisualTransformation(),
         onValueChange = { onTextChange(it) },
         singleLine = true,
-        placeholder = { Text(text = "Repetir Password") },
+        placeholder = { Text(text = "Password") },
         leadingIcon = { Icon(Icons.Filled.Lock, null) }
     )
 }
