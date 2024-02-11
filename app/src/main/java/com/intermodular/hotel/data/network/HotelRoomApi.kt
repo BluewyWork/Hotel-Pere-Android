@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface HotelRoomApi {
-    @GET("/auth/client/allRooms")
+    @GET(Endpoints.RETRIEVE_ALL_HOTEL_ROOMS)
     suspend fun getHotelRoomList(): ApiResponse<List<HotelRoomModel>>
 
     @GET("/auth/client/{number}")
