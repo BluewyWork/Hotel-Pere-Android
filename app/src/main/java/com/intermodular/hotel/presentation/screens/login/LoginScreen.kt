@@ -94,7 +94,7 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 40.dp),
-            verticalArrangement = Arrangement.spacedBy(40.dp),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             EmailTextField(email = email) {
@@ -108,9 +108,9 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
-            // TextRegister(navController = navController)
-            LoginButton(loginViewModel, navController)
             RegisterTextField(navController = navController)
+            LoginButton(loginViewModel, navController)
+
         }
     }
 }
