@@ -1,12 +1,15 @@
 package com.intermodular.hotel.presentation.screens.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -47,12 +50,11 @@ fun Home(homeViewModel: HomeViewModel, navController: NavController) {
 fun GenerateHotelCards(homeViewModel: HomeViewModel, navController: NavController) {
     val hotelHotelRooms: List<HotelRoom>? by homeViewModel.hotelRooms.observeAsState()
     if (!hotelHotelRooms.isNullOrEmpty()) {
-        for (i in hotelHotelRooms!!) {
+        for (room in hotelHotelRooms!!) {
             HotelRoomCard(
                 navController = navController,
-                number = i.number,
-                numberOfBeds = i.numberOfBeds,
-                pricePerNight = i.pricePerNight
+                room,
+                homeViewModel
             )
             Spacer(
                 modifier = Modifier

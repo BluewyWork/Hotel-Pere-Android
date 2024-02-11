@@ -26,6 +26,7 @@ import com.intermodular.hotel.R
 import com.intermodular.hotel.presentation.screens.login.composables.EmailTextField
 import com.intermodular.hotel.presentation.screens.login.composables.LoginButton
 import com.intermodular.hotel.presentation.screens.login.composables.PasswordTextField
+import com.intermodular.hotel.presentation.screens.login.composables.RegisterTextField
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -107,8 +108,8 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
-            // TextRegister(navController = navController)
             LoginButton(loginViewModel, navController)
+            RegisterTextField(navController = navController)
         }
     }
 }

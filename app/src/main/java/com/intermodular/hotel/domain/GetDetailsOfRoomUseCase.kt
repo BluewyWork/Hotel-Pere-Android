@@ -7,11 +7,11 @@ import javax.inject.Inject
 class GetDetailsOfRoomUseCase @Inject constructor(
     private val repository: HotelRoomRepository
 ) {
-    suspend fun getDetailsOfRoom(roomNumber: Int): HotelRoom {
+    /*suspend fun getDetailsOfRoom(roomNumber: Int): HotelRoom {
         val hotelRoom = repository.getOneHotelRoomFromApi(roomNumber)
 
         return hotelRoom ?: generateHotelRoom()
-    }
+    }*/
 
     private fun generateHotelRoom(): HotelRoom {
         return HotelRoom(

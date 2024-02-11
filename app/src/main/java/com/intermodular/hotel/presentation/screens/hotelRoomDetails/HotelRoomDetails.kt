@@ -25,23 +25,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun HotelRoomDetails(navController: NavController) {
+fun HotelRoomDetails(navController: NavController, hotelRoom: HotelRoom) {
     Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
         ) {
-            HotelRoomDetails()
+            HotelRoomDetails(hotelRoom)
         }
     }
 }
 
 @Composable
-fun HotelRoomDetails() {
+fun HotelRoomDetails(hotelRoom: HotelRoom) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -60,7 +61,7 @@ fun HotelRoomDetails() {
 
             Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = "Habitación Standard",
+                text = hotelRoom.description,
                 Modifier.padding(start = 16.dp),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold
@@ -85,7 +86,7 @@ fun HotelRoomDetails() {
                     fontWeight = FontWeight.Bold
                 )
 
-                Text(text = "2", Modifier.padding(start = 16.dp), fontSize = 25.sp)
+                Text(text = hotelRoom.numberOfBeds.toString(), Modifier.padding(start = 16.dp), fontSize = 25.sp)
             }
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
@@ -119,7 +120,7 @@ fun HotelRoomDetails() {
             Spacer(modifier = Modifier.height(30.dp))
 
             Text(
-                text = "200€/noche",
+                text = hotelRoom.pricePerNight.toString() +"€/noche",
                 Modifier.padding(start = 16.dp),
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Bold
