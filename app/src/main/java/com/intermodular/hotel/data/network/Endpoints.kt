@@ -9,6 +9,6 @@ object Endpoints {
     const val CANCEL_RESERVATION = "/android/guest/reservation/cancel"
     const val RETRIVE_ALL_RESERVATIONS = "/android/guest/reservation/all"
 
-    const val RETRIEVE_ALL_HOTEL_ROOMS = "/android/guest/room/all"
+    const val RETRIEVE_ALL_HOTEL_ROOMS = "/guest/room"
     const val RETRIEVE_ONE_HOTEL_ROOM = "/android/guest/room/one"
 }
