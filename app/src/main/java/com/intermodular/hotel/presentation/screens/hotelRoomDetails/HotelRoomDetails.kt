@@ -31,8 +31,7 @@ import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
-@Composable
-fun HotelRoomDetails(
+@Composable fun HotelRoomDetails(
     navController: NavController,
     hotelRoom: HotelRoom,
     hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
