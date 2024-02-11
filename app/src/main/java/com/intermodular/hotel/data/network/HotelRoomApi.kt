@@ -9,8 +9,8 @@ interface HotelRoomApi {
     @GET("/auth/client/allRooms")
     suspend fun getHotelRoomList(): ApiResponse<List<HotelRoomModel>>
 
-   /* @GET("/auth/client/{number}")
-    suspend fun getOneHotelRoom(@Path("number")number: Int): HotelRoomModel*/
+    @GET("/auth/client/{number}")
+    suspend fun getOneHotelRoom(@Path("number")number: Int): HotelRoomModel
 }
 
 data class ApiResponse<T>(val data: T)

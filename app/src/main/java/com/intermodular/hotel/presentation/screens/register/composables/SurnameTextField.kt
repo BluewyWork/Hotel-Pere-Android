@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
+fun SurnameTextField(nombre: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
             .width(400.dp)
@@ -20,7 +20,7 @@ fun TextFieldNombre(nombre: String, onTextChange: (String) -> Unit) {
             .padding(start = 10.dp),
         value = nombre,
         onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Nombre") },
+        placeholder = { Text(text = "Surname") },
         leadingIcon = { Icon(Icons.Default.AccountCircle, null) }
     )
 }

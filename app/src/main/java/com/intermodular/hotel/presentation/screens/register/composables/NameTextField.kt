@@ -1,9 +1,9 @@
-package com.intermodular.hotel.presentation.screens.profile.composables
+package com.intermodular.hotel.presentation.screens.register.composables
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -15,11 +15,12 @@ import androidx.compose.ui.unit.dp
 fun NameTextField(nombre: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 8.dp, end = 8.dp),
+            .width(400.dp)
+            .padding(top = 25.dp)
+            .padding(start = 10.dp),
         value = nombre,
         onValueChange = { onTextChange(it) },
-        placeholder = { Text(text = "Name") },
-        leadingIcon = { Icon(Icons.Default.Face, null) }
+        placeholder = { Text(text = "Nombre") },
+        leadingIcon = { Icon(Icons.Default.AccountCircle, null) }
     )
 }

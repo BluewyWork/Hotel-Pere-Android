@@ -15,12 +15,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getHotelRoomListUseCase: GetHotelRoomListUseCase
+    private val getHotelRoomListUseCase: GetHotelRoomListUseCase,
+    private val getDetailsOfRoomUseCase: GetDetailsOfRoomUseCase,
 ) : ViewModel() {
     private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
     val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
-    var room: HotelRoom = HotelRoom(1,"",0.00,
-        false,"",0)
+    var room:HotelRoom= HotelRoom(1,"",0.00, false, "", 0)
 
     fun onCreate() {
         viewModelScope.launch {
@@ -32,13 +32,13 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-   /* fun onHotelRoomCardPress(number: Int) {
+    fun onHotelRoomCardPress(number: Int) {
         viewModelScope.launch {
             getDetailsOfRoomUseCase.getDetailsOfRoom(number)
         }
-    }*/
+    }
 
-    fun roomSelected(navController: NavController, roomSelected: HotelRoom){
+    fun roomSelected(navController: NavController, roomSelected:HotelRoom){
         room=roomSelected
         navController.navigate(Destinations.Details.route)
     }

@@ -11,6 +11,7 @@ import com.intermodular.hotel.presentation.screens.checkChange.CheckChangeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetails
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetailsViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginScreen
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 import com.intermodular.hotel.presentation.screens.profile.ProfileScreen
@@ -29,7 +30,8 @@ fun NavigationHost(
     homeViewModel: HomeViewModel,
     loginViewModel: LoginViewModel,
     profileViewModel: ProfileViewModel,
-    reservationsOverviewViewModel: ReservationsOverviewViewModel
+    reservationsOverviewViewModel: ReservationsOverviewViewModel,
+    hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
 ) {
     val navController = rememberNavController()
     NavHost(
@@ -62,7 +64,7 @@ fun NavigationHost(
             HomeScreen(navController, homeViewModel)
         }
         composable(Destinations.Details.route) {
-            HotelRoomDetails(navController, homeViewModel.room)
+            HotelRoomDetails(navController, homeViewModel.room,hotelRoomDetailsViewModel)
         }
         composable(Destinations.ReservationsOverview.route) {
             ReservationsOverviewScreen(reservationsOverviewViewModel, navController)

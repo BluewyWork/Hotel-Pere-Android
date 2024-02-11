@@ -1,4 +1,4 @@
-package com.intermodular.hotel.presentation.screens.login.composables
+package com.intermodular.hotel.presentation.screens.register.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -7,17 +7,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.intermodular.hotel.presentation.screens.login.LoginViewModel
 
 @Composable
-fun LoginButton(loginViewModel: LoginViewModel, navController: NavController) {
+fun RegisterButton(
+    onClick: () -> Unit
+) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        onClick = { loginViewModel.onLoginPress(navController) },
+        onClick = onClick
     ) {
-        Text("Iniciar Session")
+        Text("Register")
     }
 }

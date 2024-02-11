@@ -12,12 +12,41 @@ class GuestService @Inject constructor(
     suspend fun getAuthenticatedGuestFromApi(token: String): GuestModel? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = guestApi.getOneGuest(token)
-                response.body()
+                val response = guestApi.retrieveGuest(token)
+
+                if (!response.isSuccessful || response.body() == null) {
+                    return@withContext null
+                }
+
+                val responseData = response.body()!!.data
+                return@withContext GuestModel(
+                    responseData.name,
+                    responseData.surname,
+                    responseData.email,
+                    ""
+                )
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
+                return@withContext null
             }
-            null
+        }
+    }
+
+    suspend fun registerGuestToApi(guestModel: GuestModel): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = guestApi.registerGuest(guestModel)
+
+                if (!response.isSuccessful) {
+                    return@withContext false
+                }
+
+                return@withContext response.body()?.ok ?: false
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "${e.message}")
+
+                false
+            }
         }
     }
 }

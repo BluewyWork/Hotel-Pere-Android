@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 
 @Composable
-fun TextLogin(navController: NavController) {
+fun LoginText(navController: NavController) {
     androidx.compose.material3.Text(
         modifier = Modifier
             .clickable { navController.navigate("login") },

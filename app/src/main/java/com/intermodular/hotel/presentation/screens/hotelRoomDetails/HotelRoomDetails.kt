@@ -17,6 +17,8 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
@@ -30,19 +32,20 @@ import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
-fun HotelRoomDetails(navController: NavController, hotelRoom: HotelRoom) {
+fun HotelRoomDetails(navController: NavController, hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDetailsViewModel) {
     Scaffold(bottomBar = { BottomBar(navController) }) { innerPadding ->
         Column(
             Modifier
                 .padding(innerPadding)
         ) {
-            HotelRoomDetails(hotelRoom)
+            HotelRoomDetails(hotelRoom, hotelRoomDetailsViewModel, navController)
         }
     }
 }
 
 @Composable
-fun HotelRoomDetails(hotelRoom: HotelRoom) {
+fun HotelRoomDetails(hotelRoom: HotelRoom,hotelRoomDetailsViewModel: HotelRoomDetailsViewModel,
+                     navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -126,12 +129,20 @@ fun HotelRoomDetails(hotelRoom: HotelRoom) {
                 fontWeight = FontWeight.Bold
             )
 
+            val isLoggedIn: Boolean by hotelRoomDetailsViewModel.isLoggedIn.observeAsState(initial = false)
+
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                 onClick = {
-                }) {
+                    hotelRoomDetailsViewModel.onReservePress()
+
+                    if (!isLoggedIn) {
+                        navController.navigate("login")
+                    }
+                }
+            ) {
                 Text(text = "Reservar")
             }
         }

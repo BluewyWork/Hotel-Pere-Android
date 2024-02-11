@@ -26,15 +26,16 @@ import androidx.navigation.NavController
 import com.intermodular.hotel.R
 import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.presentation.composables.IconAtras
-import com.intermodular.hotel.presentation.screens.register.composables.ButtonLogo
-import com.intermodular.hotel.presentation.screens.register.composables.ButtonRegistro
+import com.intermodular.hotel.presentation.screens.profile.composables.NameTextField
+import com.intermodular.hotel.presentation.screens.profile.composables.SurnameTextField
+import com.intermodular.hotel.presentation.screens.register.composables.ConfirmPasswordTextField
+import com.intermodular.hotel.presentation.screens.register.composables.EmailTextField
+import com.intermodular.hotel.presentation.screens.register.composables.LoginText
+import com.intermodular.hotel.presentation.screens.register.composables.LogoButton
 import com.intermodular.hotel.presentation.screens.register.composables.MostrarError
+import com.intermodular.hotel.presentation.screens.register.composables.PasswordTextField
+import com.intermodular.hotel.presentation.screens.register.composables.RegisterButton
 import com.intermodular.hotel.presentation.screens.register.composables.Text
-import com.intermodular.hotel.presentation.screens.register.composables.TextFieldMail
-import com.intermodular.hotel.presentation.screens.register.composables.TextFieldNombre
-import com.intermodular.hotel.presentation.screens.register.composables.TextFieldPassword
-import com.intermodular.hotel.presentation.screens.register.composables.TextFieldPasswordConfirmar
-import com.intermodular.hotel.presentation.screens.register.composables.TextLogin
 import com.intermodular.hotel.ui.theme.gradient1
 import com.intermodular.hotel.ui.theme.gradient2
 import com.intermodular.hotel.ui.theme.gradient3
@@ -81,8 +82,6 @@ fun RegisterScreen(
                         .size(180.dp)
                         .offset(100.dp, -40.dp)
                 )
-
-
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -101,44 +100,47 @@ fun Register(
     navController: NavController,
     registerViewModel: RegisterViewModel
 ) {
-    val email: String by registerViewModel.email.observeAsState(initial = "")
     val password: String by registerViewModel.password.observeAsState(initial = "")
-    val nombre: String by registerViewModel.nombre.observeAsState(initial = "")
-    val passwordR: String by registerViewModel.passwordR.observeAsState(initial = "")
-    val isLogEnable: Boolean by registerViewModel.isLogEnable.observeAsState(initial = false)
+    val confirmPassword: String by registerViewModel.confirmPassword.observeAsState(initial = "")
+    val name: String by registerViewModel.name.observeAsState(initial = "")
+    val surname: String by registerViewModel.surname.observeAsState(initial = "")
+    val email: String by registerViewModel.email.observeAsState(initial = "")
+
+    val isLogEnable: Boolean by registerViewModel.isLogEnabled.observeAsState(initial = false)
 
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text("¡Hola! Registrate para comenzar", 22, turquesaPrincipal)
-
             MostrarError(viewModel = registerViewModel)
-            TextFieldNombre(nombre) {
-                registerViewModel.onRegistroChange(it, email, password, passwordR)
+            NameTextField(name) {
+                registerViewModel.onNameChange(it)
             }
-            TextFieldMail(email) {
-                registerViewModel.onRegistroChange(nombre, it, password, passwordR)
+            SurnameTextField(apellido = surname) {
+                registerViewModel.onSurnameChange(it)
             }
-
-            TextFieldPassword(password) {
-                registerViewModel.onRegistroChange(nombre, email, it, passwordR)
+            EmailTextField(email) {
+                registerViewModel.onEmailChange(it)
             }
-            TextFieldPasswordConfirmar(passwordR) {
-                registerViewModel.onRegistroChange(nombre, email, password, it)
+            PasswordTextField(password) {
+                registerViewModel.onPasswordChange(it)
             }
-            TextLogin(navController = navController)
-            ButtonRegistro("Registrarse", turquesaOscuroFuerte, isLogEnable, registerViewModel,
-                navController, onClick = {})
-
+            ConfirmPasswordTextField(confirmPassword) {
+                registerViewModel.onConfirmPasswordChange(it)
+            }
+            LoginText(navController = navController)
+            RegisterButton(
+                onClick = { registerViewModel.onRegisterPress(navController) }
+            )
             Text("Registrate con", 20, turquesaOscuroFuerte)
             Row(horizontalArrangement = Arrangement.spacedBy(30.dp)) {
-                ButtonLogo(image = R.drawable.logo_facebook)
-                ButtonLogo(image = R.drawable.logo_google)
+                LogoButton(image = R.drawable.logo_facebook)
+                LogoButton(image = R.drawable.logo_google)
             }
             Row(modifier = Modifier.clickable { }) {
                 Text("¿Ya tienes cuenta?", 18, turquesaOscuroFuerte)

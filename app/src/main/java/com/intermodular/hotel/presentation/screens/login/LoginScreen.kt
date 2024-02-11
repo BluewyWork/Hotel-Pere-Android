@@ -108,6 +108,7 @@ fun Login(navController: NavController, loginViewModel: LoginViewModel) {
                     it
                 )
             }
+            // TextRegister(navController = navController)
             LoginButton(loginViewModel, navController)
             RegisterTextField(navController = navController)
         }

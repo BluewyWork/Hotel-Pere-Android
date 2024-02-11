@@ -17,10 +17,10 @@ class HotelRoomService @Inject constructor(
         }
     }
 
-    /*suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoomModel {
+    suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoomModel {
         return withContext(Dispatchers.IO) {
             val response = hotelRoomApi.getOneHotelRoom(roomNumber)
             response
         }
-    }*/
+    }
 }
