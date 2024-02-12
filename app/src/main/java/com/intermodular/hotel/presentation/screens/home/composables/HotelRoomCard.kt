@@ -23,6 +23,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import com.intermodular.hotel.R
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
@@ -44,9 +45,7 @@ fun HotelRoomCard(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo_app),
-                contentDescription = "Hotel Image",
+            AsyncImage(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(175.dp)
@@ -58,6 +57,7 @@ fun HotelRoomCard(
                             bottomStart = 0.dp
                         )
                     ),
+                model =room.image , contentDescription =null,
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.height(8.dp))

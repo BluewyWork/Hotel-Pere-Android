@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coil.compose.AsyncImage
 import com.intermodular.hotel.R
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
@@ -58,28 +59,21 @@ fun HotelRoomDetails(
             .padding(top = 20.dp, bottom = 20.dp)
     ) {
         item {
-            Image(
-                painter = painterResource(id = R.drawable.logo_app),
-                contentDescription = "Sample",
+            AsyncImage(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(280.dp)
-                    .clip(shape = RoundedCornerShape(10.dp))
+                    .clip(shape = RoundedCornerShape(10.dp)),
+                model =hotelRoom.image , contentDescription =null,
+
             )
 
             Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = hotelRoom.description,
-                Modifier.padding(start = 16.dp),
+                Modifier.padding(start = 16.dp, end = 16.dp),
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = "Contrary to popular belief, Lorem Ipsum is not simply random text. " +
-                        "It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. ",
-                modifier = Modifier.padding(start = 16.dp),
-                fontSize = 18.sp
             )
             Spacer(modifier = Modifier.height(20.dp))
             Row(
@@ -139,6 +133,8 @@ fun HotelRoomDetails(
             )
 
             val isLoggedIn: Boolean by hotelRoomDetailsViewModel.isLoggedIn.observeAsState(initial = false)
+
+            Spacer(modifier = Modifier.height(80.dp))
 
             Button(modifier = Modifier
                 .fillMaxWidth()
