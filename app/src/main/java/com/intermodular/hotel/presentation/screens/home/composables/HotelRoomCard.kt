@@ -20,23 +20,22 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.intermodular.hotel.domain.model.HotelRoom
-import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 
 @Composable
 fun HotelRoomCard(
-    navController: NavController,
-    room: HotelRoom,
-    homeViewModel: HomeViewModel
+    image: String,
+    roomNumber: Int,
+    numberOfBeds: Int,
+    pricePerNight: Double,
+    onClick: () -> Unit
 ) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
             .height(250.dp)
             .padding(8.dp)
-            .clickable { homeViewModel.roomSelected(navController, room) }
+            .clickable { onClick() }
     ) {
         Column(
             modifier = Modifier
@@ -54,7 +53,8 @@ fun HotelRoomCard(
                             bottomStart = 0.dp
                         )
                     ),
-                model = room.image, contentDescription = null,
+                model = image,
+                contentDescription = null,
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -64,8 +64,9 @@ fun HotelRoomCard(
                     .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                Text("Room Number: $roomNumber")
                 Text(
-                    text = "${room.numberOfBeds} Beds",
+                    text = "$numberOfBeds Beds",
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = Color.Black
@@ -73,7 +74,7 @@ fun HotelRoomCard(
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
                 Text(
-                    text = "${room.pricePerNight} per night",
+                    text = "$pricePerNight per night",
                     style = TextStyle(
                         fontSize = 16.sp,
                         color = Color.Black

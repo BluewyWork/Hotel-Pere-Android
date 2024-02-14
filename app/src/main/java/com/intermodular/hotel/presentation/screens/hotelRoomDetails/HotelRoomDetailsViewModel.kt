@@ -16,29 +16,20 @@ class HotelRoomDetailsViewModel @Inject constructor(
     private val getDetailsOfRoomUseCase: GetDetailsOfRoomUseCase,
     private val makeReservationUseCase: MakeReservationUseCase
 ) : ViewModel() {
-    private val _isLoggedIn = MutableLiveData<Boolean>()
-    val isLoggedIn: LiveData<Boolean> = _isLoggedIn
-
     private val _hotelRoom = MutableLiveData<HotelRoom>()
     val hotelRoom: LiveData<HotelRoom> = _hotelRoom
 
-    fun getHotelRoom(roomNumber: String?) {
-        if (roomNumber.isNullOrBlank()) {
-            return
-        }
-
-        val parsedRoomNumber = roomNumber.toIntOrNull() ?: return
-
+    fun setCurrentHotelRoomNumber(roomNumber: Int) {
         viewModelScope.launch {
-            val x = getDetailsOfRoomUseCase.getDetailsOfRoom(parsedRoomNumber)
-            _hotelRoom.postValue(x)
+            val hotelRoom = getDetailsOfRoomUseCase.getDetailsOfRoom(roomNumber)
+
+            _hotelRoom.postValue(hotelRoom)
         }
     }
 
     fun onReservePress() {
         viewModelScope.launch {
             val isLoggedIn = getDetailsOfRoomUseCase.isLoggedIn()
-            _isLoggedIn.postValue(isLoggedIn)
 
             if (!isLoggedIn) {
                 return@launch

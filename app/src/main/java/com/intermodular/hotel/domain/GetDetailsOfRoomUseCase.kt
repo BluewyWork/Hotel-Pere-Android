@@ -17,13 +17,12 @@ class GetDetailsOfRoomUseCase @Inject constructor(
     }
 
     suspend fun getDetailsOfRoom(roomNumber: Int): HotelRoom {
-
         val hotelRoom = hotelRoomRepository.getOneHotelRoomFromApi(roomNumber)
 
-        return hotelRoom ?: generateHotelRoom(roomNumber)
+        return hotelRoom ?: generateHotelRoom()
     }
 
-    private fun generateHotelRoom(roomNumber: Int): HotelRoom {
+    private fun generateHotelRoom(): HotelRoom {
         return HotelRoom(
             number = 101,
             description = "Deluxe room with a view",

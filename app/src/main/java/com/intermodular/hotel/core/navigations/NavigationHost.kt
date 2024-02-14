@@ -1,15 +1,17 @@
 package com.intermodular.hotel.core.navigations
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.intermodular.hotel.presentation.screens.cart.CartScreen
 import com.intermodular.hotel.presentation.screens.cart.CartViewModel
 import com.intermodular.hotel.presentation.screens.checkChange.CheckChangeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeScreen
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
-import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetails
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetailsScreen
 import com.intermodular.hotel.presentation.screens.hotelRoomDetails.HotelRoomDetailsViewModel
 import com.intermodular.hotel.presentation.screens.login.LoginScreen
 import com.intermodular.hotel.presentation.screens.login.LoginViewModel
@@ -61,8 +63,24 @@ fun NavigationHost(
         composable(Destinations.Home.route) {
             HomeScreen(navController, homeViewModel)
         }
-        composable(Destinations.Details.route) {
-            HotelRoomDetails(navController, homeViewModel.room, hotelRoomDetailsViewModel)
+        composable(
+            route = Destinations.Details.route + "/{roomNumber}",
+            arguments = listOf(
+                navArgument("roomNumber") {
+                    type = NavType.IntType
+                }
+            )
+        ) {
+            val roomNumber = it.arguments?.getInt("roomNumber")
+
+            if (roomNumber == null) {
+                HomeScreen(navController, homeViewModel)
+
+                return@composable
+            }
+
+            HotelRoomDetailsScreen(navController, hotelRoomDetailsViewModel)
+            hotelRoomDetailsViewModel.setCurrentHotelRoomNumber(roomNumber)
         }
         composable(Destinations.ReservationsOverview.route) {
             ReservationsOverviewScreen(reservationsOverviewViewModel, navController)

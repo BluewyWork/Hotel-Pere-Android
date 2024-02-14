@@ -21,20 +21,14 @@ class HotelRoomService @Inject constructor(
         }
     }
 
-    suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoomModel {
+    suspend fun getOneHotelRoomFromApi(roomNumber: Int): HotelRoomModel? {
         return withContext(Dispatchers.IO) {
             try {
-                val response = hotelRoomApi.getOneHotelRoom(roomNumber)
+                val response = hotelRoomApi.getOneHotelRoom(roomNumber).data
                 response
             } catch (e: Exception) {
-                HotelRoomModel(
-                    number = 101,
-                    description = "Deluxe room with a view",
-                    pricePerNight = 150.0,
-                    reservedDays = listOf(""), // Example reserved date
-                    image = "room101.jpg",
-                    numberOfBeds = 2
-                )
+                Log.e("LOOK AT ME", "${e.message}")
+                null
             }
         }
     }

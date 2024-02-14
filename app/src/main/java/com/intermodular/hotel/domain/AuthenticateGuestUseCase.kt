@@ -15,17 +15,15 @@ class AuthenticateGuestUseCase @Inject constructor(
         val loginModel = LoginModel(email, password)
         val guestToken = tokenRepository.getGuestTokenFromApi(loginModel)
 
-        Log.d("LOOK At ME", guestToken)
-
         if (guestToken.isBlank()) {
-            Log.e("LOOK AT ME", "login failed...")
+            Log.e("LOOK AT ME", "API RESPONSE: Blank")
             return false
         }
 
         val guest = guestRepository.getAuthenticatedGuestFromApi(guestToken)
 
         if (guest == null) {
-            Log.e("LOOK AT ME", "login failed 2...")
+            Log.e("LOOK AT ME", "API RESPONSE: NULL")
             return false
         }
 

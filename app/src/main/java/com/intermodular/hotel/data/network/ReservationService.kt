@@ -20,10 +20,10 @@ class ReservationService @Inject constructor(
         }
     }
 
-    suspend fun makeReservation(reservation: ReservationModel): Boolean {
+    suspend fun makeReservation(tokenFromGuest: String, roomNumber: Int): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                val response = reservationApi.makeReservation(reservation)
+                val response = reservationApi.makeReservation(tokenFromGuest, roomNumber)
 
                 if (!response.isSuccessful) {
                     return@withContext false
