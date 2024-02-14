@@ -2,6 +2,7 @@ package com.intermodular.hotel.domain
 
 import com.intermodular.hotel.data.HotelRoomRepository
 import com.intermodular.hotel.domain.model.HotelRoom
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 class GetHotelRoomListUseCase @Inject constructor(
@@ -20,11 +21,11 @@ class GetHotelRoomListUseCase @Inject constructor(
 
         for (i in 1..10) {
             val room = HotelRoom(
-                number = i,
-                description = "Very beautiful room!",
-                pricePerNight = 100.0 + i * 10,
-                reserved = false,
-                image = "room_image_$i.jpg",
+                number = 101,
+                description = "Deluxe room with a view",
+                pricePerNight = 150.0,
+                reservedDays = listOf(LocalDateTime.now().plusDays(1)), // Example reserved date
+                image = "room101.jpg",
                 numberOfBeds = 2
             )
 

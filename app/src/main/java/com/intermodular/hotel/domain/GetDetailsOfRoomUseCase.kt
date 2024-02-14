@@ -3,6 +3,7 @@ package com.intermodular.hotel.domain
 import com.intermodular.hotel.data.HotelRoomRepository
 import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.domain.model.HotelRoom
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 class GetDetailsOfRoomUseCase @Inject constructor(
@@ -24,11 +25,11 @@ class GetDetailsOfRoomUseCase @Inject constructor(
 
     private fun generateHotelRoom(roomNumber: Int): HotelRoom {
         return HotelRoom(
-            number = roomNumber,
-            description = "Very beautiful room!",
-            pricePerNight = 100.0 + 1 * 10,
-            reserved = false,
-            image = "room_image_1.jpg",
+            number = 101,
+            description = "Deluxe room with a view",
+            pricePerNight = 150.0,
+            reservedDays = listOf(LocalDateTime.now().plusDays(1)), // Example reserved date
+            image = "room101.jpg",
             numberOfBeds = 2
         )
     }

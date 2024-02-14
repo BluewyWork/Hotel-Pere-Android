@@ -1,6 +1,5 @@
 package com.intermodular.hotel.presentation.screens.home.composables
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,13 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.intermodular.hotel.R
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.screens.home.HomeViewModel
 
@@ -57,7 +54,7 @@ fun HotelRoomCard(
                             bottomStart = 0.dp
                         )
                     ),
-                model =room.image , contentDescription =null,
+                model = room.image, contentDescription = null,
                 contentScale = ContentScale.Crop
             )
             Spacer(modifier = Modifier.height(8.dp))

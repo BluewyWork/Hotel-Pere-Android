@@ -11,6 +11,7 @@ import com.intermodular.hotel.domain.GetHotelRoomListUseCase
 import com.intermodular.hotel.domain.model.HotelRoom
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,7 +21,14 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
     private val _hotelRooms = MutableLiveData<List<HotelRoom>>()
     val hotelRooms: LiveData<List<HotelRoom>> = _hotelRooms
-    var room: HotelRoom = HotelRoom(1, "", 0.00, false, "", 0)
+    var room: HotelRoom = HotelRoom(
+        number = 101,
+        description = "Deluxe room with a view",
+        pricePerNight = 150.0,
+        reservedDays = listOf(LocalDateTime.now().plusDays(1)),
+        image = "room101.jpg",
+        numberOfBeds = 2
+    )
 
     fun onCreate() {
         viewModelScope.launch {

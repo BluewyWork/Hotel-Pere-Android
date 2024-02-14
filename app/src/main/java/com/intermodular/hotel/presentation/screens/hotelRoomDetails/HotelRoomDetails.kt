@@ -1,6 +1,5 @@
 package com.intermodular.hotel.presentation.screens.hotelRoomDetails
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,18 +20,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.intermodular.hotel.R
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
-@Composable fun HotelRoomDetails(
+@Composable
+fun HotelRoomDetails(
     navController: NavController,
     hotelRoom: HotelRoom,
     hotelRoomDetailsViewModel: HotelRoomDetailsViewModel
@@ -64,9 +62,9 @@ fun HotelRoomDetails(
                     .fillMaxWidth()
                     .height(280.dp)
                     .clip(shape = RoundedCornerShape(10.dp)),
-                model =hotelRoom.image , contentDescription =null,
+                model = hotelRoom.image, contentDescription = null,
 
-            )
+                )
 
             Spacer(modifier = Modifier.height(20.dp))
             Text(

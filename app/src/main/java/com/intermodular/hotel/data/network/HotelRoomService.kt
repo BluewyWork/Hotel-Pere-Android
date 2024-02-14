@@ -27,7 +27,14 @@ class HotelRoomService @Inject constructor(
                 val response = hotelRoomApi.getOneHotelRoom(roomNumber)
                 response
             } catch (e: Exception) {
-                HotelRoomModel(1, "1", 1.0, true, "tt", 1)
+                HotelRoomModel(
+                    number = 101,
+                    description = "Deluxe room with a view",
+                    pricePerNight = 150.0,
+                    reservedDays = listOf(""), // Example reserved date
+                    image = "room101.jpg",
+                    numberOfBeds = 2
+                )
             }
         }
     }

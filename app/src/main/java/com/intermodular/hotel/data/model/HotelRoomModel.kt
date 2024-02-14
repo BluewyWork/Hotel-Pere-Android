@@ -4,11 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class HotelRoomModel(
     @SerializedName("number") val number: Int,
-    @SerializedName("section") val section: String,
+    @SerializedName("description") val description: String,
     @SerializedName("pricePerNight") val pricePerNight: Double,
-    @SerializedName("reserved") val description: Boolean,
+    @SerializedName("reservedDays") val reservedDays: List<String>,
     @SerializedName("image") val image: String,
     @SerializedName("beds") val numberOfBeds: Int
 )
-
-
