@@ -4,14 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
+import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.domain.GetAuthenticatedGuestUseCase
+import com.intermodular.hotel.domain.GuestUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val getAuthenticatedGuestUseCase: GetAuthenticatedGuestUseCase
+    private val getAuthenticatedGuestUseCase: GetAuthenticatedGuestUseCase,
+    private val guestUseCase: GuestUseCase
 ) : ViewModel() {
     private val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
@@ -34,13 +38,19 @@ class ProfileViewModel @Inject constructor(
         _email.postValue(email)
     }
 
-    fun onCreate() {
+    fun loadData(navController: NavController) {
         viewModelScope.launch {
-            val result = getAuthenticatedGuestUseCase() ?: return@launch
+            val loggedIn = guestUseCase.isLoggedIn()
 
-            _name.postValue(result.name)
-            _surname.postValue(result.surname)
-            _email.postValue(result.email)
+            if (!loggedIn) {
+                navController.navigate(Destinations.Login.route)
+            }
+
+            val guest = getAuthenticatedGuestUseCase() ?: return@launch
+
+            _name.postValue(guest.name)
+            _surname.postValue(guest.surname)
+            _email.postValue(guest.email)
         }
     }
 

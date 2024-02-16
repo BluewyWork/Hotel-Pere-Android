@@ -4,9 +4,13 @@ import com.intermodular.hotel.data.GuestRepository
 import com.intermodular.hotel.domain.model.Guest
 import javax.inject.Inject
 
-class GetAuthenticatedGuestUseCase @Inject constructor(private val repository: GuestRepository) {
+class GetAuthenticatedGuestUseCase @Inject constructor(
+    private val guestRepository: GuestRepository
+) {
     suspend operator fun invoke(): Guest? {
-        return generateGuest()
+        val retrievedGuest = guestRepository.getAuthenticatedGuestFromDataBase()
+
+        return retrievedGuest
     }
 
     private suspend fun generateGuest(): Guest {
