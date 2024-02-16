@@ -16,7 +16,12 @@ class GuestRepository @Inject constructor(
     private val guestDao: GuestDao
 ) {
     suspend fun getAuthenticatedGuestFromApi(token: String): Guest? {
-        return api.getAuthenticatedGuestFromApi(token)?.toDomain()
+        return try {
+            api.getAuthenticatedGuestFromApi(token)?.toDomain()
+        } catch (e: Exception) {
+            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            null
+        }
     }
 
     suspend fun registerGuestToApi(
