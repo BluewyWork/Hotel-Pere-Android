@@ -4,6 +4,7 @@ import android.util.Log
 import com.intermodular.hotel.data.database.dao.GuestDao
 import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.model.GuestModel
+import com.intermodular.hotel.data.model.toModel
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
 import com.intermodular.hotel.domain.model.toDomain
@@ -66,6 +67,15 @@ class GuestRepository @Inject constructor(
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
             }
+        }
+    }
+
+    suspend fun updateGuestAtApi(token: String, guest: Guest, password: String): Boolean {
+        return try {
+            api.updateGuestAtApi(token, guest.toModel())
+        } catch (e: Exception) {
+            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            false
         }
     }
 }

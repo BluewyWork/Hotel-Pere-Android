@@ -15,4 +15,10 @@ interface GuestApi {
 
     @POST(Endpoints.REGISTER_GUEST)
     suspend fun registerGuest(@Body guest: GuestModel): Response<CustomResponse>
+
+    @POST(Endpoints.UPDATE_GUEST)
+    suspend fun updateGuest(
+        @Header("Authorization") token: String,
+        @Body guest: GuestModel
+    ): ApiResponse<String>
 }
