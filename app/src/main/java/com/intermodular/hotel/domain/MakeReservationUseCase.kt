@@ -1,5 +1,6 @@
 package com.intermodular.hotel.domain
 
+import android.util.Log
 import com.intermodular.hotel.data.ReservationRepository
 import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.domain.model.HotelRoom
@@ -11,10 +12,14 @@ class MakeReservationUseCase @Inject constructor(
 ) {
     suspend fun makeReservation(hotelRoom: HotelRoom) {
         val tokenFromGuest = tokenRepository.getGuestTokenFromDatabase().ifEmpty {
+            Log.e("LOOK AT ME", "Missing token...")
             return
         }
 
-        // faltaria saber si lo hizo o no
-        reservationRepository.makeReservation(tokenFromGuest, hotelRoom.number)
+        val success = reservationRepository.makeReservation(tokenFromGuest, hotelRoom.number)
+
+        if (!success) {
+            Log.e("LOOK AT ME", "Unable to make reservation...")
+        }
     }
 }
