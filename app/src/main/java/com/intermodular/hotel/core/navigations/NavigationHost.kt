@@ -55,6 +55,7 @@ fun NavigationHost(
             CheckChangeScreen(navController)
         }
         composable(Destinations.Profile.route) {
+            profileViewModel.loadData(navController)
             ProfileScreen(navController, profileViewModel)
         }
         composable(Destinations.Cart.route) {

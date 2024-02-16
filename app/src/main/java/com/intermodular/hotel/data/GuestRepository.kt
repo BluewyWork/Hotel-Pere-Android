@@ -4,6 +4,7 @@ import android.util.Log
 import com.intermodular.hotel.data.database.dao.GuestDao
 import com.intermodular.hotel.data.database.entities.toDatabase
 import com.intermodular.hotel.data.model.GuestModel
+import com.intermodular.hotel.data.model.toModel
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
 import com.intermodular.hotel.domain.model.toDomain
@@ -16,20 +17,23 @@ class GuestRepository @Inject constructor(
     private val guestDao: GuestDao
 ) {
     suspend fun getAuthenticatedGuestFromApi(token: String): Guest? {
-        return api.getAuthenticatedGuestFromApi(token)?.toDomain()
+        return try {
+            api.getAuthenticatedGuestFromApi(token)?.toDomain()
+        } catch (e: Exception) {
+            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            null
+        }
     }
 
     suspend fun registerGuestToApi(
         name: String,
         surname: String,
         email: String,
-        password: String
     ): Boolean {
         val guestModel = GuestModel(
             name = name,
             surname = surname,
             email = email,
-            // password = password
         )
 
         return api.registerGuestToApi(guestModel)
@@ -63,6 +67,15 @@ class GuestRepository @Inject constructor(
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
             }
+        }
+    }
+
+    suspend fun updateGuestAtApi(token: String, guest: Guest, password: String): Boolean {
+        return try {
+            api.updateGuestAtApi(token, guest.toModel())
+        } catch (e: Exception) {
+            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            false
         }
     }
 }

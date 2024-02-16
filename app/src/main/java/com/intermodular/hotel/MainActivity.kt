@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         cartViewModel.onCreate()
         homeViewModel.onCreate()
-        profileViewModel.onCreate()
         reservationsOverviewViewModel.onCreate()
 
         setContent {

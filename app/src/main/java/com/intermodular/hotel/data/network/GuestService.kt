@@ -42,4 +42,15 @@ class GuestService @Inject constructor(
             }
         }
     }
+
+    suspend fun updateGuestAtApi(token: String, guest: GuestModel): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                guestApi.updateGuest(token, guest).ok
+            } catch (e: Exception) {
+                Log.e("LOOK AT ME", "ERROR: ${e.message}")
+                false
+            }
+        }
+    }
 }

@@ -37,7 +37,6 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            //Hay que cambiarlo
             onClick = { navController.navigate(Destinations.Details.route) },
             icon = {
                 Icon(
@@ -69,12 +68,7 @@ fun BottomBar(navController: NavController) {
         NavigationBarItem(
             selected = false,
             onClick = {
-                if (false) {
-                    // if user not logged in redirect to login screen
-                    //
-                } else {
-                    navController.navigate(Destinations.Profile.route)
-                }
+                navController.navigate(Destinations.Profile.route)
             },
             icon = {
                 Icon(

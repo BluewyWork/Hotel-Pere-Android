@@ -12,6 +12,6 @@ class RegisterGuestUseCase @Inject constructor(
         email: String,
         password: String
     ): Boolean {
-        return guestRepository.registerGuestToApi(name, surname, email, password)
+        return guestRepository.registerGuestToApi(name, surname, email)
     }
 }

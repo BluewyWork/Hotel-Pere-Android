@@ -16,7 +16,12 @@ class ReservationRepository @Inject constructor(
     private val reservationDao: ReservationDao
 ) {
     suspend fun getReservationListOfAuthenticatedGuestFromApi(): List<Reservation> {
-        return api.getReservationListOfAuthenticatedGuestFromApi().map { it.toDomain() }
+        return try {
+            api.getReservationListOfAuthenticatedGuestFromApi().map { it.toDomain() }
+        } catch (e: Exception) {
+            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            emptyList()
+        }
     }
 
     suspend fun getReservationListOfAuthenticatedGuestFromDatabase(): List<Reservation> {
