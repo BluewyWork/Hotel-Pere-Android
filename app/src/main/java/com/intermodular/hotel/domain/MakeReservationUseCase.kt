@@ -10,16 +10,19 @@ class MakeReservationUseCase @Inject constructor(
     private val reservationRepository: ReservationRepository,
     private val tokenRepository: TokenRepository
 ) {
-    suspend fun makeReservation(hotelRoom: HotelRoom) {
+    suspend fun makeReservation(hotelRoom: HotelRoom): Boolean {
         val tokenFromGuest = tokenRepository.getGuestTokenFromDatabase().ifEmpty {
             Log.e("LOOK AT ME", "Missing token...")
-            return
+            return false
         }
 
         val success = reservationRepository.makeReservation(tokenFromGuest, hotelRoom.number)
 
         if (!success) {
             Log.e("LOOK AT ME", "Unable to make reservation...")
+            return false
         }
+
+        return true
     }
 }

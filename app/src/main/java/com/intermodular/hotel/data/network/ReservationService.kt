@@ -1,6 +1,7 @@
 package com.intermodular.hotel.data.network
 
 import android.util.Log
+import com.intermodular.hotel.data.model.ReservationDates
 import com.intermodular.hotel.data.model.ReservationModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,18 +21,23 @@ class ReservationService @Inject constructor(
         }
     }
 
-    suspend fun makeReservation(tokenFromGuest: String, roomNumber: Int): Boolean {
+    suspend fun makeReservation(
+        tokenFromGuest: String,
+        roomNumber: Int,
+        reservationDates: ReservationDates
+    ): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                val response = reservationApi.makeReservation(tokenFromGuest, roomNumber)
+                val response =
+                    reservationApi.makeReservation(tokenFromGuest, roomNumber, reservationDates)
 
-                if (!response.isSuccessful) {
-                    return@withContext false
+                if (!response.ok) {
+                    Log.e("LOOK AT ME", response.data)
                 }
 
-                return@withContext response.body()?.ok ?: false
+                response.ok
             } catch (e: Exception) {
-                Log.e("LOOK AT ME", "${e.message}")
+                Log.e("LOOK AT ME", "RESERVATION ERROR: ${e.message}")
 
                 false
             }

@@ -14,17 +14,10 @@ class GuestService @Inject constructor(
             try {
                 val response = guestApi.retrieveGuest(token)
 
-                if (!response.isSuccessful || response.body() == null) {
-                    return@withContext null
+                if (!response.ok) {
+                    Log.e("LOOK AT ME", "API RESPONSE: NOT OK")
                 }
-
-                val responseData = response.body()!!.data
-                return@withContext GuestModel(
-                    responseData.name,
-                    responseData.surname,
-                    responseData.email,
-                    ""
-                )
+                return@withContext response.data
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
                 return@withContext null

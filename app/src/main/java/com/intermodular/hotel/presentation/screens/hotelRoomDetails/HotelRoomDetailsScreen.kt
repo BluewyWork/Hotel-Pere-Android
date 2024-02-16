@@ -115,7 +115,7 @@ fun HotelRoomDetailsScreen(
                     .padding(start = 16.dp, end = 16.dp),
                     colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                     onClick = {
-                        hotelRoomDetailsViewModel.onReservePress()
+                        hotelRoomDetailsViewModel.onReservePress(navController)
                     }
                 ) {
                     Text(text = "Reservar")

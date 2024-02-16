@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavController
+import com.intermodular.hotel.core.navigations.Destinations
 import com.intermodular.hotel.domain.GetDetailsOfRoomUseCase
 import com.intermodular.hotel.domain.MakeReservationUseCase
 import com.intermodular.hotel.domain.model.HotelRoom
@@ -27,17 +29,24 @@ class HotelRoomDetailsViewModel @Inject constructor(
         }
     }
 
-    fun onReservePress() {
+    fun onReservePress(navController: NavController) {
         viewModelScope.launch {
             val isLoggedIn = getDetailsOfRoomUseCase.isLoggedIn()
 
             if (!isLoggedIn) {
+                navController.navigate(Destinations.Login.route)
                 return@launch
             }
 
             val hotelRoom = _hotelRoom.value ?: return@launch
 
-            makeReservationUseCase.makeReservation(hotelRoom)
+            val success = makeReservationUseCase.makeReservation(hotelRoom)
+
+            if (!success) {
+                navController.navigate(Destinations.Home.route)
+            }
+
+            navController.navigate(Destinations.ReservationsOverview.route)
         }
     }
 }

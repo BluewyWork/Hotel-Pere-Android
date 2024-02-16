@@ -3,6 +3,7 @@ package com.intermodular.hotel.data
 import android.util.Log
 import com.intermodular.hotel.data.database.dao.ReservationDao
 import com.intermodular.hotel.data.database.entities.ReservationEntity
+import com.intermodular.hotel.data.model.ReservationDates
 import com.intermodular.hotel.data.network.ReservationService
 import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.domain.model.toDomain
@@ -42,6 +43,11 @@ class ReservationRepository @Inject constructor(
     }
 
     suspend fun makeReservation(tokenFromGuest: String, roomNumber: Int): Boolean {
-        return api.makeReservation(tokenFromGuest, roomNumber)
+        val reservationDates = ReservationDates(
+            "2024-02-14T12:00:00.000+00:00",
+            "2024-02-15T12:00:00.000+00:00"
+        )
+
+        return api.makeReservation(tokenFromGuest, roomNumber, reservationDates)
     }
 }

@@ -29,7 +29,7 @@ class GuestRepository @Inject constructor(
             name = name,
             surname = surname,
             email = email,
-            password = password
+            // password = password
         )
 
         return api.registerGuestToApi(guestModel)
