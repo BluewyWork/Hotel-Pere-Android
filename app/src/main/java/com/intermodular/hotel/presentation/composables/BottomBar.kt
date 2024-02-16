@@ -3,6 +3,7 @@ package com.intermodular.hotel.presentation.composables
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.LineStyle
 import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Search
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.intermodular.hotel.core.navigations.Destinations
 
 @Composable
 fun BottomBar(navController: NavController) {
@@ -26,7 +28,7 @@ fun BottomBar(navController: NavController) {
     ) {
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("home") },
+            onClick = { navController.navigate(Destinations.Home.route) },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.Home,
@@ -37,7 +39,7 @@ fun BottomBar(navController: NavController) {
         NavigationBarItem(
             selected = false,
             //Hay que cambiarlo
-            onClick = { navController.navigate("details") },
+            onClick = { navController.navigate(Destinations.Details.route) },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.Search,
@@ -47,17 +49,17 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("reservationsOverview") },
+            onClick = { navController.navigate(Destinations.ReservationsOverview.route) },
             icon = {
                 Icon(
-                    imageVector = Icons.Outlined.List,
+                    imageVector = Icons.Outlined.LineStyle,
                     contentDescription = "Cart",
                 )
             }
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("cart") },
+            onClick = { navController.navigate(Destinations.CheckChange.route) },
             icon = {
                 Icon(
                     imageVector = Icons.Outlined.ShoppingCart,
@@ -72,7 +74,7 @@ fun BottomBar(navController: NavController) {
                     // if user not logged in redirect to login screen
                     //
                 } else {
-                    navController.navigate("profile")
+                    navController.navigate(Destinations.Profile.route)
                 }
             },
             icon = {
