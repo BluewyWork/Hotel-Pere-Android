@@ -23,13 +23,11 @@ class GuestRepository @Inject constructor(
         name: String,
         surname: String,
         email: String,
-        password: String
     ): Boolean {
         val guestModel = GuestModel(
             name = name,
             surname = surname,
             email = email,
-            // password = password
         )
 
         return api.registerGuestToApi(guestModel)
