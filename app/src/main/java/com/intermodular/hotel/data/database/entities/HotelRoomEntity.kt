@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.intermodular.hotel.domain.model.HotelRoom
-import java.time.LocalDateTime
+import com.intermodular.hotel.domain.model.ReservedDateRange
 
 @Entity(tableName = "room_table")
 data class HotelRoomEntity(
@@ -13,7 +13,7 @@ data class HotelRoomEntity(
     @ColumnInfo(name = "section") val description: String,
     @ColumnInfo(name = "image") val image: String,
     @ColumnInfo(name = "pricePerNight") val pricePerNight: Double,
-    @ColumnInfo(name = "reservedDays") val reservedDays: List<LocalDateTime>,
+    @ColumnInfo(name = "reservedDays") val reservedDays: List<ReservedDateRange>,
     @ColumnInfo(name = "beds") val beds: Int
 )
 

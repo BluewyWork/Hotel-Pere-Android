@@ -2,28 +2,33 @@ package com.intermodular.hotel.domain.model
 
 import com.intermodular.hotel.data.model.HotelRoomModel
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 data class HotelRoom(
     val number: Int,
     val description: String,
     val pricePerNight: Double,
-    val reservedDays: List<LocalDateTime>,
+    val reservedDays: List<ReservedDateRange>,
     val image: String,
     val numberOfBeds: Int
 )
 
-fun HotelRoomModel.toDomain() =
-    HotelRoom(
-        number,
-        description,
-        pricePerNight,
-        convertToLocalDateTimeList(reservedDays),
-        image,
-        numberOfBeds
-    )
+data class ReservedDateRange(
+    val reservationId: String,
+    val checkIn: LocalDateTime,
+    val checkOut: LocalDateTime
+)
 
-fun convertToLocalDateTimeList(list: List<String>): List<LocalDateTime> {
-    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    return list.map { LocalDateTime.parse(it, formatter) }
-}
+fun HotelRoomModel.toDomain() = HotelRoom(
+    number,
+    description,
+    pricePerNight,
+    reservedDays.map {
+        ReservedDateRange(
+            it.reservationId,
+            LocalDateTime.parse(it.checkIn),
+            LocalDateTime.parse(it.checkOut)
+        )
+    },
+    image,
+    numberOfBeds
+)

@@ -3,6 +3,7 @@ package com.intermodular.hotel.domain
 import com.intermodular.hotel.data.HotelRoomRepository
 import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.domain.model.HotelRoom
+import com.intermodular.hotel.domain.model.ReservedDateRange
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -23,12 +24,25 @@ class GetDetailsOfRoomUseCase @Inject constructor(
     }
 
     private fun generateHotelRoom(): HotelRoom {
+        val reservedDates = listOf(
+            ReservedDateRange(
+                "reservation_id_1",
+                LocalDateTime.of(2024, 2, 16, 14, 0),
+                LocalDateTime.of(2024, 2, 20, 12, 0)
+            ),
+            ReservedDateRange(
+                "reservation_id_2",
+                LocalDateTime.of(2024, 3, 10, 14, 0),
+                LocalDateTime.of(2024, 3, 15, 12, 0)
+            )
+        )
+
         return HotelRoom(
             number = 101,
-            description = "Deluxe room with a view",
-            pricePerNight = 150.0,
-            reservedDays = listOf(LocalDateTime.now().plusDays(1)), // Example reserved date
-            image = "room101.jpg",
+            description = "Standard Room",
+            image = "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D",
+            pricePerNight = 99.99,
+            reservedDays = reservedDates,
             numberOfBeds = 2
         )
     }
