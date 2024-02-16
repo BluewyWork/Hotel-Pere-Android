@@ -68,9 +68,9 @@ fun HotelRoomDetailsScreen(
                         .fillMaxWidth()
                         .height(280.dp)
                         .clip(shape = RoundedCornerShape(10.dp)),
-                    model = it.image, contentDescription = null,
-
-                    )
+                    model = it.image,
+                    contentDescription = null,
+                )
 
                 Spacer(modifier = Modifier.height(20.dp))
                 Text(
@@ -97,34 +97,6 @@ fun HotelRoomDetailsScreen(
                         Modifier.padding(start = 16.dp),
                         fontSize = 25.sp
                     )
-                }
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
-                        .fillMaxSize()
-                        .padding(end = 16.dp)
-                ) {
-                    Text(
-                        text = "Wifi",
-                        Modifier.padding(start = 16.dp),
-                        fontSize = 25.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp)
-                }
-
-                Row(
-                    horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
-                        .fillMaxSize()
-                        .padding(end = 16.dp)
-                ) {
-                    Text(
-                        text = "Servicio",
-                        Modifier.padding(start = 16.dp),
-                        fontSize = 25.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Text(text = "Si", Modifier.padding(start = 16.dp), fontSize = 25.sp)
                 }
 
                 Spacer(modifier = Modifier.height(30.dp))
