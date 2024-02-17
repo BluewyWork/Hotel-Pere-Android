@@ -12,8 +12,7 @@ class UpdateGuestUseCase @Inject constructor(
     suspend fun updateGuest(
         name: String,
         surname: String,
-        email: String,
-        password: String
+        email: String
     ): Boolean {
         val token = tokenRepository.getGuestTokenFromDatabase()
 
@@ -21,6 +20,6 @@ class UpdateGuestUseCase @Inject constructor(
             return false
         }
 
-        return guestRepository.updateGuestAtApi(token, Guest(name, surname, email), password)
+        return guestRepository.updateGuestAtApi(token, Guest(name, surname, email))
     }
 }

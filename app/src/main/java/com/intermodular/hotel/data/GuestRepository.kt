@@ -3,7 +3,7 @@ package com.intermodular.hotel.data
 import android.util.Log
 import com.intermodular.hotel.data.database.dao.GuestDao
 import com.intermodular.hotel.data.database.entities.toDatabase
-import com.intermodular.hotel.data.model.GuestModel
+import com.intermodular.hotel.data.model.GuestPlusPasswordModel
 import com.intermodular.hotel.data.model.toModel
 import com.intermodular.hotel.data.network.GuestService
 import com.intermodular.hotel.domain.model.Guest
@@ -29,11 +29,13 @@ class GuestRepository @Inject constructor(
         name: String,
         surname: String,
         email: String,
+        password: String
     ): Boolean {
-        val guestModel = GuestModel(
+        val guestModel = GuestPlusPasswordModel(
             name = name,
             surname = surname,
             email = email,
+            password = password
         )
 
         return api.registerGuestToApi(guestModel)
@@ -70,12 +72,16 @@ class GuestRepository @Inject constructor(
         }
     }
 
-    suspend fun updateGuestAtApi(token: String, guest: Guest, password: String): Boolean {
+    suspend fun updateGuestAtApi(token: String, guest: Guest): Boolean {
         return try {
             api.updateGuestAtApi(token, guest.toModel())
         } catch (e: Exception) {
             Log.e("LOOK AT ME", "ERROR: ${e.message}")
             false
         }
+    }
+
+    suspend fun deleteGuestAtApi(token: String): Boolean {
+        return api.deleteGuestAtApi(token)
     }
 }

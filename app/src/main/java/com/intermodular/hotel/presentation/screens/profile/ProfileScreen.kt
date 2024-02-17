@@ -126,6 +126,15 @@ fun Profile(profileViewModel: ProfileViewModel) {
             ) {
                 Text(text = "Actualizar")
             }
+            Button(modifier = Modifier
+                .width(250.dp),
+                colors = ButtonDefaults.buttonColors(turquesaPrincipal),
+                onClick = {
+                    profileViewModel.onDeleteAccountPress()
+                }
+            ) {
+                Text(text = "Borrar Cuenta")
+            }
         }
     }
 }

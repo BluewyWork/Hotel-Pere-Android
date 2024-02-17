@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
 import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.domain.DeleteGuestUseCase
 import com.intermodular.hotel.domain.GetAuthenticatedGuestUseCase
 import com.intermodular.hotel.domain.GuestUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val getAuthenticatedGuestUseCase: GetAuthenticatedGuestUseCase,
-    private val guestUseCase: GuestUseCase
+    private val guestUseCase: GuestUseCase,
+    private val deleteGuestUseCase: DeleteGuestUseCase
 ) : ViewModel() {
     private val _name = MutableLiveData<String>()
     val name: LiveData<String> = _name
@@ -56,5 +58,11 @@ class ProfileViewModel @Inject constructor(
 
     fun onUpdatePress() {
         TODO()
+    }
+
+    fun onDeleteAccountPress() {
+        viewModelScope.launch {
+            deleteGuestUseCase.deleteGuest()
+        }
     }
 }
