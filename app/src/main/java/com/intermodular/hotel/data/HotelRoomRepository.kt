@@ -15,7 +15,7 @@ class HotelRoomRepository @Inject constructor(
             val response: List<HotelRoomModel> = api.getHotelRoomListFromApi()
             response.map { it.toDomain() }
         } catch (e: Exception) {
-            Log.e("LOOK AT ME", "ERROR: ${e.message}")
+            Log.e("LOOK AT ME", "REPOSITORY ERROR: ${e.message}")
             emptyList()
         }
     }

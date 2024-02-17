@@ -31,11 +31,7 @@ class GuestService @Inject constructor(
             try {
                 val response = guestApi.registerGuest(guestModel)
 
-                if (!response.isSuccessful) {
-                    return@withContext false
-                }
-
-                return@withContext response.body()?.ok ?: false
+                return@withContext response.ok
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "${e.message}")
 
