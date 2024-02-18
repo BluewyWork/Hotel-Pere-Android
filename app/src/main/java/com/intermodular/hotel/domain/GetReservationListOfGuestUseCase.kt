@@ -1,6 +1,8 @@
 package com.intermodular.hotel.domain
 
+import android.util.Log
 import com.intermodular.hotel.data.ReservationRepository
+import com.intermodular.hotel.data.TokenRepository
 import com.intermodular.hotel.domain.model.Reservation
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -8,21 +10,18 @@ import javax.inject.Inject
 import kotlin.random.Random
 
 class GetReservationListOfGuestUseCase @Inject constructor(
-    private val api: ReservationRepository
+    private val reservationRepository: ReservationRepository,
+    private val tokenRepository: TokenRepository
 ) {
     suspend operator fun invoke(): List<Reservation> {
-        val reservationsFromApi = api.getReservationListOfAuthenticatedGuestFromApi()
+        val token = tokenRepository.getGuestTokenFromDatabase()
+        val reservationsFromApi =
+            reservationRepository.getReservationListOfAuthenticatedGuestFromApi(token)
 
-        return if (reservationsFromApi.isNotEmpty()) {
-            api.clearReservationListOfAuthenticatedGuest()
-
-            // unable to convert toDatabase ???????
-            TODO()
-
-            reservationsFromApi
-        } else {
+        return reservationsFromApi.ifEmpty {
+            Log.d("LOOK AT ME", "RESERVATION USE CASE: LIST EMPTY")
             val reservationsFromDatabase =
-                api.getReservationListOfAuthenticatedGuestFromDatabase()
+                reservationRepository.getReservationListOfAuthenticatedGuestFromDatabase()
 
             if (reservationsFromDatabase.isNotEmpty()) {
                 return reservationsFromDatabase
@@ -55,8 +54,7 @@ class GetReservationListOfGuestUseCase @Inject constructor(
                 roomNumber,
                 pricePerNight,
                 checkIn,
-                checkOut,
-                reserved
+                checkOut
             )
 
             reservations.add(reservation)

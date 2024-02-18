@@ -16,7 +16,7 @@ class ReservationsOverviewViewModel @Inject constructor(
 ) : ViewModel() {
     private val _reservations = MutableLiveData<List<Reservation>>()
     val reservations: LiveData<List<Reservation>> = _reservations
-    fun onCreate() {
+    fun loadData() {
         viewModelScope.launch {
 
             _reservations.postValue(getReservationListOfGuestUseCase())

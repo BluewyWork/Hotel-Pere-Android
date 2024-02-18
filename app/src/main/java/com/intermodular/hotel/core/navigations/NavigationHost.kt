@@ -84,6 +84,7 @@ fun NavigationHost(
             hotelRoomDetailsViewModel.setCurrentHotelRoomNumber(roomNumber)
         }
         composable(Destinations.ReservationsOverview.route) {
+            reservationsOverviewViewModel.loadData()
             ReservationsOverviewScreen(reservationsOverviewViewModel, navController)
         }
     }

@@ -4,7 +4,6 @@ import android.util.Log
 import com.intermodular.hotel.data.database.dao.ReservationDao
 import com.intermodular.hotel.data.database.entities.ReservationEntity
 import com.intermodular.hotel.data.model.MakeReservationModel
-import com.intermodular.hotel.data.model.ReservationDates
 import com.intermodular.hotel.data.network.ReservationService
 import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.domain.model.toDomain
@@ -17,9 +16,9 @@ class ReservationRepository @Inject constructor(
     private val api: ReservationService,
     private val reservationDao: ReservationDao
 ) {
-    suspend fun getReservationListOfAuthenticatedGuestFromApi(): List<Reservation> {
+    suspend fun getReservationListOfAuthenticatedGuestFromApi(token: String): List<Reservation> {
         return try {
-            api.getReservationListOfAuthenticatedGuestFromApi().map { it.toDomain() }
+            api.getReservationListOfAuthenticatedGuestFromApi(token).map { it.toDomain() }
         } catch (e: Exception) {
             Log.e("LOOK AT ME", "ERROR: ${e.message}")
             emptyList()

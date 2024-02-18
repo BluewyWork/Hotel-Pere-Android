@@ -13,11 +13,10 @@ data class Reservation(
     val pricePerNight: Double,
     val checkIn: LocalDateTime,
     val checkOut: LocalDateTime,
-    val reserved: Boolean
 )
 
 fun convertToLocalDateTime(dateString: String): LocalDateTime {
-    val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+    val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 
     return LocalDateTime.parse(dateString, dateTimeFormatter)
 }
@@ -30,7 +29,6 @@ fun ReservationModel.toDomain() = Reservation(
     pricePerNight = pricePerNight,
     checkIn = convertToLocalDateTime(checkIn),
     checkOut = convertToLocalDateTime(checkOut),
-    reserved = reserved
 )
 
 fun ReservationEntity.toDomain() = Reservation(
@@ -41,5 +39,4 @@ fun ReservationEntity.toDomain() = Reservation(
     pricePerNight = pricePerNight,
     checkIn = convertToLocalDateTime(checkIn),
     checkOut = convertToLocalDateTime(checkOut),
-    reserved = reserved
 )
