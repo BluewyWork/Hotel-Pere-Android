@@ -7,7 +7,7 @@ object Endpoints {
     const val UPDATE_GUEST = "/guest/tableGuest/update"
     const val DELETE_GUEST = "/guest/tableGuest/delete"
 
-    const val MAKE_RESERVATION = "/guest/reservation/new/{roomNumber}"
+    const val MAKE_RESERVATION = "/guest/reservation/new"
     const val CANCEL_RESERVATION = "/android/guest/reservation/cancel"
     const val RETRIVE_ALL_RESERVATIONS = "/android/guest/reservation/all"
 
