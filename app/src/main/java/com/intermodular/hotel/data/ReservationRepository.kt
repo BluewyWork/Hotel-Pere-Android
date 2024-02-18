@@ -9,6 +9,7 @@ import com.intermodular.hotel.domain.model.Reservation
 import com.intermodular.hotel.domain.model.toDomain
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.time.LocalDate
 import javax.inject.Inject
 
 class ReservationRepository @Inject constructor(
@@ -47,10 +48,15 @@ class ReservationRepository @Inject constructor(
         reservationDao.clearAll()
     }
 
-    suspend fun makeReservation(tokenFromGuest: String, roomNumber: Int): Boolean {
+    suspend fun makeReservation(
+        tokenFromGuest: String,
+        roomNumber: Int,
+        checkIn: LocalDate,
+        checkOut: LocalDate
+    ): Boolean {
         val reservationDates = ReservationDates(
-            "2024-02-14T12:00:00.000+00:00",
-            "2024-02-15T12:00:00.000+00:00"
+            checkIn.toString(),
+            checkOut.toString()
         )
 
         return api.makeReservation(tokenFromGuest, roomNumber, reservationDates)

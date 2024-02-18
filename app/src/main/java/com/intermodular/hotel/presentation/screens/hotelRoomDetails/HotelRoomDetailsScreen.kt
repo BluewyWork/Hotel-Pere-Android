@@ -27,7 +27,9 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.intermodular.hotel.domain.model.HotelRoom
 import com.intermodular.hotel.presentation.composables.BottomBar
+import com.intermodular.hotel.presentation.screens.hotelRoomDetails.composables.DatePickerWithDialog
 import com.intermodular.hotel.ui.theme.turquesaPrincipal
+import java.time.LocalDate
 
 @Composable
 fun HotelRoomDetailsScreen(
@@ -120,6 +122,31 @@ fun HotelRoomDetailsScreen(
                 ) {
                     Text(text = "Reservar")
                 }
+
+                val checkIn: LocalDate? by hotelRoomDetailsViewModel.checkIn.observeAsState()
+                val checkOut: LocalDate? by hotelRoomDetailsViewModel.checkOut.observeAsState()
+
+                DatePickerWithDialog(
+                    value = checkIn,
+                    dateFormatter = { date ->
+                        date.toString()
+                    },
+                    onChange = { date ->
+                        hotelRoomDetailsViewModel.onCheckInChange(date!!)
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                DatePickerWithDialog(
+                    value = checkOut,
+                    dateFormatter = { date ->
+                        date.toString()
+                    },
+                    onChange = { date ->
+                        hotelRoomDetailsViewModel.onCheckOutChange(date!!)
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
         }
     }
