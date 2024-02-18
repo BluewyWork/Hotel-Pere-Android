@@ -53,9 +53,20 @@ class HotelRoomDetailsViewModel @Inject constructor(
                 return@launch
             }
 
+            val checkIn = checkIn.value
+            val checkOut = checkOut.value
+
+            if (checkIn == null || checkOut == null) {
+                return@launch
+            }
+
             val hotelRoom = _hotelRoom.value ?: return@launch
 
-            val success = makeReservationUseCase.makeReservation(hotelRoom)
+            val success = makeReservationUseCase.makeReservation(
+                hotelRoom = hotelRoom,
+                checkIn = checkIn,
+                checkOut = checkOut
+            )
 
             if (!success) {
                 navController.navigate(Destinations.Home.route)

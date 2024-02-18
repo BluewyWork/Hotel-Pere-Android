@@ -21,7 +21,12 @@ class MakeReservationUseCase @Inject constructor(
             return false
         }
 
-        val success = reservationRepository.makeReservation(tokenFromGuest, hotelRoom.number)
+        val success = reservationRepository.makeReservation(
+            tokenFromGuest = tokenFromGuest,
+            roomNumber = hotelRoom.number,
+            checkIn = checkIn,
+            checkOut = checkOut
+        )
 
         if (!success) {
             Log.e("LOOK AT ME", "Unable to make reservation...")
