@@ -67,7 +67,7 @@ fun RegisterScreen(
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             IconAtras {
-                navController.navigate(Destinations.Register.route)
+                navController.navigate(Destinations.Login.route)
             }
             Column(
                 modifier = Modifier
