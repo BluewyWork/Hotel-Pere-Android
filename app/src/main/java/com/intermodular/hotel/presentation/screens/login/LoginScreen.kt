@@ -23,6 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.presentation.composables.IconAtras
 import com.intermodular.hotel.presentation.screens.login.composables.EmailTextField
 import com.intermodular.hotel.presentation.screens.login.composables.LoginButton
 import com.intermodular.hotel.presentation.screens.login.composables.PasswordTextField
@@ -56,6 +58,9 @@ fun LoginScreen(
         contentAlignment = Alignment.Center
     ) {
         Column {
+            IconAtras {
+                navController.navigate(Destinations.Home.route)
+            }
             Image(
                 painter = painterResource(id = R.drawable.logo_sin_fondo),
                 contentDescription = null,
