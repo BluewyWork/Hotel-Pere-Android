@@ -35,16 +35,7 @@ fun BottomBar(navController: NavController) {
                 )
             }
         )
-        NavigationBarItem(
-            selected = false,
-            onClick = { navController.navigate(Destinations.Details.route) },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.Search,
-                    contentDescription = "Search"
-                )
-            }
-        )
+
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(Destinations.ReservationsOverview.route) },
