@@ -1,5 +1,6 @@
 package com.intermodular.hotel.presentation.screens.hotelRoomDetails
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,8 @@ class HotelRoomDetailsViewModel @Inject constructor(
     private val getDetailsOfRoomUseCase: GetDetailsOfRoomUseCase,
     private val makeReservationUseCase: MakeReservationUseCase
 ) : ViewModel() {
+     val isReserved = MutableLiveData<Boolean>()
+
     private val _hotelRoom = MutableLiveData<HotelRoom>()
     val hotelRoom: LiveData<HotelRoom> = _hotelRoom
 
@@ -42,6 +45,10 @@ class HotelRoomDetailsViewModel @Inject constructor(
 
             _hotelRoom.postValue(hotelRoom)
         }
+    }
+
+    fun onDismissDialog() {
+        isReserved.postValue(true)
     }
 
     fun onReservePress(navController: NavController) {
@@ -69,9 +76,12 @@ class HotelRoomDetailsViewModel @Inject constructor(
             )
 
             if (!success) {
-                navController.navigate(Destinations.Home.route)
+
+                isReserved.postValue(false)
+                return@launch
             }
 
+            
             navController.navigate(Destinations.ReservationsOverview.route)
         }
     }

@@ -28,6 +28,7 @@ class MakeReservationUseCase @Inject constructor(
             checkOut = checkOut
         )
 
+
         if (!success) {
             Log.e("LOOK AT ME", "Unable to make reservation...")
             return false

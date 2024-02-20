@@ -59,7 +59,7 @@ class ReservationRepository @Inject constructor(
             checkIn = checkIn.toString(),
             checkOut = checkOut.toString()
         )
-
-        return api.makeReservation(tokenFromGuest, makeReservationModel)
+        val success = api.makeReservation(tokenFromGuest, makeReservationModel)
+        return  success
     }
 }

@@ -27,14 +27,11 @@ class ReservationService @Inject constructor(
     ): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                val response =
-                    reservationApi.makeReservation(tokenFromGuest, makeReservationModel)
 
-                if (!response.ok) {
-                    Log.e("LOOK AT ME", response.data)
-                }
-
-                response.ok
+                return@withContext reservationApi.makeReservation(
+                    tokenFromGuest,
+                    makeReservationModel
+                ).ok
             } catch (e: Exception) {
                 Log.e("LOOK AT ME", "RESERVATION ERROR: ${e.message}")
 

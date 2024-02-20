@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Scaffold
@@ -52,6 +53,7 @@ fun HotelRoomDetailsScreen(
     navController: NavController
 ) {
     val currentHotelRoom: HotelRoom? by hotelRoomDetailsViewModel.hotelRoom.observeAsState()
+    val isReserved: Boolean by hotelRoomDetailsViewModel.isReserved.observeAsState(true)
 
     currentHotelRoom ?: run {
         Text("unable to load...")
@@ -110,7 +112,38 @@ fun HotelRoomDetailsScreen(
                     fontWeight = FontWeight.Bold
                 )
 
-                Spacer(modifier = Modifier.height(80.dp))
+
+                val checkIn: LocalDate? by hotelRoomDetailsViewModel.checkIn.observeAsState()
+                val checkOut: LocalDate? by hotelRoomDetailsViewModel.checkOut.observeAsState()
+                Spacer(modifier = Modifier.height(20.dp))
+
+                DatePickerWithDialog(
+                    value = checkIn,
+                    dateFormatter = { date ->
+                        date.toString()
+                    },
+                    onChange = { date ->
+                        hotelRoomDetailsViewModel.onCheckInChange(date!!)
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(end = 16.dp, start = 16.dp)
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                DatePickerWithDialog(
+                    value = checkOut,
+                    dateFormatter = { date ->
+                        date.toString()
+                    },
+                    onChange = { date ->
+                        hotelRoomDetailsViewModel.onCheckOutChange(date!!)
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(end = 16.dp, start = 16.dp)
+                )
+
+                Spacer(modifier = Modifier.height(10.dp))
 
                 Button(modifier = Modifier
                     .fillMaxWidth()
@@ -123,30 +156,28 @@ fun HotelRoomDetailsScreen(
                     Text(text = "Reservar")
                 }
 
-                val checkIn: LocalDate? by hotelRoomDetailsViewModel.checkIn.observeAsState()
-                val checkOut: LocalDate? by hotelRoomDetailsViewModel.checkOut.observeAsState()
+                if (!isReserved) {
+                    AlertDialog(
+                        onDismissRequest = {  },
+                        title = {
+                            Text(text = "Esta habitacion no se puede reservar!")
+                        },
+                        text = {
+                            Text(text = "Esta habitacion ya esta reservada para las fechas seleccionadas. Por favor, selecciona otras fechas.")
+                        },
+                        confirmButton = {
+                            Button(
+                                onClick = {
+                                    hotelRoomDetailsViewModel.onDismissDialog()
+                                }
+                            ) {
+                                Text("Ok")
+                            }
+                        }
+                    )
+                }
 
-                DatePickerWithDialog(
-                    value = checkIn,
-                    dateFormatter = { date ->
-                        date.toString()
-                    },
-                    onChange = { date ->
-                        hotelRoomDetailsViewModel.onCheckInChange(date!!)
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                )
 
-                DatePickerWithDialog(
-                    value = checkOut,
-                    dateFormatter = { date ->
-                        date.toString()
-                    },
-                    onChange = { date ->
-                        hotelRoomDetailsViewModel.onCheckOutChange(date!!)
-                    },
-                    modifier = Modifier.fillMaxWidth()
-                )
             }
         }
     }

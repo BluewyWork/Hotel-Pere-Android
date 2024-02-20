@@ -3,6 +3,7 @@ package com.intermodular.hotel.data.network
 import com.intermodular.hotel.data.model.MakeReservationModel
 import com.intermodular.hotel.data.model.ReservationModel
 import com.intermodular.hotel.data.network.response.ApiResponse
+import org.json.JSONObject
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -18,5 +19,5 @@ interface ReservationApi {
     suspend fun makeReservation(
         @Header("Authorization") token: String,
         @Body makeReservationModel: MakeReservationModel
-    ): ApiResponse<String>
+    ): ApiResponse<JSONObject>
 }
