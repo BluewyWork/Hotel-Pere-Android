@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -58,8 +59,11 @@ fun LoginScreen(
         contentAlignment = Alignment.Center
     ) {
         Column {
-            IconAtras {
-                navController.navigate(Destinations.Home.route)
+
+            Box(modifier = Modifier.fillMaxWidth().padding(10.dp)){
+                IconAtras {
+                    navController.navigate(Destinations.Home.route)
+                }
             }
             Image(
                 painter = painterResource(id = R.drawable.logo_sin_fondo),
@@ -69,8 +73,7 @@ fun LoginScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp)
-                    .padding(20.dp)
+                    .height(500.dp).padding(bottom = 10.dp , end = 20.dp, start = 20.dp),
             ) {
                 Login(navController, loginViewModel)
             }

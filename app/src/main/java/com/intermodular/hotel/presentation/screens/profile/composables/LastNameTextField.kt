@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 fun SurnameTextField(apellido: String, onTextChange: (String) -> Unit) {
     TextField(
         modifier = Modifier
-            .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
         value = apellido,
         onValueChange = { onTextChange(it) },

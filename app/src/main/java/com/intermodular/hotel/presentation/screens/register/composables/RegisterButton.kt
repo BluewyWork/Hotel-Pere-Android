@@ -18,6 +18,6 @@ fun RegisterButton(
             .padding(16.dp),
         onClick = onClick
     ) {
-        Text("Register")
+        Text("Registrarte")
     }
 }

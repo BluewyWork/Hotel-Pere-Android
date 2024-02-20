@@ -133,19 +133,15 @@ fun Register(
             ConfirmPasswordTextField(confirmPassword) {
                 registerViewModel.onConfirmPasswordChange(it)
             }
-            LoginText(navController = navController)
-            RegisterButton(
-                onClick = { registerViewModel.onRegisterPress(navController) }
-            )
-            Text("Registrate con", 20, turquesaOscuroFuerte)
-            Row(horizontalArrangement = Arrangement.spacedBy(30.dp)) {
-                LogoButton(image = R.drawable.logo_facebook)
-                LogoButton(image = R.drawable.logo_google)
-            }
-            Row(modifier = Modifier.clickable { }) {
+            Row(modifier = Modifier.clickable { navController.navigate("login")  }) {
                 Text("¿Ya tienes cuenta?", 18, turquesaOscuroFuerte)
                 Text("Inicia sesión aqui", 18, turquesaOscuroFuerte)
             }
+            RegisterButton(
+                onClick = { registerViewModel.onRegisterPress(navController) }
+            )
+            
+         
         }
     }
 }
