@@ -18,17 +18,12 @@ class GetReservationListOfGuestUseCase @Inject constructor(
         val reservationsFromApi =
             reservationRepository.getReservationListOfAuthenticatedGuestFromApi(token)
 
-        return reservationsFromApi.ifEmpty {
-            Log.d("LOOK AT ME", "RESERVATION USE CASE: LIST EMPTY")
-            val reservationsFromDatabase =
-                reservationRepository.getReservationListOfAuthenticatedGuestFromDatabase()
 
-            if (reservationsFromDatabase.isNotEmpty()) {
-                return reservationsFromDatabase
+            if (reservationsFromApi.isEmpty()) {
+                return emptyList()
             }
 
-            generateRandomReservations()
-        }
+        return  reservationsFromApi
     }
 
     fun generateRandomReservations(): List<Reservation> {
