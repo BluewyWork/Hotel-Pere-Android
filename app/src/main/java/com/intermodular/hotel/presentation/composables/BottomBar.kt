@@ -48,16 +48,6 @@ fun BottomBar(navController: NavController) {
         )
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate(Destinations.CheckChange.route) },
-            icon = {
-                Icon(
-                    imageVector = Icons.Outlined.ShoppingCart,
-                    contentDescription = "Cart",
-                )
-            }
-        )
-        NavigationBarItem(
-            selected = false,
             onClick = {
                 navController.navigate(Destinations.Profile.route)
             },

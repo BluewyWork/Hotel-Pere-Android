@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -35,6 +36,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.intermodular.hotel.R
+import com.intermodular.hotel.core.navigations.Destinations
+import com.intermodular.hotel.presentation.composables.IconAtras
 import com.intermodular.hotel.presentation.screens.profile.composables.EmailTextField
 import com.intermodular.hotel.presentation.screens.profile.composables.NameTextField
 import com.intermodular.hotel.presentation.screens.profile.composables.SurnameTextField
@@ -62,40 +65,43 @@ fun ProfileScreen(navController: NavController, profileViewModel: ProfileViewMod
                 )
             ),
     ) {
+        Column(modifier = Modifier.fillMaxSize().padding(top = 20.dp, start = 20.dp)) {
+            IconAtras {
+                navController.navigate(Destinations.Home.route)
+            }
+        }
         Column(
             modifier = Modifier.padding(20.dp),
             verticalArrangement = Arrangement.spacedBy(35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
             Column(
                 modifier = Modifier
                     .size(250.dp)
                     .wrapContentHeight(align = Alignment.CenterVertically)
             ) {
                 Box {
-                    Image(
-                        painter = painterResource(id = R.drawable.perfil_muestra),
-                        contentDescription = "Imagen de perfil",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .clip(CircleShape)
-                    )
-                    FloatingActionButton(
-                        onClick = {
-                        },
-                    ) {
-                        Icon(Icons.Default.Add, contentDescription = "Editar")
+                    Column {
+
+                        Image(
+                            painter = painterResource(id = R.drawable.perfil_muestra),
+                            contentDescription = "Imagen de perfil",
+                            contentScale = ContentScale.Crop,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clip(CircleShape)
+                        )
                     }
                 }
             }
-            Profile(profileViewModel)
+            Profile(profileViewModel, navController)
         }
     }
 }
 
 @Composable
-fun Profile(profileViewModel: ProfileViewModel) {
+fun Profile(profileViewModel: ProfileViewModel, navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -105,11 +111,12 @@ fun Profile(profileViewModel: ProfileViewModel) {
                 shape = RoundedCornerShape(16.dp)
             )
     ) {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(end = 15.dp, start = 15.dp, top = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(28.dp),
+                .padding(end = 20.dp, start = 15.dp, top = 20.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
