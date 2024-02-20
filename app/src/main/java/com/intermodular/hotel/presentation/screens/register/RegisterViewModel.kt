@@ -73,13 +73,14 @@ class RegisterViewModel @Inject constructor(
         val surname = _surname.value
         val email = _email.value
         val password = _password.value
+        val confirmPassword = _confirmPassword.value
 
         if (name == null || surname == null || email == null || password == null) {
             return
         }
 
         viewModelScope.launch {
-            val response = registerGuestUseCase.registerGuest(name, surname, email, password)
+            val response = registerGuestUseCase.registerGuest(name, surname, email, password, confirmPassword ?: "")
 
             if (!response) {
                 return@launch
