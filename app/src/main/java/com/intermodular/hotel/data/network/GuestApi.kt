@@ -3,6 +3,7 @@ package com.intermodular.hotel.data.network
 import com.intermodular.hotel.data.model.GuestModel
 import com.intermodular.hotel.data.model.GuestPlusPasswordModel
 import com.intermodular.hotel.data.network.response.ApiResponse
+import org.json.JSONObject
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -25,5 +26,5 @@ interface GuestApi {
     @DELETE(Endpoints.DELETE_GUEST)
     suspend fun deleteGuest(
         @Header("Authorization") token: String
-    ): ApiResponse<String>
+    ): ApiResponse<JSONObject>
 }

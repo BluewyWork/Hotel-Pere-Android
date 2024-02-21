@@ -60,9 +60,11 @@ class ProfileViewModel @Inject constructor(
         TODO()
     }
 
-    fun onDeleteAccountPress() {
+    fun onDeleteAccountPress(navController: NavController) {
         viewModelScope.launch {
-            deleteGuestUseCase.deleteGuest()
+            if(deleteGuestUseCase.deleteGuest()) {
+                navController.navigate(Destinations.Login.route)
+            }
         }
     }
 }

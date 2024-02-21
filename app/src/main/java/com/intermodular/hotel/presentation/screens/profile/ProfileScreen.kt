@@ -137,7 +137,7 @@ fun Profile(profileViewModel: ProfileViewModel, navController: NavController) {
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
                 onClick = {
-                    profileViewModel.onDeleteAccountPress()
+                    profileViewModel.onDeleteAccountPress(navController)
                 }
             ) {
                 Text(text = "Borrar Cuenta")
