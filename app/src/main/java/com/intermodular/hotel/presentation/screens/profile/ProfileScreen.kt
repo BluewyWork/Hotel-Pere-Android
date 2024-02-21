@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
@@ -50,6 +51,9 @@ import com.intermodular.hotel.ui.theme.turquesaPrincipal
 
 @Composable
 fun ProfileScreen(navController: NavController, profileViewModel: ProfileViewModel) {
+
+
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -124,15 +128,15 @@ fun Profile(profileViewModel: ProfileViewModel, navController: NavController) {
                 fontSize = 20.sp
             )
             ConjuntoTextFieldPerfil(profileViewModel)
-            Button(modifier = Modifier
-                .width(250.dp),
-                colors = ButtonDefaults.buttonColors(turquesaPrincipal),
-                onClick = {
-                    profileViewModel.onUpdatePress()
-                }
-            ) {
-                Text(text = "Actualizar")
-            }
+//            Button(modifier = Modifier
+//                .width(250.dp),
+//                colors = ButtonDefaults.buttonColors(turquesaPrincipal),
+//                onClick = {
+//                    profileViewModel.onUpdatePress()
+//                }
+//            ) {
+//                Text(text = "Actualizar")
+//            }
             Button(modifier = Modifier
                 .width(250.dp),
                 colors = ButtonDefaults.buttonColors(turquesaPrincipal),
@@ -158,7 +162,7 @@ fun ConjuntoTextFieldPerfil(profileViewModel: ProfileViewModel) {
     SurnameTextField(surname) {
         profileViewModel.onLastNameChange(it)
     }
-    EmailTextField(email) {
+    EmailTextField(email , enabled = false) {
         profileViewModel.onEmailChange(it)
     }
 }

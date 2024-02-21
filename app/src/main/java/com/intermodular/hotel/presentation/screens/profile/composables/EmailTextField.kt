@@ -12,12 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun EmailTextField(email: String, onTextChange: (String) -> Unit) {
+fun EmailTextField(email: String, enabled : Boolean = true, onTextChange: (String) -> Unit ) {
     TextField(
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 15.dp, end = 15.dp),
         value = email,
+        enabled = enabled,
         onValueChange = { onTextChange(it) },
         placeholder = { Text(text = "Email") },
         leadingIcon = { Icon(Icons.Default.Email, null) }

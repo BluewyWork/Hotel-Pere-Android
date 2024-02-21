@@ -21,7 +21,7 @@ interface GuestApi {
     suspend fun updateGuest(
         @Header("Authorization") token: String,
         @Body guest: GuestModel
-    ): ApiResponse<String>
+    ): ApiResponse<JSONObject>
 
     @DELETE(Endpoints.DELETE_GUEST)
     suspend fun deleteGuest(
